@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
 
 type Project = {
   number: string
@@ -12,7 +11,6 @@ type Project = {
   tags: string[]
   images: string[]
   href: string
-  featured: boolean
 }
 
 const projects: Project[] = [
@@ -21,41 +19,38 @@ const projects: Project[] = [
     type: 'Marine Marketplace',
     title: 'Data Marine',
     description:
-      'A premium marine marketplace built to showcase boats, marine engines, equipment and custom boat-building solutions.',
-    tags: ['Next.js', 'React', 'Supabase'],
+      'A modern marine marketplace created to showcase boats, marine engines, equipment and custom boat-building solutions. The platform combines product discovery with a tailored boat-building experience.',
+    tags: ['Next.js', 'React', 'Supabase', 'Vercel'],
     images: [
       '/projects/IMG_1985.jpeg',
       '/projects/IMG_1986.png',
       '/projects/IMG_1987.png',
     ],
     href: '/projects/data-marine',
-    featured: true,
   },
   {
     number: '02',
     type: 'Education Platform',
     title: 'Pleasantville Academy',
     description:
-      'A modern school website designed to present programmes, facilities, admissions and the complete academy experience.',
-    tags: ['Next.js', 'React', 'UI/UX'],
+      'A modern educational website designed to present the academy, its programmes, facilities, admissions process and overall learning experience in a clear and professional way.',
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'UI/UX'],
     images: [
       '/projects/IMG_1988.png',
       '/projects/IMG_1989.png',
       '/projects/IMG_1990.png',
     ],
     href: '/projects/pleasantville-academy',
-    featured: true,
   },
   {
     number: '03',
     type: 'Agribusiness',
     title: "T'S Farm",
     description:
-      'An integrated agricultural business concept connecting farming, processing, packaging, distribution and direct customer delivery.',
-    tags: ['Business', 'Strategy', 'Digital'],
+      'An integrated agricultural business concept connecting production, processing, packaging, distribution and direct customer delivery.',
+    tags: ['Business Strategy', 'Product Development', 'Digital'],
     images: [],
     href: '/projects/ts-farm',
-    featured: false,
   },
 ]
 
@@ -72,34 +67,20 @@ const skills = [
 ]
 
 export default function Home() {
-  const [activeImage, setActiveImage] = useState<Record<string, number>>({})
-
-  const changeImage = (title: string, index: number) => {
-    setActiveImage((current) => ({
-      ...current,
-      [title]: index,
-    }))
-  }
-
   return (
     <main className="min-h-screen overflow-hidden bg-[#070707] text-white selection:bg-white selection:text-black">
 
-      {/* =========================================================
-          NAVIGATION
-      ========================================================= */}
+      {/* NAVIGATION */}
 
-      <header className="fixed inset-x-0 top-0 z-50">
-        <nav className="mx-auto mt-4 flex max-w-[1400px] items-center justify-between rounded-full border border-white/[0.09] bg-[#0a0a0a]/80 px-4 py-3 shadow-2xl shadow-black/20 backdrop-blur-2xl sm:px-6">
+      <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+        <nav className="mx-auto flex h-16 max-w-[1380px] items-center justify-between rounded-full border border-white/[0.1] bg-[#090909]/85 px-4 shadow-2xl backdrop-blur-2xl sm:px-6">
 
-          <Link
-            href="/"
-            className="flex items-center gap-3"
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-black text-black">
+          <Link href="/" className="flex items-center gap-3">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-xs font-black text-black">
               TJ
             </span>
 
-            <span className="hidden text-sm font-medium tracking-tight sm:block">
+            <span className="hidden text-sm font-medium text-white/80 sm:block">
               Thompson Joshua
             </span>
           </Link>
@@ -144,13 +125,11 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* =========================================================
-          HERO
-      ========================================================= */}
+      {/* HERO */}
 
       <section className="relative flex min-h-screen items-center">
 
-        <div className="pointer-events-none absolute left-1/2 top-[25%] h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/[0.035] blur-[140px]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/[0.035] blur-[140px]" />
 
         <div className="pointer-events-none absolute inset-0 opacity-[0.025]">
           <div
@@ -163,9 +142,9 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative mx-auto w-full max-w-[1400px] px-5 pb-20 pt-36 sm:px-8 lg:px-12">
+        <div className="relative mx-auto w-full max-w-[1380px] px-5 pb-20 pt-36 sm:px-8 lg:px-12">
 
-          <div className="flex flex-col">
+          <div className="max-w-6xl">
 
             <div className="mb-10 flex items-center gap-3">
 
@@ -175,19 +154,23 @@ export default function Home() {
               </span>
 
               <span className="text-xs font-medium uppercase tracking-[0.25em] text-white/45">
-                Available for selected projects
+                Web Developer · Digital Builder
               </span>
 
             </div>
 
-            <h1 className="max-w-[1250px] text-[clamp(4rem,11vw,10.5rem)] font-semibold leading-[0.82] tracking-[-0.085em]">
+            <h1 className="text-[clamp(4rem,11vw,10.5rem)] font-semibold leading-[0.82] tracking-[-0.085em]">
 
               <span className="block">
-                Thompson
+                I build
               </span>
 
               <span className="block text-white/25">
-                Joshua.
+                digital
+              </span>
+
+              <span className="block">
+                experiences.
               </span>
 
             </h1>
@@ -196,12 +179,10 @@ export default function Home() {
 
               <div className="max-w-2xl">
 
-                <p className="text-xl leading-8 text-white/55 sm:text-2xl sm:leading-9">
-                  Web developer and digital builder creating
-                  <span className="text-white">
-                    {' '}modern digital experiences
-                  </span>
-                  {' '}for businesses, organisations and ideas worth building.
+                <p className="text-xl leading-8 text-white/50 sm:text-2xl sm:leading-9">
+                  I&apos;m Thompson Joshua — a web developer and digital
+                  builder creating modern websites and digital products
+                  that turn ideas into real-world solutions.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -210,7 +191,7 @@ export default function Home() {
                     href="#work"
                     className="group inline-flex items-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
                   >
-                    Explore my work
+                    View my work
 
                     <span className="transition-transform group-hover:translate-x-1">
                       ↗
@@ -219,7 +200,7 @@ export default function Home() {
 
                   <Link
                     href="#contact"
-                    className="inline-flex items-center rounded-full border border-white/10 px-7 py-4 text-sm font-medium text-white/60 transition hover:border-white/25 hover:text-white"
+                    className="inline-flex items-center rounded-full border border-white/10 px-7 py-4 text-sm text-white/60 transition hover:border-white/25 hover:text-white"
                   >
                     Start a project
                   </Link>
@@ -230,26 +211,26 @@ export default function Home() {
 
               <div className="hidden lg:block">
 
-                <div className="flex items-center gap-3 text-right">
+                <div className="flex items-center gap-5">
 
                   <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-white/25">
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-white/25">
                       Based in
                     </p>
 
-                    <p className="mt-1 text-sm text-white/60">
+                    <p className="mt-2 text-sm text-white/60">
                       Nigeria
                     </p>
                   </div>
 
-                  <span className="h-12 w-px bg-white/10" />
+                  <div className="h-10 w-px bg-white/10" />
 
                   <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-white/25">
+                    <p className="text-[10px] uppercase tracking-[0.25em] text-white/25">
                       Focus
                     </p>
 
-                    <p className="mt-1 text-sm text-white/60">
+                    <p className="mt-2 text-sm text-white/60">
                       Web & Digital
                     </p>
                   </div>
@@ -262,7 +243,7 @@ export default function Home() {
 
           </div>
 
-          <div className="mt-24 flex items-center gap-4 text-xs uppercase tracking-[0.25em] text-white/25">
+          <div className="mt-24 flex items-center gap-4 text-xs uppercase tracking-[0.25em] text-white/20">
             <span className="h-px w-12 bg-white/15" />
             Scroll to explore
           </div>
@@ -271,16 +252,14 @@ export default function Home() {
 
       </section>
 
-      {/* =========================================================
-          ABOUT
-      ========================================================= */}
+      {/* ABOUT */}
 
       <section
         id="about"
         className="border-y border-white/[0.08]"
       >
 
-        <div className="mx-auto max-w-[1400px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36">
+        <div className="mx-auto max-w-[1380px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36">
 
           <div className="grid gap-16 lg:grid-cols-[0.35fr_1fr]">
 
@@ -292,30 +271,26 @@ export default function Home() {
 
             <div>
 
-              <h2 className="max-w-5xl text-3xl font-medium leading-[1.1] tracking-[-0.055em] sm:text-5xl lg:text-6xl">
-                I build digital products with a
+              <h2 className="max-w-5xl text-3xl font-medium leading-[1.08] tracking-[-0.055em] sm:text-5xl lg:text-6xl">
+                I combine technology, design and business thinking to build
+                digital experiences that
                 <span className="text-white/25">
-                  {' '}developer&apos;s mindset
-                </span>
-                {' '}and a
-                <span className="text-white/25">
-                  {' '}business perspective.
+                  {' '}actually work.
                 </span>
               </h2>
 
               <div className="mt-12 grid gap-10 md:grid-cols-2">
 
                 <p className="text-base leading-8 text-white/40">
-                  I enjoy taking ideas from the early concept stage and
-                  turning them into polished, functional digital experiences.
-                  My work combines development, design thinking and practical
-                  business strategy.
+                  I enjoy taking ideas from concept to a functional,
+                  polished digital product. My approach combines modern
+                  development with practical design and business thinking.
                 </p>
 
                 <p className="text-base leading-8 text-white/40">
-                  From marketplaces and education platforms to agricultural
-                  ventures, I focus on building experiences that are useful,
-                  clear, responsive and ready to grow.
+                  My work spans marketplaces, educational platforms and
+                  business concepts — always with a focus on creating
+                  experiences that are useful, clear and ready to grow.
                 </p>
 
               </div>
@@ -328,16 +303,14 @@ export default function Home() {
 
       </section>
 
-      {/* =========================================================
-          WORK
-      ========================================================= */}
+      {/* WORK */}
 
       <section
         id="work"
-        className="mx-auto max-w-[1400px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36"
+        className="mx-auto max-w-[1380px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36"
       >
 
-        <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
+        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
 
           <div>
 
@@ -346,191 +319,198 @@ export default function Home() {
             </p>
 
             <h2 className="mt-6 text-5xl font-semibold tracking-[-0.075em] sm:text-7xl lg:text-8xl">
-              Selected
+              Projects
               <span className="text-white/20">
-                {' '}work.
+                {' '}I&apos;ve built.
               </span>
             </h2>
 
           </div>
 
           <p className="max-w-sm text-sm leading-7 text-white/35">
-            A selection of websites, digital experiences and business
-            concepts I&apos;ve worked on.
+            A selection of websites and digital projects created with
+            technology, design and business goals in mind.
           </p>
 
         </div>
 
-        <div className="mt-20 space-y-32">
+        <div className="mt-20 space-y-36">
 
-          {projects.map((project) => {
+          {projects.map((project) => (
 
-            const currentImage = activeImage[project.title] ?? 0
+            <article key={project.number}>
 
-            return (
-              <article
-                key={project.number}
-                className="group"
-              >
+              {/* PROJECT HEADER */}
 
-                <Link
-                  href={project.href}
-                  className="block"
-                >
+              <div className="grid gap-10 lg:grid-cols-[0.75fr_1fr] lg:items-end">
 
-                  <div className="relative overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#0c0c0c] sm:rounded-[2rem]">
+                <div>
 
-                    {project.featured && project.images.length > 0 ? (
+                  <div className="mb-5 flex items-center gap-4">
 
-                      <div className="relative aspect-[16/10] overflow-hidden">
+                    <span className="text-xs text-white/25">
+                      {project.number}
+                    </span>
 
-                        <Image
-                          src={project.images[currentImage]}
-                          alt={`${project.title} screenshot`}
-                          fill
-                          priority={project.number === '01'}
-                          sizes="(max-width: 768px) 100vw, 1400px"
-                          className="object-cover object-top transition duration-700 group-hover:scale-[1.015]"
-                        />
+                    <span className="h-px w-10 bg-white/15" />
 
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
-
-                        <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-xs font-medium text-white/70 backdrop-blur-xl sm:left-7 sm:top-7">
-                          {project.number}
-                        </div>
-
-                        <div className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-black/40 text-lg text-white/70 backdrop-blur-xl transition duration-300 group-hover:bg-white group-hover:text-black sm:right-7 sm:top-7">
-                          ↗
-                        </div>
-
-                        <div className="absolute bottom-5 left-5 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-white/70 backdrop-blur-xl sm:bottom-7 sm:left-7 sm:px-5 sm:py-2.5">
-                          {project.type}
-                        </div>
-
-                      </div>
-
-                    ) : (
-
-                      <div className="relative aspect-[16/10] overflow-hidden bg-[#0a0d0a]">
-
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(120,170,110,0.13),transparent_42%)]" />
-
-                        <div className="absolute left-[10%] top-[18%] h-40 w-40 rounded-full border border-white/[0.06] sm:h-72 sm:w-72" />
-
-                        <div className="absolute bottom-[5%] right-[12%] h-52 w-52 rounded-full border border-white/[0.04] sm:h-96 sm:w-96" />
-
-                        <div className="absolute inset-0 flex items-center justify-center">
-
-                          <div className="text-center">
-
-                            <p className="text-[clamp(4rem,13vw,11rem)] font-semibold leading-none tracking-[-0.1em] text-white/[0.07]">
-                              T&apos;S FARM
-                            </p>
-
-                            <div className="mx-auto mt-5 h-px w-16 bg-white/20" />
-
-                            <p className="mt-5 text-[10px] uppercase tracking-[0.35em] text-white/30">
-                              Integrated Agribusiness
-                            </p>
-
-                          </div>
-
-                        </div>
-
-                        <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-xs text-white/70 backdrop-blur-xl sm:left-7 sm:top-7">
-                          {project.number}
-                        </div>
-
-                        <div className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-black/40 text-lg text-white/70 backdrop-blur-xl transition group-hover:bg-white group-hover:text-black sm:right-7 sm:top-7">
-                          ↗
-                        </div>
-
-                      </div>
-
-                    )}
-
-                  </div>
-
-                </Link>
-
-                {project.featured && project.images.length > 0 && (
-                  <div className="mt-4 flex items-center gap-2">
-
-                    {project.images.map((_, index) => (
-
-                      <button
-                        key={index}
-                        type="button"
-                        onClick={() =>
-                          changeImage(project.title, index)
-                        }
-                        aria-label={`View ${project.title} image ${index + 1}`}
-                        className={`h-1 rounded-full transition-all ${
-                          currentImage === index
-                            ? 'w-10 bg-white'
-                            : 'w-5 bg-white/15 hover:bg-white/35'
-                        }`}
-                      />
-
-                    ))}
-
-                  </div>
-                )}
-
-                <div className="mt-8 grid gap-8 lg:grid-cols-[0.75fr_1fr] lg:items-start">
-
-                  <div>
-
-                    <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/25">
+                    <span className="text-xs uppercase tracking-[0.2em] text-white/30">
                       {project.type}
-                    </p>
-
-                    <h3 className="mt-3 text-4xl font-semibold tracking-[-0.06em] sm:text-5xl">
-                      {project.title}
-                    </h3>
+                    </span>
 
                   </div>
 
-                  <div className="max-w-2xl">
+                  <h3 className="text-5xl font-semibold tracking-[-0.07em] sm:text-6xl lg:text-7xl">
+                    {project.title}
+                  </h3>
 
-                    <p className="text-base leading-8 text-white/40">
-                      {project.description}
-                    </p>
+                </div>
 
-                    <div className="mt-6 flex flex-wrap gap-2">
+                <div className="max-w-2xl">
 
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full border border-white/[0.09] px-4 py-2 text-xs text-white/40"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                  <p className="text-base leading-8 text-white/40">
+                    {project.description}
+                  </p>
 
-                    </div>
+                  <div className="mt-6 flex flex-wrap gap-2">
+
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-white/[0.09] px-4 py-2 text-xs text-white/40"
+                      >
+                        {tag}
+                      </span>
+                    ))}
 
                   </div>
 
                 </div>
 
-              </article>
-            )
-          })}
+              </div>
+
+              {/* SCREENSHOTS UNDER PROJECT NAME */}
+
+              {project.images.length > 0 ? (
+
+                <div className="mt-12 grid gap-4 md:grid-cols-3">
+
+                  {project.images.map((image, index) => (
+
+                    <Link
+                      key={image}
+                      href={project.href}
+                      className="group relative block overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0c0c0c]"
+                    >
+
+                      <div className="relative aspect-[4/3]">
+
+                        <Image
+                          src={image}
+                          alt={`${project.title} project screenshot ${index + 1}`}
+                          fill
+                          priority={project.number === '01'}
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                          className="object-cover object-top transition duration-700 group-hover:scale-[1.035]"
+                        />
+
+                        <div className="absolute inset-0 bg-black/5 transition group-hover:bg-transparent" />
+
+                        <div className="absolute bottom-4 left-4 rounded-full border border-white/15 bg-black/50 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-white/60 backdrop-blur-xl">
+                          View project
+                        </div>
+
+                        <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/50 text-white/60 backdrop-blur-xl transition group-hover:bg-white group-hover:text-black">
+                          ↗
+                        </div>
+
+                      </div>
+
+                    </Link>
+
+                  ))}
+
+                </div>
+
+              ) : (
+
+                <Link
+                  href={project.href}
+                  className="group relative mt-12 block overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0b0d0b]"
+                >
+
+                  <div className="relative aspect-[16/7]">
+
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(120,170,110,0.14),transparent_45%)]" />
+
+                    <div className="absolute left-[10%] top-[15%] h-40 w-40 rounded-full border border-white/[0.05] sm:h-64 sm:w-64" />
+
+                    <div className="absolute bottom-[5%] right-[12%] h-52 w-52 rounded-full border border-white/[0.04] sm:h-80 sm:w-80" />
+
+                    <div className="absolute inset-0 flex items-center justify-center">
+
+                      <div className="text-center transition duration-500 group-hover:scale-105">
+
+                        <p className="text-[clamp(3.5rem,10vw,9rem)] font-semibold leading-none tracking-[-0.1em] text-white/[0.08]">
+                          T&apos;S FARM
+                        </p>
+
+                        <div className="mx-auto mt-5 h-px w-16 bg-white/20" />
+
+                        <p className="mt-5 text-[10px] uppercase tracking-[0.35em] text-white/30">
+                          Integrated Agribusiness
+                        </p>
+
+                      </div>
+
+                    </div>
+
+                    <div className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/60 backdrop-blur-xl transition group-hover:bg-white group-hover:text-black sm:right-7 sm:top-7">
+                      ↗
+                    </div>
+
+                  </div>
+
+                </Link>
+
+              )}
+
+              {/* PROJECT FOOTER */}
+
+              <div className="mt-6 flex flex-col justify-between gap-5 border-t border-white/[0.08] pt-5 sm:flex-row sm:items-center">
+
+                <span className="text-xs uppercase tracking-[0.2em] text-white/20">
+                  {project.type}
+                </span>
+
+                <Link
+                  href={project.href}
+                  className="group flex items-center gap-3 text-sm text-white/45 transition hover:text-white"
+                >
+                  Explore {project.title}
+
+                  <span className="transition-transform group-hover:translate-x-1">
+                    →
+                  </span>
+                </Link>
+
+              </div>
+
+            </article>
+
+          ))}
 
         </div>
 
       </section>
 
-      {/* =========================================================
-          CAPABILITIES
-      ========================================================= */}
+      {/* CAPABILITIES */}
 
       <section className="border-y border-white/[0.08]">
 
         <div
           id="skills"
-          className="mx-auto max-w-[1400px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36"
+          className="mx-auto max-w-[1380px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36"
         >
 
           <div className="grid gap-16 lg:grid-cols-[0.35fr_1fr]">
@@ -544,23 +524,23 @@ export default function Home() {
             <div>
 
               <h2 className="max-w-4xl text-4xl font-semibold tracking-[-0.065em] sm:text-6xl">
-                From idea to
+                Building from
                 <span className="text-white/20">
-                  {' '}digital product.
+                  {' '}idea to execution.
                 </span>
               </h2>
 
               <div className="mt-14 border-l border-white/[0.08]">
 
-                <div className="border-b border-white/[0.08] px-6 py-7 sm:px-8">
+                <div className="border-b border-white/[0.08] px-6 py-8 sm:px-8">
 
-                  <div className="flex flex-col justify-between gap-3 sm:flex-row">
+                  <div className="flex justify-between gap-5">
 
                     <h3 className="text-xl font-medium">
                       Web Development
                     </h3>
 
-                    <span className="text-sm text-white/25">
+                    <span className="text-sm text-white/20">
                       01
                     </span>
 
@@ -568,50 +548,50 @@ export default function Home() {
 
                   <p className="mt-4 max-w-2xl text-sm leading-7 text-white/35">
                     Responsive websites and web applications built with
-                    modern technologies and a focus on performance,
-                    usability and maintainability.
+                    modern technologies, clean architecture and practical
+                    user experiences.
                   </p>
 
                 </div>
 
-                <div className="border-b border-white/[0.08] px-6 py-7 sm:px-8">
+                <div className="border-b border-white/[0.08] px-6 py-8 sm:px-8">
 
-                  <div className="flex flex-col justify-between gap-3 sm:flex-row">
+                  <div className="flex justify-between gap-5">
 
                     <h3 className="text-xl font-medium">
-                      Product & UI Design
+                      UI / UX
                     </h3>
 
-                    <span className="text-sm text-white/25">
+                    <span className="text-sm text-white/20">
                       02
                     </span>
 
                   </div>
 
                   <p className="mt-4 max-w-2xl text-sm leading-7 text-white/35">
-                    Clean interfaces and thoughtful user experiences
-                    designed around real users and real business goals.
+                    Interfaces designed to be clear, responsive and easy
+                    for people to understand and use.
                   </p>
 
                 </div>
 
-                <div className="border-b border-white/[0.08] px-6 py-7 sm:px-8">
+                <div className="border-b border-white/[0.08] px-6 py-8 sm:px-8">
 
-                  <div className="flex flex-col justify-between gap-3 sm:flex-row">
+                  <div className="flex justify-between gap-5">
 
                     <h3 className="text-xl font-medium">
-                      Digital Business
+                      Digital Product Development
                     </h3>
 
-                    <span className="text-sm text-white/25">
+                    <span className="text-sm text-white/20">
                       03
                     </span>
 
                   </div>
 
                   <p className="mt-4 max-w-2xl text-sm leading-7 text-white/35">
-                    Combining technology and business thinking to turn
-                    concepts into practical digital solutions.
+                    Turning business ideas into practical digital products
+                    that can be launched, tested and improved.
                   </p>
 
                 </div>
@@ -621,18 +601,20 @@ export default function Home() {
               <div className="mt-14">
 
                 <p className="text-xs uppercase tracking-[0.2em] text-white/25">
-                  Technology
+                  Technology & Skills
                 </p>
 
                 <div className="mt-6 flex flex-wrap gap-2.5">
 
                   {skills.map((skill) => (
+
                     <span
                       key={skill}
                       className="rounded-full border border-white/[0.09] px-5 py-3 text-sm text-white/45 transition hover:border-white/25 hover:text-white"
                     >
                       {skill}
                     </span>
+
                   ))}
 
                 </div>
@@ -647,28 +629,26 @@ export default function Home() {
 
       </section>
 
-      {/* =========================================================
-          CONTACT
-      ========================================================= */}
+      {/* CONTACT */}
 
       <section
         id="contact"
         className="relative overflow-hidden"
       >
 
-        <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.025] blur-[150px]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.025] blur-[150px]" />
 
-        <div className="relative mx-auto max-w-[1400px] px-5 py-32 sm:px-8 lg:px-12 lg:py-44">
+        <div className="relative mx-auto max-w-[1380px] px-5 py-32 sm:px-8 lg:px-12 lg:py-44">
 
           <div className="max-w-5xl">
 
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
-              04 — Let&apos;s work together
+              04 — Contact
             </p>
 
             <h2 className="mt-8 text-[clamp(3.5rem,8vw,8rem)] font-semibold leading-[0.86] tracking-[-0.08em]">
 
-              Have something
+              Have an idea
               <br />
 
               <span className="text-white/20">
@@ -678,15 +658,15 @@ export default function Home() {
             </h2>
 
             <p className="mt-10 max-w-xl text-base leading-8 text-white/40 sm:text-lg">
-              Tell me what you&apos;re working on, what you&apos;re trying to
-              solve, or simply what you&apos;re dreaming up.
+              Whether you&apos;re building a website, launching a digital
+              product or developing a new business idea, let&apos;s talk.
             </p>
 
             <a
               href="mailto:hello@thompsonjoshua.com"
               className="group mt-10 inline-flex items-center gap-5 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
             >
-              hello@thompsonjoshua.com
+              Start a conversation
 
               <span className="transition-transform group-hover:translate-x-1">
                 ↗
@@ -699,13 +679,11 @@ export default function Home() {
 
       </section>
 
-      {/* =========================================================
-          FOOTER
-      ========================================================= */}
+      {/* FOOTER */}
 
       <footer className="border-t border-white/[0.08]">
 
-        <div className="mx-auto flex max-w-[1400px] flex-col justify-between gap-8 px-5 py-10 sm:px-8 md:flex-row md:items-center lg:px-12">
+        <div className="mx-auto flex max-w-[1380px] flex-col justify-between gap-8 px-5 py-10 sm:px-8 md:flex-row md:items-center lg:px-12">
 
           <div>
 
@@ -741,6 +719,13 @@ export default function Home() {
               className="text-xs text-white/25 transition hover:text-white"
             >
               Work
+            </Link>
+
+            <Link
+              href="#skills"
+              className="text-xs text-white/25 transition hover:text-white"
+            >
+              Skills
             </Link>
 
             <Link
