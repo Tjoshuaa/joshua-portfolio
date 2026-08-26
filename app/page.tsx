@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 const projects = [
@@ -8,7 +9,7 @@ const projects = [
     description:
       'A modern marine marketplace for boats, engines, equipment and custom boat-building solutions.',
     href: '/projects/data-marine',
-    visual: 'MARINE',
+    image: '/projects/IMG_1985.jpeg',
   },
   {
     number: '02',
@@ -17,7 +18,7 @@ const projects = [
     description:
       'A polished digital experience for an educational institution, designed around clarity and accessibility.',
     href: '/projects/pleasantville-academy',
-    visual: 'ACADEMY',
+    image: '/projects/IMG_1987.png',
   },
   {
     number: '03',
@@ -26,7 +27,7 @@ const projects = [
     description:
       'An integrated agricultural business concept connecting production, processing, packaging and distribution.',
     href: '/projects/ts-farm',
-    visual: 'FARM',
+    image: '/projects/IMG_1989.png',
   },
 ]
 
@@ -47,9 +48,7 @@ export default function Home() {
 
       {/* NAVIGATION */}
       <header className="fixed left-0 right-0 top-0 z-50">
-
-        <nav className="border-b border-white/10 bg-[#050505]/75 backdrop-blur-xl">
-
+        <nav className="border-b border-white/10 bg-[#050505]/80 backdrop-blur-xl">
           <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
 
             <Link
@@ -60,7 +59,6 @@ export default function Home() {
             </Link>
 
             <div className="hidden items-center gap-8 md:flex">
-
               <Link
                 href="#about"
                 className="text-sm text-white/40 transition hover:text-white"
@@ -88,7 +86,6 @@ export default function Home() {
               >
                 Contact
               </Link>
-
             </div>
 
             <Link
@@ -99,20 +96,16 @@ export default function Home() {
             </Link>
 
           </div>
-
         </nav>
-
       </header>
 
       {/* HERO */}
       <section className="relative flex min-h-screen items-center overflow-hidden">
 
-        {/* Background glow */}
         <div className="absolute left-[10%] top-[20%] h-72 w-72 rounded-full bg-white/[0.025] blur-3xl" />
 
         <div className="absolute bottom-[10%] right-[5%] h-96 w-96 rounded-full bg-white/[0.02] blur-3xl" />
 
-        {/* Grid */}
         <div
           className="absolute inset-0 opacity-[0.025]"
           style={{
@@ -127,28 +120,19 @@ export default function Home() {
           <div className="max-w-6xl">
 
             <div className="flex items-center gap-3">
-
               <span className="h-2 w-2 rounded-full bg-white/60" />
 
               <span className="text-xs uppercase tracking-[0.3em] text-white/35">
                 Developer · Builder · Strategist
               </span>
-
             </div>
 
             <h1 className="mt-10 text-[clamp(4.5rem,12vw,12rem)] font-semibold leading-[0.76] tracking-[-0.1em]">
-
               I build
               <br />
-
-              <span className="text-white/20">
-                digital
-              </span>
-
+              <span className="text-white/20">digital</span>
               <br />
-
               experiences.
-
             </h1>
 
             <div className="mt-14 flex flex-col justify-between gap-10 md:flex-row md:items-end">
@@ -164,30 +148,16 @@ export default function Home() {
                 className="group flex w-fit items-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
               >
                 Explore my work
-
                 <span className="transition-transform group-hover:translate-x-1">
                   →
                 </span>
-
               </Link>
 
             </div>
 
           </div>
 
-          {/* Scroll */}
-          <div className="absolute bottom-10 right-6 hidden items-center gap-3 lg:right-10 lg:flex">
-
-            <span className="text-[10px] uppercase tracking-[0.3em] text-white/20">
-              Scroll
-            </span>
-
-            <span className="h-10 w-px bg-white/10" />
-
-          </div>
-
         </div>
-
       </section>
 
       {/* ABOUT */}
@@ -195,15 +165,12 @@ export default function Home() {
         id="about"
         className="border-y border-white/10"
       >
-
         <div className="mx-auto grid max-w-7xl gap-16 px-6 py-32 lg:grid-cols-[0.6fr_1.4fr] lg:px-10">
 
           <div>
-
             <p className="text-xs uppercase tracking-[0.3em] text-white/25">
               01 — About
             </p>
-
           </div>
 
           <div>
@@ -232,7 +199,6 @@ export default function Home() {
           </div>
 
         </div>
-
       </section>
 
       {/* WORK */}
@@ -264,16 +230,14 @@ export default function Home() {
             className="group flex w-fit items-center gap-3 text-sm text-white/40 transition hover:text-white"
           >
             View all projects
-
             <span className="transition-transform group-hover:translate-x-1">
               →
             </span>
-
           </Link>
 
         </div>
 
-        <div className="mt-20 space-y-20">
+        <div className="mt-20 space-y-24">
 
           {projects.map((project) => (
 
@@ -284,37 +248,31 @@ export default function Home() {
                 className="group block"
               >
 
-                <div className="relative min-h-[380px] overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.05] to-black md:min-h-[560px]">
+                <div className="relative min-h-[380px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#0a0a0a] md:min-h-[560px]">
 
-                  <div className="absolute left-[10%] top-[15%] h-48 w-48 rounded-full border border-white/[0.07] transition duration-700 group-hover:scale-125" />
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} project`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 1200px"
+                    className="object-cover object-center transition duration-700 group-hover:scale-[1.03]"
+                  />
 
-                  <div className="absolute right-[10%] top-[15%] h-72 w-72 rounded-full border border-white/[0.05] transition duration-700 group-hover:scale-110" />
+                  {/* Dark overlay */}
+                  <div className="absolute inset-0 bg-black/35 transition duration-500 group-hover:bg-black/20" />
 
-                  <div className="absolute bottom-[5%] left-[35%] h-64 w-64 rounded-full border border-white/[0.04]" />
-
-                  <div className="absolute inset-0 flex items-center justify-center">
-
-                    <div className="text-center transition duration-700 group-hover:scale-105">
-
-                      <p className="text-[clamp(4rem,12vw,11rem)] font-bold leading-none tracking-[-0.11em] text-white/[0.055]">
-                        {project.visual}
-                      </p>
-
-                      <div className="mx-auto mt-5 h-px w-20 bg-white/10" />
-
-                      <p className="mt-5 text-xs uppercase tracking-[0.4em] text-white/25">
-                        {project.type}
-                      </p>
-
-                    </div>
-
-                  </div>
-
-                  <div className="absolute left-7 top-7 rounded-full border border-white/10 bg-black/30 px-4 py-2 text-xs text-white/35 backdrop-blur-xl">
+                  {/* Top number */}
+                  <div className="absolute left-7 top-7 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-xs text-white/60 backdrop-blur-xl">
                     {project.number}
                   </div>
 
-                  <div className="absolute bottom-7 right-7 flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-black/30 text-xl text-white/50 backdrop-blur-xl transition group-hover:bg-white group-hover:text-black">
+                  {/* Bottom category */}
+                  <div className="absolute bottom-7 left-7 rounded-full border border-white/15 bg-black/40 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-white/60 backdrop-blur-xl">
+                    {project.type}
+                  </div>
+
+                  {/* Arrow */}
+                  <div className="absolute bottom-7 right-7 flex h-14 w-14 items-center justify-center rounded-full border border-white/15 bg-black/40 text-xl text-white/70 backdrop-blur-xl transition duration-300 group-hover:bg-white group-hover:text-black">
                     ↗
                   </div>
 
