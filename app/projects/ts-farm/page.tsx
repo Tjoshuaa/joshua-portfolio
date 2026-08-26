@@ -74,14 +74,11 @@ export default function TSFarmPage() {
           </div>
 
           <h1 className="mt-10 text-[clamp(4rem,11vw,10rem)] font-semibold leading-[0.8] tracking-[-0.09em]">
-
             T'S
             <br />
-
             <span className="text-white/25">
               FARM.
             </span>
-
           </h1>
 
           <p className="mt-12 max-w-2xl text-lg leading-8 text-white/45">
@@ -141,11 +138,9 @@ export default function TSFarmPage() {
         <div className="grid gap-16 lg:grid-cols-[0.65fr_1.35fr]">
 
           <div>
-
             <p className="text-xs uppercase tracking-[0.3em] text-white/25">
               01 — Overview
             </p>
-
           </div>
 
           <div>
@@ -197,4 +192,214 @@ export default function TSFarmPage() {
                 className="group grid gap-6 border-t border-white/10 py-8 transition hover:bg-white/[0.02] md:grid-cols-[80px_220px_1fr] md:items-center"
               >
 
-                <span
+                <span className="text-xs text-white/20">
+                  {number}
+                </span>
+
+                <h3 className="text-2xl font-semibold tracking-[-0.04em]">
+                  {title}
+                </h3>
+
+                <p className="max-w-xl text-sm leading-7 text-white/35">
+                  {description}
+                </p>
+
+              </div>
+
+            ))}
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* FEATURES */}
+      <section className="mx-auto max-w-7xl px-6 py-32 lg:px-10">
+
+        <p className="text-xs uppercase tracking-[0.3em] text-white/25">
+          03 — Business Model
+        </p>
+
+        <h2 className="mt-6 text-4xl font-semibold tracking-[-0.055em] md:text-6xl">
+          Designed to scale.
+        </h2>
+
+        <div className="mt-14 grid gap-px overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 md:grid-cols-2">
+
+          {features.map((feature, index) => (
+
+            <div
+              key={feature}
+              className="bg-[#050505] p-8 transition hover:bg-white/[0.04]"
+            >
+
+              <span className="text-xs text-white/20">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+
+              <h3 className="mt-8 text-lg font-medium">
+                {feature}
+              </h3>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </section>
+
+      {/* ROLE */}
+      <section className="border-y border-white/10">
+
+        <div className="mx-auto grid max-w-7xl gap-16 px-6 py-24 md:grid-cols-2 lg:px-10">
+
+          <div>
+
+            <p className="text-xs uppercase tracking-[0.3em] text-white/25">
+              My role
+            </p>
+
+            <h2 className="mt-6 text-4xl font-semibold tracking-[-0.05em]">
+              Business concept
+              <br />
+              development.
+            </h2>
+
+          </div>
+
+          <div className="space-y-6 text-white/40">
+
+            <p>Business model development</p>
+            <p>Value-chain planning</p>
+            <p>Market positioning</p>
+            <p>Growth strategy</p>
+            <p>Digital ordering concept</p>
+            <p>Distribution planning</p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* CAPABILITIES */}
+      <section className="mx-auto max-w-7xl px-6 py-32 lg:px-10">
+
+        <p className="text-xs uppercase tracking-[0.3em] text-white/25">
+          04 — Capabilities
+        </p>
+
+        <div className="mt-10 flex flex-wrap gap-3">
+
+          {capabilities.map((capability) => (
+
+            <span
+              key={capability}
+              className="rounded-full border border-white/10 px-5 py-3 text-sm text-white/45"
+            >
+              {capability}
+            </span>
+
+          ))}
+
+        </div>
+
+      </section>
+
+      {/* PROJECT NAVIGATION */}
+      <section className="mx-auto max-w-7xl px-6 pb-32 lg:px-10">
+
+        <div className="grid gap-4 md:grid-cols-2">
+
+          {/* PREVIOUS */}
+          <Link
+            href="/projects/pleasantville-academy"
+            className="group rounded-[2rem] border border-white/10 bg-white/[0.025] p-8 transition duration-300 hover:bg-white/[0.05] md:p-12"
+          >
+
+            <p className="text-xs uppercase tracking-[0.25em] text-white/25">
+              Previous project
+            </p>
+
+            <div className="mt-12 flex items-end justify-between">
+
+              <div>
+
+                <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                  Education Platform
+                </p>
+
+                <h3 className="mt-3 text-3xl font-semibold tracking-[-0.05em]">
+                  Pleasantville
+                </h3>
+
+              </div>
+
+              <span className="text-3xl transition-transform duration-300 group-hover:-translate-x-2">
+                ←
+              </span>
+
+            </div>
+
+          </Link>
+
+          {/* ALL PROJECTS */}
+          <Link
+            href="/#work"
+            className="group rounded-[2rem] border border-white/10 bg-white/[0.025] p-8 transition duration-300 hover:bg-white/[0.05] md:p-12"
+          >
+
+            <p className="text-xs uppercase tracking-[0.25em] text-white/25">
+              Portfolio
+            </p>
+
+            <div className="mt-12 flex items-end justify-between">
+
+              <div>
+
+                <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                  Selected work
+                </p>
+
+                <h3 className="mt-3 text-3xl font-semibold tracking-[-0.05em]">
+                  All projects
+                </h3>
+
+              </div>
+
+              <span className="text-3xl transition-transform duration-300 group-hover:-translate-y-1">
+                ↑
+              </span>
+
+            </div>
+
+          </Link>
+
+        </div>
+
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-white/10">
+
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-10 lg:px-10">
+
+          <p className="text-sm text-white/25">
+            © 2026 Thompson Joshua.
+          </p>
+
+          <Link
+            href="/"
+            className="text-sm text-white/30 transition hover:text-white"
+          >
+            Portfolio ↑
+          </Link>
+
+        </div>
+
+      </footer>
+
+    </main>
+  )
