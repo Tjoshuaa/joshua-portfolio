@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 const projects = [
@@ -9,29 +10,27 @@ const projects = [
       'A modern marine marketplace connecting customers with boats, marine engines, equipment and custom boat-building solutions.',
     href: '/projects/data-marine',
     external: 'https://www.datamarine.ng/',
-    accent: 'from-slate-800 via-slate-950 to-black',
-    label: 'MARINE',
+    image: '/projects/IMG_1985.jpeg',
   },
   {
     number: '02',
     category: 'Education Platform',
     title: 'Pleasantville Academy',
     description:
-      'A polished digital presence designed to communicate an academy’s programmes, facilities, admissions and educational experience.',
+      'A polished digital experience designed to communicate an academy’s programmes, facilities, admissions and educational experience.',
     href: '/projects/pleasantville-academy',
     external: 'https://pleasantville-academy.vercel.app/',
-    accent: 'from-amber-950 via-orange-950/30 to-black',
-    label: 'ACADEMY',
+    image: '/projects/IMG_1987.png',
   },
   {
     number: '03',
     category: 'Agribusiness',
     title: "T'S Farm",
     description:
-      'An integrated agribusiness concept connecting farming, feed production, processing, packaging, distribution and customers.',
+      'An integrated agribusiness concept connecting production, processing, packaging, distribution and customers.',
     href: '/projects/ts-farm',
-    accent: 'from-green-950 via-[#07110a] to-black',
-    label: 'FARM',
+    external: null,
+    image: null,
   },
 ]
 
@@ -72,7 +71,7 @@ export default function WorkProjectsPage() {
       </nav>
 
       {/* HERO */}
-      <section className="mx-auto max-w-7xl px-6 pb-24 pt-24 lg:px-10 lg:pb-36 lg:pt-36">
+      <section className="mx-auto max-w-7xl px-6 pb-24 pt-24 lg:px-10 lg:pb-32 lg:pt-36">
 
         <div className="max-w-5xl">
 
@@ -111,58 +110,81 @@ export default function WorkProjectsPage() {
       {/* PROJECTS */}
       <section className="mx-auto max-w-7xl px-6 lg:px-10">
 
-        <div className="space-y-24">
+        <div className="space-y-28">
 
           {projects.map((project) => (
 
             <article key={project.number}>
 
-              {/* IMAGE / VISUAL */}
               <Link
                 href={project.href}
                 className="group block"
               >
 
-                <div
-                  className={`relative min-h-[420px] overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br ${project.accent} md:min-h-[620px]`}
-                >
+                <div className="relative min-h-[420px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#090909] md:min-h-[620px]">
 
-                  {/* Decorative circles */}
-                  <div className="absolute left-[8%] top-[12%] h-48 w-48 rounded-full border border-white/[0.07] transition duration-700 group-hover:scale-125" />
+                  {/* REAL SCREENSHOT */}
+                  {project.image ? (
 
-                  <div className="absolute right-[8%] top-[18%] h-72 w-72 rounded-full border border-white/[0.05] transition duration-700 group-hover:scale-110" />
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} website screenshot`}
+                      fill
+                      priority={project.number === '01'}
+                      sizes="(max-width: 768px) 100vw, 1200px"
+                      className="object-cover object-top transition duration-700 group-hover:scale-[1.025]"
+                    />
 
-                  <div className="absolute bottom-[8%] left-[32%] h-64 w-64 rounded-full border border-white/[0.04]" />
+                  ) : (
 
-                  {/* Glow */}
-                  <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.025] blur-3xl transition duration-700 group-hover:scale-150" />
+                    /* T'S FARM — NO SCREENSHOT YET */
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-br from-green-950 via-[#07110a] to-black" />
 
-                  {/* Typography */}
-                  <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="absolute left-[8%] top-[12%] h-56 w-56 rounded-full border border-emerald-400/[0.08] transition duration-700 group-hover:scale-125" />
 
-                    <div className="text-center transition duration-700 group-hover:scale-105">
+                      <div className="absolute right-[8%] top-[15%] h-80 w-80 rounded-full border border-white/[0.05] transition duration-700 group-hover:scale-110" />
 
-                      <p className="text-[clamp(4rem,13vw,12rem)] font-bold leading-none tracking-[-0.11em] text-white/[0.065]">
-                        {project.label}
-                      </p>
+                      <div className="absolute bottom-[8%] left-[35%] h-64 w-64 rounded-full border border-white/[0.04]" />
 
-                      <div className="mx-auto mt-6 h-px w-20 bg-white/15" />
+                      <div className="absolute inset-0 flex items-center justify-center">
 
-                      <p className="mt-5 text-xs uppercase tracking-[0.45em] text-white/25">
-                        {project.category}
-                      </p>
+                        <div className="text-center transition duration-700 group-hover:scale-105">
 
-                    </div>
+                          <p className="text-[clamp(5rem,14vw,13rem)] font-bold leading-none tracking-[-0.11em] text-white/[0.06]">
+                            FARM
+                          </p>
 
-                  </div>
+                          <div className="mx-auto mt-6 h-px w-24 bg-emerald-400/20" />
 
-                  {/* Number */}
-                  <div className="absolute left-7 top-7 rounded-full border border-white/10 bg-black/20 px-4 py-2 text-xs text-white/35 backdrop-blur-xl">
+                          <p className="mt-5 text-xs uppercase tracking-[0.5em] text-white/30">
+                            Integrated Agribusiness
+                          </p>
+
+                        </div>
+
+                      </div>
+                    </>
+
+                  )}
+
+                  {/* SCREENSHOT OVERLAY */}
+                  {project.image && (
+                    <div className="absolute inset-0 bg-black/15 transition duration-500 group-hover:bg-black/5" />
+                  )}
+
+                  {/* NUMBER */}
+                  <div className="absolute left-7 top-7 rounded-full border border-white/15 bg-black/50 px-4 py-2 text-xs text-white/65 backdrop-blur-xl">
                     {project.number}
                   </div>
 
-                  {/* View */}
-                  <div className="absolute bottom-7 right-7 flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-black/30 text-xl text-white/60 backdrop-blur-xl transition duration-300 group-hover:translate-x-1 group-hover:bg-white group-hover:text-black">
+                  {/* CATEGORY */}
+                  <div className="absolute bottom-7 left-7 rounded-full border border-white/15 bg-black/50 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-white/65 backdrop-blur-xl">
+                    {project.category}
+                  </div>
+
+                  {/* ARROW */}
+                  <div className="absolute bottom-7 right-7 flex h-14 w-14 items-center justify-center rounded-full border border-white/15 bg-black/50 text-xl text-white/70 backdrop-blur-xl transition duration-300 group-hover:translate-x-1 group-hover:bg-white group-hover:text-black">
                     ↗
                   </div>
 
@@ -170,7 +192,7 @@ export default function WorkProjectsPage() {
 
               </Link>
 
-              {/* PROJECT INFO */}
+              {/* INFO */}
               <div className="grid gap-8 px-2 pt-8 md:grid-cols-[0.8fr_1.2fr]">
 
                 <div>
@@ -200,14 +222,16 @@ export default function WorkProjectsPage() {
                       View case study
                     </Link>
 
-                    <a
-                      href={project.external}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="rounded-full border border-white/10 px-5 py-3 text-sm text-white/45 transition hover:border-white/25 hover:text-white"
-                    >
-                      Live website ↗
-                    </a>
+                    {project.external && (
+                      <a
+                        href={project.external}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full border border-white/10 px-5 py-3 text-sm text-white/45 transition hover:border-white/25 hover:text-white"
+                      >
+                        Live website ↗
+                      </a>
+                    )}
 
                   </div>
 
@@ -223,7 +247,7 @@ export default function WorkProjectsPage() {
 
       </section>
 
-      {/* CTA */}
+      {/* CONTACT CTA */}
       <section
         id="contact"
         className="mx-auto max-w-7xl px-6 py-36 lg:px-10"
@@ -246,23 +270,12 @@ export default function WorkProjectsPage() {
               </span>
             </h2>
 
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
-
-              <a
-                href="mailto:hello@thompsonjoshua.com"
-                className="rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
-              >
-                Start a conversation
-              </a>
-
-              <Link
-                href="/"
-                className="rounded-full border border-white/10 px-7 py-4 text-sm text-white/50 transition hover:bg-white/[0.05] hover:text-white"
-              >
-                Back home
-              </Link>
-
-            </div>
+            <a
+              href="mailto:hello@thompsonjoshua.com"
+              className="mt-10 inline-flex rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
+            >
+              Start a conversation
+            </a>
 
           </div>
 
@@ -283,7 +296,7 @@ export default function WorkProjectsPage() {
             href="/"
             className="text-sm text-white/30 transition hover:text-white"
           >
-            TJ. ↑
+            Portfolio ↑
           </Link>
 
         </div>
