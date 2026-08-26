@@ -21,7 +21,7 @@ const phases = [
   ['05', 'DISTRIBUTION', 'Supplying customers, restaurants, hotels and supermarkets.'],
 ]
 
-const technologies = [
+const capabilities = [
   'Business Strategy',
   'Digital Commerce',
   'Brand Development',
@@ -99,19 +99,16 @@ export default function TSFarmPage() {
 
         <div className="relative min-h-[460px] overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-green-950 via-[#07110a] to-black md:min-h-[650px]">
 
-          {/* Glow */}
           <div className="absolute left-[10%] top-[10%] h-64 w-64 rounded-full bg-emerald-500/[0.08] blur-[100px]" />
 
           <div className="absolute bottom-[5%] right-[5%] h-80 w-80 rounded-full bg-green-500/[0.05] blur-[120px]" />
 
-          {/* Rings */}
           <div className="absolute left-[8%] top-[20%] h-52 w-52 rounded-full border border-emerald-400/[0.08]" />
 
           <div className="absolute right-[8%] top-[12%] h-80 w-80 rounded-full border border-white/[0.05]" />
 
           <div className="absolute bottom-[8%] left-[35%] h-64 w-64 rounded-full border border-white/[0.04]" />
 
-          {/* Main text */}
           <div className="absolute inset-0 flex items-center justify-center">
 
             <div className="text-center">
@@ -200,195 +197,4 @@ export default function TSFarmPage() {
                 className="group grid gap-6 border-t border-white/10 py-8 transition hover:bg-white/[0.02] md:grid-cols-[80px_220px_1fr] md:items-center"
               >
 
-                <span className="text-xs text-white/20">
-                  {number}
-                </span>
-
-                <h3 className="text-2xl font-semibold tracking-[-0.04em]">
-                  {title}
-                </h3>
-
-                <p className="max-w-xl text-sm leading-7 text-white/35">
-                  {description}
-                </p>
-
-              </div>
-
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* FEATURES */}
-      <section className="mx-auto max-w-7xl px-6 py-32 lg:px-10">
-
-        <p className="text-xs uppercase tracking-[0.3em] text-white/25">
-          03 — Business Model
-        </p>
-
-        <h2 className="mt-6 text-4xl font-semibold tracking-[-0.055em] md:text-6xl">
-          Designed to scale.
-        </h2>
-
-        <div className="mt-14 grid gap-px overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 md:grid-cols-2">
-
-          {features.map((feature, index) => (
-
-            <div
-              key={feature}
-              className="bg-[#050505] p-8 transition hover:bg-white/[0.04]"
-            >
-
-              <span className="text-xs text-white/20">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-
-              <h3 className="mt-8 text-lg font-medium">
-                {feature}
-              </h3>
-
-            </div>
-
-          ))}
-
-        </div>
-
-      </section>
-
-      {/* ROLE */}
-      <section className="border-y border-white/10">
-
-        <div className="mx-auto grid max-w-7xl gap-16 px-6 py-24 md:grid-cols-2 lg:px-10">
-
-          <div>
-
-            <p className="text-xs uppercase tracking-[0.3em] text-white/25">
-              My role
-            </p>
-
-            <h2 className="mt-6 text-4xl font-semibold tracking-[-0.05em]">
-              Business concept
-              <br />
-              development.
-            </h2>
-
-          </div>
-
-          <div className="space-y-6 text-white/40">
-
-            <p>Business model development</p>
-
-            <p>Value-chain planning</p>
-
-            <p>Market positioning</p>
-
-            <p>Growth strategy</p>
-
-            <p>Digital ordering concept</p>
-
-            <p>Distribution planning</p>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* TECHNOLOGY / CAPABILITIES */}
-      <section className="mx-auto max-w-7xl px-6 py-32 lg:px-10">
-
-        <p className="text-xs uppercase tracking-[0.3em] text-white/25">
-          04 — Capabilities
-        </p>
-
-        <div className="mt-10 flex flex-wrap gap-3">
-
-          {technologies.map((technology) => (
-
-            <span
-              key={technology}
-              className="rounded-full border border-white/10 px-5 py-3 text-sm text-white/45"
-            >
-              {technology}
-            </span>
-
-          ))}
-
-        </div>
-
-      </section>
-
-      {/* FINAL CTA */}
-      <section className="mx-auto max-w-7xl px-6 pb-32 lg:px-10">
-
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.025] p-8 md:p-16 lg:p-24">
-
-          <div className="pointer-events-none absolute right-[-100px] top-[-100px] h-[350px] w-[350px] rounded-full bg-emerald-500/[0.05] blur-[120px]" />
-
-          <div className="relative">
-
-            <p className="text-xs uppercase tracking-[0.3em] text-white/25">
-              Selected work
-            </p>
-
-            <h2 className="mt-8 max-w-4xl text-5xl font-semibold leading-[0.9] tracking-[-0.07em] md:text-8xl">
-
-              Three ideas.
-              <br />
-
-              <span className="text-white/25">
-                One portfolio.
-              </span>
-
-            </h2>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-
-              <Link
-                href="/projects/pleasantville-academy"
-                className="rounded-full border border-white/15 px-7 py-4 text-sm text-white/60 transition hover:bg-white hover:text-black"
-              >
-                ← Previous project
-              </Link>
-
-              <Link
-                href="/"
-                className="rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
-              >
-                Back to portfolio
-              </Link>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* FOOTER */}
-      <footer className="border-t border-white/10">
-
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-10 lg:px-10">
-
-          <p className="text-sm text-white/25">
-            © 2026 Thompson Joshua.
-          </p>
-
-          <Link
-            href="/"
-            className="text-sm text-white/30 transition hover:text-white"
-          >
-            Portfolio ↑
-          </Link>
-
-        </div>
-
-      </footer>
-
-    </main>
-  )
-}
+                <span
