@@ -49,7 +49,8 @@ export default function DataMarinePage() {
 
         <div className="max-w-5xl">
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
+
             <span className="text-xs uppercase tracking-[0.3em] text-white/30">
               01 — Case Study
             </span>
@@ -59,6 +60,7 @@ export default function DataMarinePage() {
             <span className="text-xs uppercase tracking-[0.2em] text-white/30">
               Marine Marketplace
             </span>
+
           </div>
 
           <h1 className="mt-10 text-[clamp(4rem,10vw,9rem)] font-semibold leading-[0.82] tracking-[-0.085em]">
@@ -96,7 +98,7 @@ export default function DataMarinePage() {
 
       </section>
 
-      {/* PROJECT VISUAL */}
+      {/* VISUAL */}
       <section className="mx-auto max-w-7xl px-6 lg:px-10">
 
         <div className="relative min-h-[420px] overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-slate-800 via-slate-950 to-black md:min-h-[620px]">
@@ -155,8 +157,7 @@ export default function DataMarinePage() {
             <p className="mt-10 max-w-3xl text-base leading-8 text-white/40">
               Data Marine needed a digital platform capable of presenting
               marine products and services in a professional, easy-to-use
-              experience. The project combines commerce, product discovery
-              and custom boat configuration into one platform.
+              experience.
             </p>
 
             <p className="mt-7 max-w-3xl text-base leading-8 text-white/40">
@@ -190,29 +191,12 @@ export default function DataMarinePage() {
 
           <div className="space-y-6 text-white/40">
 
-            <p>
-              Business concept development
-            </p>
-
-            <p>
-              Product architecture
-            </p>
-
-            <p>
-              Website development
-            </p>
-
-            <p>
-              UI implementation
-            </p>
-
-            <p>
-              Database and content management
-            </p>
-
-            <p>
-              Deployment and production setup
-            </p>
+            <p>Business concept development</p>
+            <p>Product architecture</p>
+            <p>Website development</p>
+            <p>UI implementation</p>
+            <p>Database and content management</p>
+            <p>Deployment and production setup</p>
 
           </div>
 
@@ -234,6 +218,7 @@ export default function DataMarinePage() {
         <div className="mt-14 grid gap-px overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 md:grid-cols-2">
 
           {features.map((feature, index) => (
+
             <div
               key={feature}
               className="bg-[#050505] p-8 transition hover:bg-white/[0.04]"
@@ -248,6 +233,7 @@ export default function DataMarinePage() {
               </h3>
 
             </div>
+
           ))}
 
         </div>
@@ -266,12 +252,14 @@ export default function DataMarinePage() {
           <div className="mt-10 flex flex-wrap gap-3">
 
             {technologies.map((technology) => (
+
               <span
                 key={technology}
                 className="rounded-full border border-white/10 px-5 py-3 text-sm text-white/45"
               >
                 {technology}
               </span>
+
             ))}
 
           </div>
@@ -280,42 +268,74 @@ export default function DataMarinePage() {
 
       </section>
 
-      {/* CTA */}
+      {/* PROJECT NAVIGATION */}
       <section className="mx-auto max-w-7xl px-6 py-32 lg:px-10">
 
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.025] p-8 md:p-16 lg:p-24">
+        <div className="grid gap-4 md:grid-cols-2">
 
-          <p className="text-xs uppercase tracking-[0.3em] text-white/25">
-            Next project
-          </p>
+          {/* NEXT */}
+          <Link
+            href="/projects/pleasantville-academy"
+            className="group rounded-[2rem] border border-white/10 bg-white/[0.025] p-8 transition duration-300 hover:bg-white/[0.05] md:p-12"
+          >
 
-          <h2 className="mt-8 text-5xl font-semibold tracking-[-0.07em] md:text-7xl">
-            Explore more
-            <br />
-            <span className="text-white/25">
-              of my work.
-            </span>
-          </h2>
+            <p className="text-xs uppercase tracking-[0.25em] text-white/25">
+              Next project
+            </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-12 flex items-end justify-between">
 
-            <Link
-              href="/"
-              className="rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
-            >
-              Back to portfolio
-            </Link>
+              <div>
 
-            <a
-              href="https://www.datamarine.ng/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-white/15 px-7 py-4 text-sm text-white/60 transition hover:bg-white hover:text-black"
-            >
-              Visit Data Marine ↗
-            </a>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                  Education Platform
+                </p>
 
-          </div>
+                <h3 className="mt-3 text-3xl font-semibold tracking-[-0.05em]">
+                  Pleasantville
+                </h3>
+
+              </div>
+
+              <span className="text-3xl transition-transform duration-300 group-hover:translate-x-2">
+                →
+              </span>
+
+            </div>
+
+          </Link>
+
+          {/* HOME */}
+          <Link
+            href="/"
+            className="group rounded-[2rem] border border-white/10 bg-white/[0.025] p-8 transition duration-300 hover:bg-white/[0.05] md:p-12"
+          >
+
+            <p className="text-xs uppercase tracking-[0.25em] text-white/25">
+              Portfolio
+            </p>
+
+            <div className="mt-12 flex items-end justify-between">
+
+              <div>
+
+                <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                  Selected work
+                </p>
+
+                <h3 className="mt-3 text-3xl font-semibold tracking-[-0.05em]">
+                  All projects
+                </h3>
+
+              </div>
+
+              <span className="text-3xl transition-transform duration-300 group-hover:-translate-y-1">
+                ↑
+              </span>
+
+            </div>
+
+          </Link>
 
         </div>
 
