@@ -10,7 +10,11 @@ const projects = [
       'A modern marine marketplace connecting customers with boats, marine engines, equipment and custom boat-building solutions.',
     href: '/projects/data-marine',
     external: 'https://www.datamarine.ng/',
-    image: '/projects/IMG_1985.jpeg',
+    images: [
+      '/projects/IMG_1985.jpeg',
+      '/projects/IMG_1986.png',
+      '/projects/IMG_1987.png',
+    ],
   },
   {
     number: '02',
@@ -20,7 +24,11 @@ const projects = [
       'A polished digital experience designed to communicate an academy’s programmes, facilities, admissions and educational experience.',
     href: '/projects/pleasantville-academy',
     external: 'https://pleasantville-academy.vercel.app/',
-    image: '/projects/IMG_1987.png',
+    images: [
+      '/projects/IMG_1988.png',
+      '/projects/IMG_1989.png',
+      '/projects/IMG_1990.png',
+    ],
   },
   {
     number: '03',
@@ -30,7 +38,7 @@ const projects = [
       'An integrated agribusiness concept connecting production, processing, packaging, distribution and customers.',
     href: '/projects/ts-farm',
     external: null,
-    image: null,
+    images: [],
   },
 ]
 
@@ -40,6 +48,7 @@ export default function WorkProjectsPage() {
 
       {/* NAV */}
       <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#050505]/80 backdrop-blur-xl">
+
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
 
           <Link
@@ -68,6 +77,7 @@ export default function WorkProjectsPage() {
           </div>
 
         </div>
+
       </nav>
 
       {/* HERO */}
@@ -110,34 +120,38 @@ export default function WorkProjectsPage() {
       {/* PROJECTS */}
       <section className="mx-auto max-w-7xl px-6 lg:px-10">
 
-        <div className="space-y-28">
+        <div className="space-y-32">
 
           {projects.map((project) => (
 
             <article key={project.number}>
 
+              {/* MAIN PROJECT CARD */}
               <Link
                 href={project.href}
                 className="group block"
               >
 
-                <div className="relative min-h-[420px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#090909] md:min-h-[620px]">
+                <div className="relative min-h-[420px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#090909] md:min-h-[650px]">
 
-                  {/* REAL SCREENSHOT */}
-                  {project.image ? (
+                  {project.images.length > 0 ? (
 
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} website screenshot`}
-                      fill
-                      priority={project.number === '01'}
-                      sizes="(max-width: 768px) 100vw, 1200px"
-                      className="object-cover object-top transition duration-700 group-hover:scale-[1.025]"
-                    />
+                    <>
+                      <Image
+                        src={project.images[0]}
+                        alt={`${project.title} website screenshot`}
+                        fill
+                        priority={project.number === '01'}
+                        sizes="(max-width: 768px) 100vw, 1200px"
+                        className="object-cover object-top transition duration-700 group-hover:scale-[1.025]"
+                      />
+
+                      <div className="absolute inset-0 bg-black/20 transition duration-500 group-hover:bg-black/5" />
+                    </>
 
                   ) : (
 
-                    /* T'S FARM — NO SCREENSHOT YET */
+                    /* T'S FARM */
                     <>
                       <div className="absolute inset-0 bg-gradient-to-br from-green-950 via-[#07110a] to-black" />
 
@@ -168,11 +182,6 @@ export default function WorkProjectsPage() {
 
                   )}
 
-                  {/* SCREENSHOT OVERLAY */}
-                  {project.image && (
-                    <div className="absolute inset-0 bg-black/15 transition duration-500 group-hover:bg-black/5" />
-                  )}
-
                   {/* NUMBER */}
                   <div className="absolute left-7 top-7 rounded-full border border-white/15 bg-black/50 px-4 py-2 text-xs text-white/65 backdrop-blur-xl">
                     {project.number}
@@ -192,7 +201,7 @@ export default function WorkProjectsPage() {
 
               </Link>
 
-              {/* INFO */}
+              {/* PROJECT INFO */}
               <div className="grid gap-8 px-2 pt-8 md:grid-cols-[0.8fr_1.2fr]">
 
                 <div>
@@ -239,6 +248,34 @@ export default function WorkProjectsPage() {
 
               </div>
 
+              {/* ADDITIONAL SCREENSHOTS */}
+              {project.images.length > 1 && (
+
+                <div className="mt-8 grid gap-6 md:grid-cols-2">
+
+                  {project.images.slice(1).map((image, index) => (
+
+                    <div
+                      key={image}
+                      className="group relative aspect-[16/10] overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#090909]"
+                    >
+
+                      <Image
+                        src={image}
+                        alt={`${project.title} additional screenshot ${index + 2}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 600px"
+                        className="object-cover object-top transition duration-700 group-hover:scale-[1.03]"
+                      />
+
+                    </div>
+
+                  ))}
+
+                </div>
+
+              )}
+
             </article>
 
           ))}
@@ -247,7 +284,7 @@ export default function WorkProjectsPage() {
 
       </section>
 
-      {/* CONTACT CTA */}
+      {/* CTA */}
       <section
         id="contact"
         className="mx-auto max-w-7xl px-6 py-36 lg:px-10"
