@@ -1,301 +1,189 @@
-'use client'
-
-import { useState } from 'react'
-import ProjectPreview from '@/components/ProjectPreview'
+import Link from 'next/link'
 
 const projects = [
   {
     number: '01',
-    title: 'DATA MARINE',
-    category: 'Marine Marketplace',
+    type: 'Marine Marketplace',
+    title: 'Data Marine',
     description:
-      'A premium digital marine marketplace built for boats, marine engines, fishing equipment, safety gear and custom boat building.',
-    tags: ['Next.js', 'Supabase', 'E-commerce'],
-    url: '/projects/data-marine',
-    liveUrl: 'https://www.datamarine.ng/',
-    type: 'marine' as const,
+      'A modern marine marketplace for boats, engines, equipment and custom boat-building solutions.',
+    href: '/projects/data-marine',
+    visual: 'MARINE',
   },
   {
     number: '02',
-    title: 'PLEASANTVILLE',
-    category: 'Education Platform',
+    type: 'Education Platform',
+    title: 'Pleasantville Academy',
     description:
-      'A modern school website designed to communicate the academy’s vision, academics, facilities, gallery, admissions and learning experience.',
-    tags: ['Next.js', 'React', 'Responsive'],
-    url: '/projects/pleasantville-academy',
-    liveUrl: 'https://pleasantville-academy.vercel.app/',
-    type: 'education' as const,
+      'A polished digital experience for an educational institution, designed around clarity and accessibility.',
+    href: '/projects/pleasantville-academy',
+    visual: 'ACADEMY',
   },
   {
     number: '03',
-    title: "T'S FARM",
-    category: 'Agribusiness',
+    type: 'Agribusiness',
+    title: "T'S Farm",
     description:
-      'An integrated agricultural business concept connecting farming, processing, packaging, distribution and direct customer delivery.',
-    tags: ['Strategy', 'Branding', 'Business'],
-    url: '/projects/ts-farm',
-    liveUrl: '#',
-    type: 'farm' as const,
+      'An integrated agricultural business concept connecting production, processing, packaging and distribution.',
+    href: '/projects/ts-farm',
+    visual: 'FARM',
   },
 ]
 
-const services = [
-  {
-    number: '01',
-    title: 'Web Development',
-    description:
-      'Modern, responsive websites and digital experiences.',
-  },
-  {
-    number: '02',
-    title: 'Business Strategy',
-    description:
-      'Turning ideas into structured and commercially viable businesses.',
-  },
-  {
-    number: '03',
-    title: 'Digital Products',
-    description:
-      'Planning and building useful digital products from concept to launch.',
-  },
-  {
-    number: '04',
-    title: 'UI / UX',
-    description:
-      'Clean interfaces designed around clarity and user experience.',
-  },
-  {
-    number: '05',
-    title: 'Digital Marketing',
-    description:
-      'Digital presence, positioning and growth-focused thinking.',
-  },
-  {
-    number: '06',
-    title: 'Project Management',
-    description:
-      'Taking projects from an idea to a working final product.',
-  },
+const skills = [
+  'Next.js',
+  'React',
+  'TypeScript',
+  'Tailwind CSS',
+  'Supabase',
+  'UI/UX',
+  'Business Strategy',
+  'Product Development',
 ]
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false)
-
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#050505] text-white">
-
-      {/* BACKGROUND */}
-      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute left-1/2 top-[-300px] h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-white/[0.035] blur-[140px]" />
-
-        <div className="absolute right-[-250px] top-[35%] h-[500px] w-[500px] rounded-full bg-purple-500/[0.045] blur-[150px]" />
-
-        <div className="absolute left-[-250px] top-[70%] h-[500px] w-[500px] rounded-full bg-blue-500/[0.035] blur-[150px]" />
-      </div>
+    <main className="min-h-screen bg-[#050505] text-white">
 
       {/* NAVIGATION */}
-      <nav className="sticky top-0 z-50 border-b border-white/[0.08] bg-[#050505]/75 backdrop-blur-2xl">
+      <header className="fixed left-0 right-0 top-0 z-50">
 
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
+        <nav className="border-b border-white/10 bg-[#050505]/75 backdrop-blur-xl">
 
-          <a
-            href="#"
-            className="text-xl font-bold tracking-[-0.07em]"
-          >
-            TJ<span className="text-white/25">.</span>
-          </a>
+          <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
 
-          <div className="hidden items-center gap-10 md:flex">
-
-            <a
-              href="#about"
-              className="text-sm text-white/45 transition hover:text-white"
+            <Link
+              href="/"
+              className="text-xl font-bold tracking-[-0.08em]"
             >
-              About
-            </a>
+              TJ<span className="text-white/25">.</span>
+            </Link>
 
-            <a
-              href="#work"
-              className="text-sm text-white/45 transition hover:text-white"
-            >
-              Work
-            </a>
+            <div className="hidden items-center gap-8 md:flex">
 
-            <a
-              href="#services"
-              className="text-sm text-white/45 transition hover:text-white"
-            >
-              Services
-            </a>
-
-            <a
-              href="#contact"
-              className="text-sm text-white/45 transition hover:text-white"
-            >
-              Contact
-            </a>
-
-          </div>
-
-          <a
-            href="#contact"
-            className="hidden rounded-full border border-white/15 bg-white/[0.03] px-5 py-2.5 text-sm transition duration-300 hover:bg-white hover:text-black md:block"
-          >
-            Let's Talk
-          </a>
-
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-sm text-white md:hidden"
-            aria-label="Toggle navigation"
-          >
-            {menuOpen ? 'Close' : 'Menu'}
-          </button>
-
-        </div>
-
-        {menuOpen && (
-          <div className="border-t border-white/[0.08] bg-[#050505] px-6 py-6 md:hidden">
-
-            <div className="flex flex-col gap-6">
-
-              <a
+              <Link
                 href="#about"
-                onClick={() => setMenuOpen(false)}
+                className="text-sm text-white/40 transition hover:text-white"
               >
                 About
-              </a>
+              </Link>
 
-              <a
-                href="#work"
-                onClick={() => setMenuOpen(false)}
+              <Link
+                href="/work/projects"
+                className="text-sm text-white/40 transition hover:text-white"
               >
                 Work
-              </a>
+              </Link>
 
-              <a
-                href="#services"
-                onClick={() => setMenuOpen(false)}
+              <Link
+                href="#skills"
+                className="text-sm text-white/40 transition hover:text-white"
               >
-                Services
-              </a>
+                Skills
+              </Link>
 
-              <a
+              <Link
                 href="#contact"
-                onClick={() => setMenuOpen(false)}
+                className="text-sm text-white/40 transition hover:text-white"
               >
                 Contact
-              </a>
+              </Link>
 
             </div>
+
+            <Link
+              href="#contact"
+              className="rounded-full border border-white/10 px-5 py-2.5 text-sm text-white/60 transition hover:bg-white hover:text-black"
+            >
+              Let's talk
+            </Link>
 
           </div>
-        )}
 
-      </nav>
+        </nav>
+
+      </header>
 
       {/* HERO */}
-      <section>
+      <section className="relative flex min-h-screen items-center overflow-hidden">
 
-        <div className="mx-auto flex min-h-[calc(100vh-80px)] max-w-7xl items-center px-6 py-24 lg:px-10">
+        {/* Background glow */}
+        <div className="absolute left-[10%] top-[20%] h-72 w-72 rounded-full bg-white/[0.025] blur-3xl" />
 
-          <div className="w-full">
+        <div className="absolute bottom-[10%] right-[5%] h-96 w-96 rounded-full bg-white/[0.02] blur-3xl" />
 
-            <div className="mb-9 flex items-center gap-3">
+        {/* Grid */}
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
+            backgroundSize: '80px 80px',
+          }}
+        />
 
-              <span className="relative flex h-2.5 w-2.5">
+        <div className="relative mx-auto w-full max-w-7xl px-6 pt-24 lg:px-10">
 
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
+          <div className="max-w-6xl">
 
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+            <div className="flex items-center gap-3">
 
-              </span>
+              <span className="h-2 w-2 rounded-full bg-white/60" />
 
-              <span className="text-xs uppercase tracking-[0.28em] text-white/40">
-                Available for opportunities
+              <span className="text-xs uppercase tracking-[0.3em] text-white/35">
+                Developer · Builder · Strategist
               </span>
 
             </div>
 
-            <h1 className="max-w-6xl text-[clamp(4rem,11vw,9.5rem)] font-semibold leading-[0.82] tracking-[-0.085em]">
+            <h1 className="mt-10 text-[clamp(4.5rem,12vw,12rem)] font-semibold leading-[0.76] tracking-[-0.1em]">
 
-              Building
-
+              I build
               <br />
 
-              <span className="text-white/[0.24]">
-                ideas into
+              <span className="text-white/20">
+                digital
               </span>
 
               <br />
 
-              reality
-              <span className="text-white/[0.24]">
-                .
-              </span>
+              experiences.
 
             </h1>
 
-            <div className="mt-14 flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+            <div className="mt-14 flex flex-col justify-between gap-10 md:flex-row md:items-end">
 
-              <p className="max-w-xl text-lg leading-8 text-white/45">
-                I'm Thompson Joshua — a business strategist and digital
-                builder creating modern websites, digital products and
-                business solutions.
+              <p className="max-w-xl text-lg leading-8 text-white/40">
+                I'm Thompson Joshua — a developer and digital builder
+                creating modern websites, digital products and business
+                experiences that turn ideas into real-world solutions.
               </p>
 
-              <a
-                href="#work"
-                className="group flex w-fit items-center gap-5 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition duration-300 hover:scale-[1.04]"
+              <Link
+                href="/work/projects"
+                className="group flex w-fit items-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
               >
                 Explore my work
 
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                <span className="transition-transform group-hover:translate-x-1">
                   →
                 </span>
-              </a>
+
+              </Link>
 
             </div>
 
           </div>
 
-        </div>
+          {/* Scroll */}
+          <div className="absolute bottom-10 right-6 hidden items-center gap-3 lg:right-10 lg:flex">
 
-      </section>
+            <span className="text-[10px] uppercase tracking-[0.3em] text-white/20">
+              Scroll
+            </span>
 
-      {/* STATS */}
-      <section className="border-y border-white/[0.08]">
+            <span className="h-10 w-px bg-white/10" />
 
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-3 lg:px-10">
-
-          <div>
-            <p className="text-5xl font-semibold tracking-[-0.05em]">
-              03<span className="text-white/25">+</span>
-            </p>
-
-            <p className="mt-3 text-sm text-white/35">
-              Featured projects
-            </p>
-          </div>
-
-          <div>
-            <p className="text-5xl font-semibold tracking-[-0.05em]">
-              ∞
-            </p>
-
-            <p className="mt-3 text-sm text-white/35">
-              Ideas worth building
-            </p>
-          </div>
-
-          <div>
-            <p className="text-5xl font-semibold tracking-[-0.05em]">
-              2026
-            </p>
-
-            <p className="mt-3 text-sm text-white/35">
-              The next chapter
-            </p>
           </div>
 
         </div>
@@ -305,29 +193,41 @@ export default function Home() {
       {/* ABOUT */}
       <section
         id="about"
-        className="mx-auto max-w-7xl px-6 py-32 lg:px-10"
+        className="border-y border-white/10"
       >
 
-        <div className="grid gap-16 lg:grid-cols-[0.65fr_1.35fr]">
+        <div className="mx-auto grid max-w-7xl gap-16 px-6 py-32 lg:grid-cols-[0.6fr_1.4fr] lg:px-10">
 
           <div>
+
             <p className="text-xs uppercase tracking-[0.3em] text-white/25">
               01 — About
             </p>
+
           </div>
 
           <div>
 
-            <h2 className="max-w-5xl text-4xl font-medium leading-[1.05] tracking-[-0.055em] md:text-6xl">
-              I combine business thinking with technology to turn concepts
-              into experiences people can actually use.
+            <h2 className="max-w-5xl text-4xl font-medium leading-tight tracking-[-0.06em] md:text-6xl">
+              I combine technology, design and business thinking to build
+              things that actually work.
             </h2>
 
-            <p className="mt-10 max-w-2xl text-base leading-8 text-white/40">
-              My work sits between business, technology, creativity and
-              entrepreneurship. I enjoy taking an idea from the early concept
-              stage through strategy, design, development and launch.
-            </p>
+            <div className="mt-10 grid gap-8 text-base leading-8 text-white/40 md:grid-cols-2">
+
+              <p>
+                My work sits between software development and business.
+                I enjoy taking an idea from concept and turning it into a
+                usable digital product.
+              </p>
+
+              <p>
+                From marketplaces and educational websites to agricultural
+                business concepts, I focus on creating experiences that are
+                useful, clear and built to grow.
+              </p>
+
+            </div>
 
           </div>
 
@@ -335,130 +235,110 @@ export default function Home() {
 
       </section>
 
-      {/* PROJECTS */}
+      {/* WORK */}
       <section
         id="work"
-        className="mx-auto max-w-7xl px-6 pb-32 lg:px-10"
+        className="mx-auto max-w-7xl px-6 py-32 lg:px-10"
       >
 
-        <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
 
           <div>
 
             <p className="text-xs uppercase tracking-[0.3em] text-white/25">
-              02 — Selected work
+              02 — Selected Work
             </p>
 
-            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.055em] md:text-6xl">
-              Things I've built.
+            <h2 className="mt-6 text-5xl font-semibold tracking-[-0.07em] md:text-7xl">
+              Things I've
+              <br />
+              <span className="text-white/20">
+                built.
+              </span>
             </h2>
 
           </div>
 
-          <p className="max-w-sm text-sm leading-6 text-white/30">
-            A selection of digital products, websites and business concepts
-            developed from idea to execution.
-          </p>
+          <Link
+            href="/work/projects"
+            className="group flex w-fit items-center gap-3 text-sm text-white/40 transition hover:text-white"
+          >
+            View all projects
+
+            <span className="transition-transform group-hover:translate-x-1">
+              →
+            </span>
+
+          </Link>
 
         </div>
 
-        <div className="space-y-10">
+        <div className="mt-20 space-y-20">
 
           {projects.map((project) => (
 
-            <article
-              key={project.number}
-              className="overflow-hidden rounded-[2rem] border border-white/[0.09] bg-white/[0.025] transition duration-500 hover:border-white/20"
-            >
+            <article key={project.number}>
 
-              <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
+              <Link
+                href={project.href}
+                className="group block"
+              >
 
-                {/* PROJECT PREVIEW */}
-                <ProjectPreview
-                  type={project.type}
-                  title={project.title}
-                  url={project.liveUrl === '#' ? project.url : project.liveUrl}
-                />
+                <div className="relative min-h-[380px] overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-white/[0.05] to-black md:min-h-[560px]">
 
-                {/* PROJECT INFO */}
-                <div className="flex flex-col justify-between p-8 md:p-12 lg:p-14">
+                  <div className="absolute left-[10%] top-[15%] h-48 w-48 rounded-full border border-white/[0.07] transition duration-700 group-hover:scale-125" />
 
-                  <div>
+                  <div className="absolute right-[10%] top-[15%] h-72 w-72 rounded-full border border-white/[0.05] transition duration-700 group-hover:scale-110" />
 
-                    <div className="flex items-center justify-between">
+                  <div className="absolute bottom-[5%] left-[35%] h-64 w-64 rounded-full border border-white/[0.04]" />
 
-                      <span className="text-xs uppercase tracking-[0.25em] text-white/25">
-                        {project.number}
-                      </span>
+                  <div className="absolute inset-0 flex items-center justify-center">
 
-                      <span className="text-xs text-white/25">
-                        2026
-                      </span>
+                    <div className="text-center transition duration-700 group-hover:scale-105">
 
-                    </div>
+                      <p className="text-[clamp(4rem,12vw,11rem)] font-bold leading-none tracking-[-0.11em] text-white/[0.055]">
+                        {project.visual}
+                      </p>
 
-                    <p className="mt-12 text-xs uppercase tracking-[0.2em] text-white/30">
-                      {project.category}
-                    </p>
+                      <div className="mx-auto mt-5 h-px w-20 bg-white/10" />
 
-                    <h3 className="mt-4 text-4xl font-semibold tracking-[-0.06em] md:text-5xl">
-                      {project.title}
-                    </h3>
-
-                    <p className="mt-7 max-w-xl text-base leading-8 text-white/40">
-                      {project.description}
-                    </p>
-
-                    <div className="mt-9 flex flex-wrap gap-2">
-
-                      {project.tags.map((tag) => (
-
-                        <span
-                          key={tag}
-                          className="rounded-full border border-white/10 px-4 py-2 text-xs text-white/40"
-                        >
-                          {tag}
-                        </span>
-
-                      ))}
+                      <p className="mt-5 text-xs uppercase tracking-[0.4em] text-white/25">
+                        {project.type}
+                      </p>
 
                     </div>
 
                   </div>
 
-                  <div className="mt-14 flex flex-wrap gap-3">
+                  <div className="absolute left-7 top-7 rounded-full border border-white/10 bg-black/30 px-4 py-2 text-xs text-white/35 backdrop-blur-xl">
+                    {project.number}
+                  </div>
 
-                    {/* CASE STUDY */}
-                    <a
-                      href={project.url}
-                      className="group flex w-fit items-center gap-4 rounded-full bg-white px-6 py-3.5 text-sm font-medium text-black transition duration-300 hover:scale-[1.03]"
-                    >
-                      View case study
-
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">
-                        ↗
-                      </span>
-                    </a>
-
-                    {/* LIVE WEBSITE */}
-                    {project.liveUrl !== '#' && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex w-fit items-center gap-4 rounded-full border border-white/15 px-6 py-3.5 text-sm text-white/55 transition duration-300 hover:bg-white hover:text-black"
-                      >
-                        Live site
-
-                        <span className="transition-transform duration-300 group-hover:translate-x-1">
-                          ↗
-                        </span>
-                      </a>
-                    )}
-
+                  <div className="absolute bottom-7 right-7 flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-black/30 text-xl text-white/50 backdrop-blur-xl transition group-hover:bg-white group-hover:text-black">
+                    ↗
                   </div>
 
                 </div>
+
+              </Link>
+
+              <div className="mt-7 grid gap-6 md:grid-cols-2">
+
+                <div>
+
+                  <p className="text-xs uppercase tracking-[0.25em] text-white/25">
+                    {project.type}
+                  </p>
+
+                  <h3 className="mt-3 text-3xl font-semibold tracking-[-0.05em] md:text-4xl">
+                    {project.title}
+                  </h3>
+
+                </div>
+
+                <p className="max-w-xl text-sm leading-7 text-white/35">
+                  {project.description}
+                </p>
 
               </div>
 
@@ -468,60 +348,52 @@ export default function Home() {
 
         </div>
 
+        <div className="mt-20 text-center">
+
+          <Link
+            href="/work/projects"
+            className="inline-flex items-center gap-3 rounded-full border border-white/10 px-7 py-4 text-sm text-white/50 transition hover:bg-white hover:text-black"
+          >
+            Explore all projects
+            <span>→</span>
+          </Link>
+
+        </div>
+
       </section>
 
-      {/* SERVICES */}
+      {/* SKILLS */}
       <section
-        id="services"
-        className="border-y border-white/[0.08]"
+        id="skills"
+        className="border-y border-white/10"
       >
 
         <div className="mx-auto max-w-7xl px-6 py-32 lg:px-10">
 
           <p className="text-xs uppercase tracking-[0.3em] text-white/25">
-            03 — Capabilities
+            03 — Skills
           </p>
 
-          <div className="mt-14 grid gap-16 lg:grid-cols-[0.7fr_1.3fr]">
+          <h2 className="mt-6 max-w-3xl text-5xl font-semibold tracking-[-0.07em] md:text-7xl">
+            Tools I use to
+            <br />
+            <span className="text-white/20">
+              build.
+            </span>
+          </h2>
 
-            <h2 className="text-4xl font-semibold leading-[0.95] tracking-[-0.06em] md:text-6xl">
+          <div className="mt-16 flex flex-wrap gap-3">
 
-              What I
-              <br />
+            {skills.map((skill) => (
 
-              bring to
-              <br />
+              <span
+                key={skill}
+                className="rounded-full border border-white/10 px-6 py-3 text-sm text-white/40 transition hover:border-white/25 hover:text-white"
+              >
+                {skill}
+              </span>
 
-              the table.
-
-            </h2>
-
-            <div className="grid gap-px overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 sm:grid-cols-2">
-
-              {services.map((service) => (
-
-                <div
-                  key={service.number}
-                  className="group bg-[#050505] p-8 transition duration-300 hover:bg-white/[0.04]"
-                >
-
-                  <span className="text-xs text-white/20">
-                    {service.number}
-                  </span>
-
-                  <h3 className="mt-9 text-lg font-medium transition group-hover:translate-x-1">
-                    {service.title}
-                  </h3>
-
-                  <p className="mt-4 text-sm leading-6 text-white/30">
-                    {service.description}
-                  </p>
-
-                </div>
-
-              ))}
-
-            </div>
+            ))}
 
           </div>
 
@@ -535,9 +407,9 @@ export default function Home() {
         className="mx-auto max-w-7xl px-6 py-32 lg:px-10"
       >
 
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.025] p-8 md:p-16 lg:p-24">
+        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.025] px-6 py-24 text-center md:px-16">
 
-          <div className="pointer-events-none absolute right-[-100px] top-[-100px] h-[300px] w-[300px] rounded-full bg-white/[0.04] blur-[100px]" />
+          <div className="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-white/[0.025] blur-3xl" />
 
           <div className="relative">
 
@@ -545,29 +417,25 @@ export default function Home() {
               04 — Contact
             </p>
 
-            <h2 className="mt-8 max-w-5xl text-5xl font-semibold leading-[0.92] tracking-[-0.07em] md:text-8xl">
-
+            <h2 className="mx-auto mt-7 max-w-4xl text-5xl font-semibold leading-[0.9] tracking-[-0.08em] md:text-8xl">
               Have an idea?
-
               <br />
-
-              <span className="text-white/25">
+              <span className="text-white/20">
                 Let's build it.
               </span>
-
             </h2>
 
-            <p className="mt-10 max-w-xl text-base leading-8 text-white/40">
-              Whether you're looking to build a website, launch a digital
-              product, develop a business idea or collaborate on something
-              ambitious, I'd love to hear about it.
+            <p className="mx-auto mt-10 max-w-xl text-base leading-7 text-white/35">
+              Whether you're building a website, launching a digital
+              product or developing a new business idea, I'd love to hear
+              about it.
             </p>
 
             <a
-              href="mailto:hello@joshuathompson.dev"
-              className="mt-10 inline-flex rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition duration-300 hover:scale-[1.04]"
+              href="mailto:hello@thompsonjoshua.com"
+              className="mt-10 inline-flex rounded-full bg-white px-8 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
             >
-              Get in touch →
+              Start a conversation
             </a>
 
           </div>
@@ -577,56 +445,31 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/[0.08]">
+      <footer className="border-t border-white/10">
 
-        <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 md:flex-row md:items-center md:justify-between lg:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 px-6 py-10 sm:flex-row sm:items-center lg:px-10">
 
-          <div>
-
-            <p className="text-lg font-semibold tracking-[-0.05em]">
-              TJ<span className="text-white/25">.</span>
-            </p>
-
-            <p className="mt-2 text-xs text-white/25">
-              Business strategist · Digital builder
-            </p>
-
-          </div>
-
-          <div className="flex flex-wrap gap-6 text-sm text-white/30">
-
-            <a
-              href="https://github.com/Tjoshuaa"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:text-white"
-            >
-              GitHub
-            </a>
-
-            <a
-              href="#"
-              className="transition hover:text-white"
-            >
-              LinkedIn
-            </a>
-
-            <a
-              href="#"
-              className="transition hover:text-white"
-            >
-              Instagram
-            </a>
-
-          </div>
-
-        </div>
-
-        <div className="mx-auto max-w-7xl px-6 pb-8 lg:px-10">
-
-          <p className="text-xs text-white/20">
-            © 2026 Thompson Joshua. All rights reserved.
+          <p className="text-sm text-white/25">
+            © 2026 Thompson Joshua.
           </p>
+
+          <div className="flex gap-6">
+
+            <Link
+              href="/work/projects"
+              className="text-sm text-white/25 transition hover:text-white"
+            >
+              Work
+            </Link>
+
+            <a
+              href="mailto:hello@thompsonjoshua.com"
+              className="text-sm text-white/25 transition hover:text-white"
+            >
+              Email
+            </a>
+
+          </div>
 
         </div>
 
