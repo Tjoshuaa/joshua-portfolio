@@ -1,5 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const projects = [
   {
@@ -7,27 +10,40 @@ const projects = [
     type: 'Marine Marketplace',
     title: 'Data Marine',
     description:
-      'A modern marine marketplace for boats, marine engines, equipment and custom boat-building solutions.',
+      'A premium marine marketplace built to showcase boats, marine engines, equipment and custom boat-building solutions.',
+    tags: ['Next.js', 'React', 'Supabase'],
+    images: [
+      '/projects/IMG_1985.jpeg',
+      '/projects/IMG_1986.png',
+      '/projects/IMG_1987.png',
+    ],
     href: '/projects/data-marine',
-    image: '/projects/IMG_1985.jpeg',
+    featured: true,
   },
   {
     number: '02',
     type: 'Education Platform',
     title: 'Pleasantville Academy',
     description:
-      'A modern educational website designed to communicate programmes, facilities, admissions and the academy experience.',
+      'A modern school website designed to present programmes, facilities, admissions and the complete academy experience.',
+    tags: ['Next.js', 'React', 'UI/UX'],
+    images: [
+      '/projects/IMG_1988.png',
+      '/projects/IMG_1989.png',
+      '/projects/IMG_1990.png',
+    ],
     href: '/projects/pleasantville-academy',
-    image: '/projects/IMG_1988.png',
+    featured: true,
   },
   {
     number: '03',
     type: 'Agribusiness',
     title: "T'S Farm",
     description:
-      'An integrated agricultural business concept connecting production, processing, packaging and distribution.',
+      'An integrated agribusiness concept connecting farming, processing, packaging, distribution and direct customer delivery.',
+    tags: ['Business', 'Strategy', 'Digital'],
     href: '/projects/ts-farm',
-    image: null,
+    featured: false,
   },
 ]
 
@@ -37,363 +53,582 @@ const skills = [
   'TypeScript',
   'Tailwind CSS',
   'Supabase',
-  'UI/UX',
-  'Business Strategy',
+  'Responsive Design',
+  'UI / UX',
   'Product Development',
+  'Business Strategy',
 ]
 
 export default function Home() {
+  const [activeImage, setActiveImage] = useState<Record<string, number>>({})
+
+  const changeImage = (title: string, index: number) => {
+    setActiveImage((current) => ({
+      ...current,
+      [title]: index,
+    }))
+  }
+
   return (
-    <main className="min-h-screen bg-[#050505] text-white">
+    <main className="min-h-screen overflow-hidden bg-[#070707] text-white selection:bg-white selection:text-black">
 
-      {/* NAVIGATION */}
-      <header className="fixed left-0 right-0 top-0 z-50">
-        <nav className="border-b border-white/10 bg-[#050505]/80 backdrop-blur-xl">
-          <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
+      {/* =========================================================
+          NAVIGATION
+      ========================================================= */}
 
-            <Link
-              href="/"
-              className="text-xl font-bold tracking-[-0.08em]"
-            >
-              TJ<span className="text-white/25">.</span>
-            </Link>
-
-            <div className="hidden items-center gap-8 md:flex">
-              <Link
-                href="#about"
-                className="text-sm text-white/40 transition hover:text-white"
-              >
-                About
-              </Link>
-
-              <Link
-                href="/work/projects"
-                className="text-sm text-white/40 transition hover:text-white"
-              >
-                Work
-              </Link>
-
-              <Link
-                href="#skills"
-                className="text-sm text-white/40 transition hover:text-white"
-              >
-                Skills
-              </Link>
-
-              <Link
-                href="#contact"
-                className="text-sm text-white/40 transition hover:text-white"
-              >
-                Contact
-              </Link>
-            </div>
-
-            <Link
-              href="#contact"
-              className="rounded-full border border-white/10 px-5 py-2.5 text-sm text-white/60 transition hover:bg-white hover:text-black"
-            >
-              Let's talk
-            </Link>
-
-          </div>
-        </nav>
-      </header>
-
-      {/* HERO */}
-      <section className="relative flex min-h-screen items-center overflow-hidden">
-
-        <div className="absolute left-[10%] top-[20%] h-72 w-72 rounded-full bg-white/[0.025] blur-3xl" />
-
-        <div className="absolute bottom-[10%] right-[5%] h-96 w-96 rounded-full bg-white/[0.02] blur-3xl" />
-
-        <div
-          className="absolute inset-0 opacity-[0.025]"
-          style={{
-            backgroundImage:
-              'linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
-          }}
-        />
-
-        <div className="relative mx-auto w-full max-w-7xl px-6 pt-24 lg:px-10">
-
-          <div className="max-w-6xl">
-
-            <div className="flex items-center gap-3">
-              <span className="h-2 w-2 rounded-full bg-white/60" />
-
-              <span className="text-xs uppercase tracking-[0.3em] text-white/35">
-                Developer · Builder · Strategist
-              </span>
-            </div>
-
-            <h1 className="mt-10 text-[clamp(4.5rem,12vw,12rem)] font-semibold leading-[0.76] tracking-[-0.1em]">
-              I build
-              <br />
-              <span className="text-white/20">digital</span>
-              <br />
-              experiences.
-            </h1>
-
-            <div className="mt-14 flex flex-col justify-between gap-10 md:flex-row md:items-end">
-
-              <p className="max-w-xl text-lg leading-8 text-white/40">
-                I'm Thompson Joshua — a developer and digital builder
-                creating modern websites, digital products and business
-                experiences that turn ideas into real-world solutions.
-              </p>
-
-              <Link
-                href="/work/projects"
-                className="group flex w-fit items-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
-              >
-                Explore my work
-
-                <span className="transition-transform group-hover:translate-x-1">
-                  →
-                </span>
-              </Link>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* ABOUT */}
-      <section
-        id="about"
-        className="border-y border-white/10"
-      >
-        <div className="mx-auto grid max-w-7xl gap-16 px-6 py-32 lg:grid-cols-[0.6fr_1.4fr] lg:px-10">
-
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-white/25">
-              01 — About
-            </p>
-          </div>
-
-          <div>
-
-            <h2 className="max-w-5xl text-4xl font-medium leading-tight tracking-[-0.06em] md:text-6xl">
-              I combine technology, design and business thinking to build
-              things that actually work.
-            </h2>
-
-            <div className="mt-10 grid gap-8 text-base leading-8 text-white/40 md:grid-cols-2">
-
-              <p>
-                My work sits between software development and business.
-                I enjoy taking an idea from concept and turning it into a
-                usable digital product.
-              </p>
-
-              <p>
-                From marketplaces and educational websites to agricultural
-                business concepts, I focus on creating experiences that are
-                useful, clear and built to grow.
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* WORK */}
-      <section
-        id="work"
-        className="mx-auto max-w-7xl px-6 py-32 lg:px-10"
-      >
-
-        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-
-          <div>
-
-            <p className="text-xs uppercase tracking-[0.3em] text-white/25">
-              02 — Selected Work
-            </p>
-
-            <h2 className="mt-6 text-5xl font-semibold tracking-[-0.07em] md:text-7xl">
-              Things I've
-              <br />
-              <span className="text-white/20">
-                built.
-              </span>
-            </h2>
-
-          </div>
+      <header className="fixed inset-x-0 top-0 z-50">
+        <nav className="mx-auto mt-4 flex max-w-[1400px] items-center justify-between rounded-full border border-white/[0.09] bg-[#0a0a0a]/75 px-4 py-3 shadow-2xl shadow-black/20 backdrop-blur-2xl sm:px-6">
 
           <Link
-            href="/work/projects"
-            className="group flex w-fit items-center gap-3 text-sm text-white/40 transition hover:text-white"
+            href="/"
+            className="flex items-center gap-3"
           >
-            View all projects
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-black text-black">
+              TJ
+            </span>
 
-            <span className="transition-transform group-hover:translate-x-1">
-              →
+            <span className="hidden text-sm font-medium tracking-tight sm:block">
+              Thompson Joshua
             </span>
           </Link>
 
+          <div className="hidden items-center gap-8 md:flex">
+            <Link
+              href="#about"
+              className="text-sm text-white/45 transition hover:text-white"
+            >
+              About
+            </Link>
+
+            <Link
+              href="#work"
+              className="text-sm text-white/45 transition hover:text-white"
+            >
+              Work
+            </Link>
+
+            <Link
+              href="#skills"
+              className="text-sm text-white/45 transition hover:text-white"
+            >
+              Skills
+            </Link>
+
+            <Link
+              href="#contact"
+              className="text-sm text-white/45 transition hover:text-white"
+            >
+              Contact
+            </Link>
+          </div>
+
+          <Link
+            href="#contact"
+            className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:scale-105"
+          >
+            Let's talk
+          </Link>
+        </nav>
+      </header>
+
+      {/* =========================================================
+          HERO
+      ========================================================= */}
+
+      <section className="relative flex min-h-screen items-center">
+
+        {/* background glow */}
+        <div className="pointer-events-none absolute left-1/2 top-[25%] h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/[0.035] blur-[140px]" />
+
+        <div className="pointer-events-none absolute inset-0 opacity-[0.025]">
+          <div
+            className="h-full w-full"
+            style={{
+              backgroundImage:
+                'linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)',
+              backgroundSize: '100px 100px',
+            }}
+          />
         </div>
 
-        <div className="mt-20 space-y-24">
+        <div className="relative mx-auto w-full max-w-[1400px] px-5 pb-20 pt-36 sm:px-8 lg:px-12">
 
-          {projects.map((project) => (
+          <div className="flex flex-col">
 
-            <article key={project.number}>
+            {/* availability */}
+            <div className="mb-10 flex items-center gap-3">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+              </span>
 
-              <Link
-                href={project.href}
-                className="group block"
-              >
+              <span className="text-xs font-medium uppercase tracking-[0.25em] text-white/45">
+                Available for selected projects
+              </span>
+            </div>
 
-                <div className="relative min-h-[380px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#090909] md:min-h-[560px]">
+            {/* headline */}
+            <h1 className="max-w-[1250px] text-[clamp(4rem,11vw,10.5rem)] font-semibold leading-[0.82] tracking-[-0.085em]">
 
-                  {/* REAL SCREENSHOT */}
-                  {project.image ? (
+              <span className="block">
+                Thompson
+              </span>
 
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} project screenshot`}
-                      fill
-                      priority={project.number === '01'}
-                      sizes="(max-width: 768px) 100vw, 1200px"
-                      className="object-cover object-top transition duration-700 group-hover:scale-[1.025]"
-                    />
+              <span className="block text-white/25">
+                Joshua.
+              </span>
 
-                  ) : (
+            </h1>
 
-                    /* T'S FARM */
-                    <>
-                      <div className="absolute inset-0 bg-gradient-to-br from-green-950 via-[#07110a] to-black" />
+            <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
 
-                      <div className="absolute left-[8%] top-[12%] h-56 w-56 rounded-full border border-emerald-400/[0.08] transition duration-700 group-hover:scale-125" />
+              <div className="max-w-2xl">
 
-                      <div className="absolute right-[8%] top-[15%] h-80 w-80 rounded-full border border-white/[0.05] transition duration-700 group-hover:scale-110" />
+                <p className="text-xl leading-8 text-white/55 sm:text-2xl sm:leading-9">
+                  Web developer and digital builder creating
+                  <span className="text-white">
+                    {' '}modern digital experiences
+                  </span>
+                  {' '}for businesses, organisations and ideas worth building.
+                </p>
 
-                      <div className="absolute bottom-[8%] left-[35%] h-64 w-64 rounded-full border border-white/[0.04]" />
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    href="#work"
+                    className="group inline-flex items-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
+                  >
+                    Explore my work
 
-                      <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="transition-transform group-hover:translate-x-1">
+                      ↗
+                    </span>
+                  </Link>
 
-                        <div className="text-center transition duration-700 group-hover:scale-105">
-
-                          <p className="text-[clamp(5rem,14vw,13rem)] font-bold leading-none tracking-[-0.11em] text-white/[0.06]">
-                            FARM
-                          </p>
-
-                          <div className="mx-auto mt-6 h-px w-24 bg-emerald-400/20" />
-
-                          <p className="mt-5 text-xs uppercase tracking-[0.5em] text-white/30">
-                            Integrated Agribusiness
-                          </p>
-
-                        </div>
-
-                      </div>
-                    </>
-
-                  )}
-
-                  {/* OVERLAY */}
-                  {project.image && (
-                    <div className="absolute inset-0 bg-black/15 transition duration-500 group-hover:bg-black/5" />
-                  )}
-
-                  {/* NUMBER */}
-                  <div className="absolute left-7 top-7 rounded-full border border-white/15 bg-black/50 px-4 py-2 text-xs text-white/65 backdrop-blur-xl">
-                    {project.number}
-                  </div>
-
-                  {/* CATEGORY */}
-                  <div className="absolute bottom-7 left-7 rounded-full border border-white/15 bg-black/50 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-white/65 backdrop-blur-xl">
-                    {project.type}
-                  </div>
-
-                  {/* ARROW */}
-                  <div className="absolute bottom-7 right-7 flex h-14 w-14 items-center justify-center rounded-full border border-white/15 bg-black/50 text-xl text-white/70 backdrop-blur-xl transition duration-300 group-hover:translate-x-1 group-hover:bg-white group-hover:text-black">
-                    ↗
-                  </div>
-
+                  <Link
+                    href="#contact"
+                    className="inline-flex items-center rounded-full border border-white/10 px-7 py-4 text-sm font-medium text-white/60 transition hover:border-white/25 hover:text-white"
+                  >
+                    Start a project
+                  </Link>
                 </div>
 
-              </Link>
+              </div>
 
-              <div className="mt-7 grid gap-6 md:grid-cols-2">
+              <div className="hidden lg:block">
+                <div className="flex items-center gap-3 text-right">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/25">
+                      Based in
+                    </p>
+                    <p className="mt-1 text-sm text-white/60">
+                      Nigeria
+                    </p>
+                  </div>
 
-                <div>
+                  <span className="h-12 w-px bg-white/10" />
 
-                  <p className="text-xs uppercase tracking-[0.25em] text-white/25">
-                    {project.type}
-                  </p>
-
-                  <h3 className="mt-3 text-3xl font-semibold tracking-[-0.05em] md:text-4xl">
-                    {project.title}
-                  </h3>
-
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/25">
+                      Focus
+                    </p>
+                    <p className="mt-1 text-sm text-white/60">
+                      Web & Digital
+                    </p>
+                  </div>
                 </div>
+              </div>
 
-                <p className="max-w-xl text-sm leading-7 text-white/35">
-                  {project.description}
+            </div>
+
+          </div>
+
+          {/* scroll indicator */}
+          <div className="mt-24 flex items-center gap-4 text-xs uppercase tracking-[0.25em] text-white/25">
+            <span className="h-px w-12 bg-white/15" />
+            Scroll to explore
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================
+          INTRO / ABOUT
+      ========================================================= */}
+
+      <section
+        id="about"
+        className="border-y border-white/[0.08]"
+      >
+        <div className="mx-auto max-w-[1400px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36">
+
+          <div className="grid gap-16 lg:grid-cols-[0.35fr_1fr]">
+
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
+                01 — About
+              </p>
+            </div>
+
+            <div>
+
+              <h2 className="max-w-5xl text-3xl font-medium leading-[1.1] tracking-[-0.055em] sm:text-5xl lg:text-6xl">
+                I build digital products with a
+                <span className="text-white/25">
+                  {' '}developer's mindset
+                </span>
+                {' '}and a
+                <span className="text-white/25">
+                  {' '}business perspective.
+                </span>
+              </h2>
+
+              <div className="mt-12 grid gap-10 md:grid-cols-2">
+
+                <p className="text-base leading-8 text-white/40">
+                  I enjoy taking ideas from the early concept stage and
+                  turning them into polished, functional digital experiences.
+                  My work combines development, design thinking and practical
+                  business strategy.
+                </p>
+
+                <p className="text-base leading-8 text-white/40">
+                  From marine marketplaces and education platforms to
+                  agricultural ventures, I focus on building experiences that
+                  are useful, clear, responsive and ready to grow.
                 </p>
 
               </div>
 
-            </article>
+            </div>
 
-          ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================================
+          WORK
+      ========================================================= */}
+
+      <section
+        id="work"
+        className="mx-auto max-w-[1400px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36"
+      >
+
+        <div className="flex flex-col justify-between gap-10 md:flex-row md:items-end">
+
+          <div>
+
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
+              02 — Selected Work
+            </p>
+
+            <h2 className="mt-6 text-5xl font-semibold tracking-[-0.075em] sm:text-7xl lg:text-8xl">
+              Selected
+              <span className="text-white/20">
+                {' '}work.
+              </span>
+            </h2>
+
+          </div>
+
+          <p className="max-w-sm text-sm leading-7 text-white/35">
+            A selection of websites, digital experiences and business
+            concepts I've worked on.
+          </p>
 
         </div>
 
-        <div className="mt-20 text-center">
+        <div className="mt-20 space-y-32">
 
-          <Link
-            href="/work/projects"
-            className="inline-flex items-center gap-3 rounded-full border border-white/10 px-7 py-4 text-sm text-white/50 transition hover:bg-white hover:text-black"
-          >
-            Explore all projects
-            <span>→</span>
-          </Link>
+          {projects.map((project) => {
+
+            const currentImage =
+              activeImage[project.title] ?? 0
+
+            return (
+              <article
+                key={project.number}
+                className="group"
+              >
+
+                {/* PROJECT VISUAL */}
+
+                <Link
+                  href={project.href}
+                  className="block"
+                >
+
+                  <div className="relative overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#0c0c0c] sm:rounded-[2rem]">
+
+                    {project.featured ? (
+
+                      <div className="relative aspect-[16/10] overflow-hidden">
+
+                        <Image
+                          src={project.images[currentImage]}
+                          alt={`${project.title} screenshot`}
+                          fill
+                          priority={project.number === '01'}
+                          sizes="(max-width: 768px) 100vw, 1400px"
+                          className="object-cover object-top transition duration-700 group-hover:scale-[1.015]"
+                        />
+
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
+
+                        {/* project number */}
+
+                        <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-xs font-medium text-white/70 backdrop-blur-xl sm:left-7 sm:top-7">
+                          {project.number}
+                        </div>
+
+                        {/* open button */}
+
+                        <div className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-black/40 text-lg text-white/70 backdrop-blur-xl transition duration-300 group-hover:bg-white group-hover:text-black sm:right-7 sm:top-7">
+                          ↗
+                        </div>
+
+                        {/* category */}
+
+                        <div className="absolute bottom-5 left-5 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-white/70 backdrop-blur-xl sm:bottom-7 sm:left-7 sm:px-5 sm:py-2.5">
+                          {project.type}
+                        </div>
+
+                      </div>
+
+                    ) : (
+
+                      <div className="relative aspect-[16/10] overflow-hidden bg-[#0a0d0a]">
+
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(120,170,110,0.13),transparent_42%)]" />
+
+                        <div className="absolute left-[10%] top-[18%] h-40 w-40 rounded-full border border-white/[0.06] sm:h-72 sm:w-72" />
+
+                        <div className="absolute bottom-[5%] right-[12%] h-52 w-52 rounded-full border border-white/[0.04] sm:h-96 sm:w-96" />
+
+                        <div className="absolute inset-0 flex items-center justify-center">
+
+                          <div className="text-center">
+
+                            <p className="text-[clamp(4rem,13vw,11rem)] font-semibold leading-none tracking-[-0.1em] text-white/[0.07]">
+                              T'S FARM
+                            </p>
+
+                            <div className="mx-auto mt-5 h-px w-16 bg-white/20" />
+
+                            <p className="mt-5 text-[10px] uppercase tracking-[0.35em] text-white/30">
+                              Integrated Agribusiness
+                            </p>
+
+                          </div>
+
+                        </div>
+
+                        <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-xs text-white/70 backdrop-blur-xl sm:left-7 sm:top-7">
+                          {project.number}
+                        </div>
+
+                        <div className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-black/40 text-lg text-white/70 backdrop-blur-xl transition group-hover:bg-white group-hover:text-black sm:right-7 sm:top-7">
+                          ↗
+                        </div>
+
+                      </div>
+
+                    )}
+
+                  </div>
+
+                </Link>
+
+                {/* image selector */}
+
+                {project.featured && (
+                  <div className="mt-4 flex items-center gap-2">
+
+                    {project.images.map((_, index) => (
+                      <button
+                        key={index}
+                        type="button"
+                        onClick={() =>
+                          changeImage(project.title, index)
+                        }
+                        aria-label={`View ${project.title} image ${index + 1}`}
+                        className={`h-1 rounded-full transition-all ${
+                          currentImage === index
+                            ? 'w-10 bg-white'
+                            : 'w-5 bg-white/15 hover:bg-white/35'
+                        }`}
+                      />
+                    ))}
+
+                  </div>
+                )}
+
+                {/* project information */}
+
+                <div className="mt-8 grid gap-8 lg:grid-cols-[0.75fr_1fr] lg:items-start">
+
+                  <div>
+
+                    <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/25">
+                      {project.type}
+                    </p>
+
+                    <h3 className="mt-3 text-4xl font-semibold tracking-[-0.06em] sm:text-5xl">
+                      {project.title}
+                    </h3>
+
+                  </div>
+
+                  <div className="max-w-2xl">
+
+                    <p className="text-base leading-8 text-white/40">
+                      {project.description}
+                    </p>
+
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-white/[0.09] px-4 py-2 text-xs text-white/40"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </article>
+            )
+          })}
 
         </div>
 
       </section>
 
-      {/* SKILLS */}
-      <section
-        id="skills"
-        className="border-y border-white/10"
-      >
+      {/* =========================================================
+          CAPABILITIES
+      ========================================================= */}
 
-        <div className="mx-auto max-w-7xl px-6 py-32 lg:px-10">
+      <section className="border-y border-white/[0.08]">
 
-          <p className="text-xs uppercase tracking-[0.3em] text-white/25">
-            03 — Skills
-          </p>
+        <div
+          id="skills"
+          className="mx-auto max-w-[1400px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36"
+        >
 
-          <h2 className="mt-6 max-w-3xl text-5xl font-semibold tracking-[-0.07em] md:text-7xl">
-            Tools I use to
-            <br />
-            <span className="text-white/20">
-              build.
-            </span>
-          </h2>
+          <div className="grid gap-16 lg:grid-cols-[0.35fr_1fr]">
 
-          <div className="mt-16 flex flex-wrap gap-3">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
+                03 — Capabilities
+              </p>
+            </div>
 
-            {skills.map((skill) => (
+            <div>
 
-              <span
-                key={skill}
-                className="rounded-full border border-white/10 px-6 py-3 text-sm text-white/40 transition hover:border-white/25 hover:text-white"
-              >
-                {skill}
-              </span>
+              <h2 className="max-w-4xl text-4xl font-semibold tracking-[-0.065em] sm:text-6xl">
+                From idea to
+                <span className="text-white/20">
+                  {' '}digital product.
+                </span>
+              </h2>
 
-            ))}
+              <div className="mt-14 grid border-l border-white/[0.08]">
+
+                <div className="border-b border-white/[0.08] px-6 py-7 sm:px-8">
+
+                  <div className="flex flex-col justify-between gap-3 sm:flex-row">
+
+                    <h3 className="text-xl font-medium">
+                      Web Development
+                    </h3>
+
+                    <span className="text-sm text-white/25">
+                      01
+                    </span>
+
+                  </div>
+
+                  <p className="mt-4 max-w-2xl text-sm leading-7 text-white/35">
+                    Responsive websites and web applications built with
+                    modern technologies and a focus on performance,
+                    usability and maintainability.
+                  </p>
+
+                </div>
+
+                <div className="border-b border-white/[0.08] px-6 py-7 sm:px-8">
+
+                  <div className="flex flex-col justify-between gap-3 sm:flex-row">
+
+                    <h3 className="text-xl font-medium">
+                      Product & UI Design
+                    </h3>
+
+                    <span className="text-sm text-white/25">
+                      02
+                    </span>
+
+                  </div>
+
+                  <p className="mt-4 max-w-2xl text-sm leading-7 text-white/35">
+                    Clean interfaces and thoughtful user experiences
+                    designed around real users and real business goals.
+                  </p>
+
+                </div>
+
+                <div className="border-b border-white/[0.08] px-6 py-7 sm:px-8">
+
+                  <div className="flex flex-col justify-between gap-3 sm:flex-row">
+
+                    <h3 className="text-xl font-medium">
+                      Digital Business
+                    </h3>
+
+                    <span className="text-sm text-white/25">
+                      03
+                    </span>
+
+                  </div>
+
+                  <p className="mt-4 max-w-2xl text-sm leading-7 text-white/35">
+                    Combining technology and business thinking to turn
+                    concepts into practical digital solutions.
+                  </p>
+
+                </div>
+
+              </div>
+
+              {/* technology list */}
+
+              <div className="mt-14">
+
+                <p className="text-xs uppercase tracking-[0.2em] text-white/25">
+                  Technology
+                </p>
+
+                <div className="mt-6 flex flex-wrap gap-2.5">
+
+                  {skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-full border border-white/[0.09] px-5 py-3 text-sm text-white/45 transition hover:border-white/25 hover:text-white"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+
+                </div>
+
+              </div>
+
+            </div>
 
           </div>
 
@@ -401,41 +636,50 @@ export default function Home() {
 
       </section>
 
-      {/* CONTACT */}
+      {/* =========================================================
+          CTA
+      ========================================================= */}
+
       <section
         id="contact"
-        className="mx-auto max-w-7xl px-6 py-32 lg:px-10"
+        className="relative overflow-hidden"
       >
 
-        <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.025] px-6 py-24 text-center md:px-16">
+        <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.025] blur-[150px]" />
 
-          <div className="absolute left-1/2 top-0 h-80 w-80 -translate-x-1/2 rounded-full bg-white/[0.025] blur-3xl" />
+        <div className="relative mx-auto max-w-[1400px] px-5 py-32 sm:px-8 lg:px-12 lg:py-44">
 
-          <div className="relative">
+          <div className="max-w-5xl">
 
-            <p className="text-xs uppercase tracking-[0.3em] text-white/25">
-              04 — Contact
+            <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
+              04 — Let's work together
             </p>
 
-            <h2 className="mx-auto mt-7 max-w-4xl text-5xl font-semibold leading-[0.9] tracking-[-0.08em] md:text-8xl">
-              Have an idea?
+            <h2 className="mt-8 text-[clamp(3.5rem,8vw,8rem)] font-semibold leading-[0.86] tracking-[-0.08em]">
+
+              Have something
               <br />
+
               <span className="text-white/20">
-                Let's build it.
+                worth building?
               </span>
+
             </h2>
 
-            <p className="mx-auto mt-10 max-w-xl text-base leading-7 text-white/35">
-              Whether you're building a website, launching a digital
-              product or developing a new business idea, I'd love to hear
-              about it.
+            <p className="mt-10 max-w-xl text-base leading-8 text-white/40 sm:text-lg">
+              Tell me what you're working on, what you're trying to solve,
+              or simply what you're dreaming up.
             </p>
 
             <a
               href="mailto:hello@thompsonjoshua.com"
-              className="mt-10 inline-flex rounded-full bg-white px-8 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
+              className="group mt-10 inline-flex items-center gap-5 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
             >
-              Start a conversation
+              hello@thompsonjoshua.com
+
+              <span className="transition-transform group-hover:translate-x-1">
+                ↗
+              </span>
             </a>
 
           </div>
@@ -444,32 +688,69 @@ export default function Home() {
 
       </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-white/10">
+      {/* =========================================================
+          FOOTER
+      ========================================================= */}
 
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 px-6 py-10 sm:flex-row sm:items-center lg:px-10">
+      <footer className="border-t border-white/[0.08]">
 
-          <p className="text-sm text-white/25">
-            © 2026 Thompson Joshua.
-          </p>
+        <div className="mx-auto flex max-w-[1400px] flex-col justify-between gap-8 px-5 py-10 sm:px-8 md:flex-row md:items-center lg:px-12">
 
-          <div className="flex gap-6">
+          <div>
+
+            <div className="flex items-center gap-3">
+
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-xs font-black text-black">
+                TJ
+              </span>
+
+              <span className="text-sm text-white/50">
+                Thompson Joshua
+              </span>
+
+            </div>
+
+            <p className="mt-3 text-xs text-white/20">
+              Web Developer · Digital Builder
+            </p>
+
+          </div>
+
+          <div className="flex flex-wrap gap-6">
 
             <Link
-              href="/work/projects"
-              className="text-sm text-white/25 transition hover:text-white"
+              href="#about"
+              className="text-xs text-white/25 transition hover:text-white"
+            >
+              About
+            </Link>
+
+            <Link
+              href="#work"
+              className="text-xs text-white/25 transition hover:text-white"
             >
               Work
             </Link>
 
+            <Link
+              href="#contact"
+              className="text-xs text-white/25 transition hover:text-white"
+            >
+              Contact
+            </Link>
+
             <a
               href="mailto:hello@thompsonjoshua.com"
-              className="text-sm text-white/25 transition hover:text-white"
+              className="text-xs text-white/25 transition hover:text-white"
             >
               Email
             </a>
 
           </div>
+
+          <p className="text-xs text-white/20">
+            © 2026
+          </p>
 
         </div>
 
