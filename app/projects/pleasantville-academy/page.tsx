@@ -25,6 +25,7 @@ export default function PleasantvilleAcademyPage() {
       {/* NAV */}
       <nav className="border-b border-white/10">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
+
           <Link
             href="/"
             className="text-xl font-bold tracking-[-0.07em]"
@@ -38,14 +39,17 @@ export default function PleasantvilleAcademyPage() {
           >
             ← Back to work
           </Link>
+
         </div>
       </nav>
 
       {/* HERO */}
       <section className="mx-auto max-w-7xl px-6 py-24 lg:px-10 lg:py-36">
+
         <div className="max-w-5xl">
 
           <div className="flex flex-wrap items-center gap-3">
+
             <span className="text-xs uppercase tracking-[0.3em] text-white/30">
               02 — Case Study
             </span>
@@ -55,6 +59,7 @@ export default function PleasantvilleAcademyPage() {
             <span className="text-xs uppercase tracking-[0.2em] text-white/30">
               Education Platform
             </span>
+
           </div>
 
           <h1 className="mt-10 text-[clamp(4rem,10vw,9rem)] font-semibold leading-[0.82] tracking-[-0.085em]">
@@ -87,24 +92,30 @@ export default function PleasantvilleAcademyPage() {
             </span>
 
           </div>
+
         </div>
+
       </section>
 
       {/* PROJECT VISUAL */}
       <section className="mx-auto max-w-7xl px-6 lg:px-10">
+
         <div className="relative min-h-[420px] overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-amber-950 via-orange-950/30 to-black md:min-h-[620px]">
 
-          {/* Decorative geometry */}
           <div className="absolute inset-0">
+
             <div className="absolute left-[8%] top-[18%] h-48 w-48 rounded-full border border-white/10" />
+
             <div className="absolute right-[10%] top-[12%] h-72 w-72 rounded-full border border-white/[0.06]" />
+
             <div className="absolute bottom-[5%] left-[30%] h-80 w-80 rounded-full border border-white/[0.05]" />
+
           </div>
 
-          {/* Browser */}
           <div className="absolute left-[7%] right-[7%] top-[12%] overflow-hidden rounded-2xl border border-white/10 bg-black/40 shadow-2xl backdrop-blur-xl">
 
             <div className="flex h-10 items-center gap-2 border-b border-white/10 px-4">
+
               <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
               <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
               <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
@@ -112,11 +123,13 @@ export default function PleasantvilleAcademyPage() {
               <div className="ml-3 flex-1 rounded-md border border-white/10 bg-white/[0.04] px-3 py-1 text-[9px] text-white/25">
                 pleasantville-academy.vercel.app
               </div>
+
             </div>
 
             <div className="relative h-[280px] md:h-[390px]">
 
               <div className="absolute left-8 top-8 md:left-12 md:top-12">
+
                 <p className="text-[9px] uppercase tracking-[0.3em] text-white/40">
                   Education · Excellence · Future
                 </p>
@@ -131,17 +144,21 @@ export default function PleasantvilleAcademyPage() {
 
                 <div className="mt-7 h-2 w-24 rounded-full bg-white/20" />
                 <div className="mt-3 h-2 w-40 rounded-full bg-white/10" />
+
               </div>
 
               <div className="absolute bottom-8 right-8 h-28 w-28 rounded-full border border-white/10 md:h-44 md:w-44" />
 
             </div>
+
           </div>
 
           <div className="absolute bottom-8 left-8 rounded-full border border-white/10 bg-black/40 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-white/40 backdrop-blur-xl">
             Education Platform
           </div>
+
         </div>
+
       </section>
 
       {/* OVERVIEW */}
@@ -150,9 +167,11 @@ export default function PleasantvilleAcademyPage() {
         <div className="grid gap-16 lg:grid-cols-[0.65fr_1.35fr]">
 
           <div>
+
             <p className="text-xs uppercase tracking-[0.3em] text-white/25">
               01 — Overview
             </p>
+
           </div>
 
           <div>
@@ -175,7 +194,9 @@ export default function PleasantvilleAcademyPage() {
             </p>
 
           </div>
+
         </div>
+
       </section>
 
       {/* ROLE */}
@@ -184,6 +205,7 @@ export default function PleasantvilleAcademyPage() {
         <div className="mx-auto grid max-w-7xl gap-16 px-6 py-24 md:grid-cols-2 lg:px-10">
 
           <div>
+
             <p className="text-xs uppercase tracking-[0.3em] text-white/25">
               My role
             </p>
@@ -191,18 +213,22 @@ export default function PleasantvilleAcademyPage() {
             <h2 className="mt-6 text-4xl font-semibold tracking-[-0.05em]">
               From concept to launch.
             </h2>
+
           </div>
 
           <div className="space-y-6 text-white/40">
+
             <p>Website planning</p>
             <p>Information architecture</p>
             <p>UI implementation</p>
             <p>Responsive development</p>
             <p>Content presentation</p>
             <p>Production deployment</p>
+
           </div>
 
         </div>
+
       </section>
 
       {/* FEATURES */}
@@ -219,10 +245,12 @@ export default function PleasantvilleAcademyPage() {
         <div className="mt-14 grid gap-px overflow-hidden rounded-[2rem] border border-white/10 bg-white/10 md:grid-cols-2">
 
           {features.map((feature, index) => (
+
             <div
               key={feature}
               className="bg-[#050505] p-8 transition hover:bg-white/[0.04]"
             >
+
               <span className="text-xs text-white/20">
                 {String(index + 1).padStart(2, '0')}
               </span>
@@ -230,10 +258,13 @@ export default function PleasantvilleAcademyPage() {
               <h3 className="mt-8 text-lg font-medium">
                 {feature}
               </h3>
+
             </div>
+
           ))}
 
         </div>
+
       </section>
 
       {/* TECHNOLOGY */}
@@ -248,76 +279,106 @@ export default function PleasantvilleAcademyPage() {
           <div className="mt-10 flex flex-wrap gap-3">
 
             {technologies.map((technology) => (
+
               <span
                 key={technology}
                 className="rounded-full border border-white/10 px-5 py-3 text-sm text-white/45"
               >
                 {technology}
               </span>
+
             ))}
 
           </div>
 
         </div>
+
       </section>
 
-      {/* LIVE PROJECT CTA */}
+      {/* PROJECT NAVIGATION */}
       <section className="mx-auto max-w-7xl px-6 py-32 lg:px-10">
 
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.025] p-8 md:p-16 lg:p-24">
+        <div className="grid gap-4 md:grid-cols-2">
 
-          <p className="text-xs uppercase tracking-[0.3em] text-white/25">
-            Explore the project
-          </p>
+          {/* PREVIOUS */}
+          <Link
+            href="/projects/data-marine"
+            className="group rounded-[2rem] border border-white/10 bg-white/[0.025] p-8 transition duration-300 hover:bg-white/[0.05] md:p-12"
+          >
 
-          <h2 className="mt-8 max-w-4xl text-5xl font-semibold leading-[0.92] tracking-[-0.07em] md:text-7xl">
-            See Pleasantville
-            <br />
-            <span className="text-white/25">
-              in action.
-            </span>
-          </h2>
+            <p className="text-xs uppercase tracking-[0.25em] text-white/25">
+              Previous project
+            </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-12 flex items-end justify-between">
 
-            <a
-              href="https://pleasantville-academy.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
-            >
-              Visit live website ↗
-            </a>
+              <div>
 
-            <Link
-              href="/projects/data-marine"
-              className="rounded-full border border-white/15 px-7 py-4 text-sm text-white/60 transition hover:bg-white hover:text-black"
-            >
-              ← Previous project
-            </Link>
+                <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                  Marine Marketplace
+                </p>
 
-          </div>
+                <h3 className="mt-3 text-3xl font-semibold tracking-[-0.05em]">
+                  Data Marine
+                </h3>
+
+              </div>
+
+              <span className="text-3xl transition-transform duration-300 group-hover:-translate-x-2">
+                ←
+              </span>
+
+            </div>
+
+          </Link>
+
+          {/* NEXT */}
+          <Link
+            href="/projects/ts-farm"
+            className="group rounded-[2rem] border border-white/10 bg-white/[0.025] p-8 transition duration-300 hover:bg-white/[0.05] md:p-12"
+          >
+
+            <p className="text-xs uppercase tracking-[0.25em] text-white/25">
+              Next project
+            </p>
+
+            <div className="mt-12 flex items-end justify-between">
+
+              <div>
+
+                <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                  Agribusiness
+                </p>
+
+                <h3 className="mt-3 text-3xl font-semibold tracking-[-0.05em]">
+                  T'S Farm
+                </h3>
+
+              </div>
+
+              <span className="text-3xl transition-transform duration-300 group-hover:translate-x-2">
+                →
+              </span>
+
+            </div>
+
+          </Link>
 
         </div>
+
       </section>
 
       {/* FOOTER */}
       <footer className="border-t border-white/10">
 
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-10 lg:px-10">
+        <div className="mx-auto max-w-7xl px-6 py-10 lg:px-10">
 
           <p className="text-sm text-white/25">
             © 2026 Thompson Joshua.
           </p>
 
-          <Link
-            href="/"
-            className="text-sm text-white/30 transition hover:text-white"
-          >
-            Portfolio ↑
-          </Link>
-
         </div>
+
       </footer>
 
     </main>
