@@ -4,7 +4,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 
-const projects = [
+type Project = {
+  number: string
+  type: string
+  title: string
+  description: string
+  tags: string[]
+  images: string[]
+  href: string
+  featured: boolean
+}
+
+const projects: Project[] = [
   {
     number: '01',
     type: 'Marine Marketplace',
@@ -40,8 +51,9 @@ const projects = [
     type: 'Agribusiness',
     title: "T'S Farm",
     description:
-      'An integrated agribusiness concept connecting farming, processing, packaging, distribution and direct customer delivery.',
+      'An integrated agricultural business concept connecting farming, processing, packaging, distribution and direct customer delivery.',
     tags: ['Business', 'Strategy', 'Digital'],
+    images: [],
     href: '/projects/ts-farm',
     featured: false,
   },
@@ -77,7 +89,7 @@ export default function Home() {
       ========================================================= */}
 
       <header className="fixed inset-x-0 top-0 z-50">
-        <nav className="mx-auto mt-4 flex max-w-[1400px] items-center justify-between rounded-full border border-white/[0.09] bg-[#0a0a0a]/75 px-4 py-3 shadow-2xl shadow-black/20 backdrop-blur-2xl sm:px-6">
+        <nav className="mx-auto mt-4 flex max-w-[1400px] items-center justify-between rounded-full border border-white/[0.09] bg-[#0a0a0a]/80 px-4 py-3 shadow-2xl shadow-black/20 backdrop-blur-2xl sm:px-6">
 
           <Link
             href="/"
@@ -128,6 +140,7 @@ export default function Home() {
           >
             Let's talk
           </Link>
+
         </nav>
       </header>
 
@@ -137,7 +150,6 @@ export default function Home() {
 
       <section className="relative flex min-h-screen items-center">
 
-        {/* background glow */}
         <div className="pointer-events-none absolute left-1/2 top-[25%] h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/[0.035] blur-[140px]" />
 
         <div className="pointer-events-none absolute inset-0 opacity-[0.025]">
@@ -155,8 +167,8 @@ export default function Home() {
 
           <div className="flex flex-col">
 
-            {/* availability */}
             <div className="mb-10 flex items-center gap-3">
+
               <span className="relative flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
@@ -165,9 +177,9 @@ export default function Home() {
               <span className="text-xs font-medium uppercase tracking-[0.25em] text-white/45">
                 Available for selected projects
               </span>
+
             </div>
 
-            {/* headline */}
             <h1 className="max-w-[1250px] text-[clamp(4rem,11vw,10.5rem)] font-semibold leading-[0.82] tracking-[-0.085em]">
 
               <span className="block">
@@ -193,6 +205,7 @@ export default function Home() {
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
+
                   <Link
                     href="#work"
                     className="group inline-flex items-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
@@ -210,16 +223,20 @@ export default function Home() {
                   >
                     Start a project
                   </Link>
+
                 </div>
 
               </div>
 
               <div className="hidden lg:block">
+
                 <div className="flex items-center gap-3 text-right">
+
                   <div>
                     <p className="text-xs uppercase tracking-[0.2em] text-white/25">
                       Based in
                     </p>
+
                     <p className="mt-1 text-sm text-white/60">
                       Nigeria
                     </p>
@@ -231,34 +248,38 @@ export default function Home() {
                     <p className="text-xs uppercase tracking-[0.2em] text-white/25">
                       Focus
                     </p>
+
                     <p className="mt-1 text-sm text-white/60">
                       Web & Digital
                     </p>
                   </div>
+
                 </div>
+
               </div>
 
             </div>
 
           </div>
 
-          {/* scroll indicator */}
           <div className="mt-24 flex items-center gap-4 text-xs uppercase tracking-[0.25em] text-white/25">
             <span className="h-px w-12 bg-white/15" />
             Scroll to explore
           </div>
 
         </div>
+
       </section>
 
       {/* =========================================================
-          INTRO / ABOUT
+          ABOUT
       ========================================================= */}
 
       <section
         id="about"
         className="border-y border-white/[0.08]"
       >
+
         <div className="mx-auto max-w-[1400px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36">
 
           <div className="grid gap-16 lg:grid-cols-[0.35fr_1fr]">
@@ -274,7 +295,7 @@ export default function Home() {
               <h2 className="max-w-5xl text-3xl font-medium leading-[1.1] tracking-[-0.055em] sm:text-5xl lg:text-6xl">
                 I build digital products with a
                 <span className="text-white/25">
-                  {' '}developer's mindset
+                  {' '}developer&apos;s mindset
                 </span>
                 {' '}and a
                 <span className="text-white/25">
@@ -292,9 +313,9 @@ export default function Home() {
                 </p>
 
                 <p className="text-base leading-8 text-white/40">
-                  From marine marketplaces and education platforms to
-                  agricultural ventures, I focus on building experiences that
-                  are useful, clear, responsive and ready to grow.
+                  From marketplaces and education platforms to agricultural
+                  ventures, I focus on building experiences that are useful,
+                  clear, responsive and ready to grow.
                 </p>
 
               </div>
@@ -304,6 +325,7 @@ export default function Home() {
           </div>
 
         </div>
+
       </section>
 
       {/* =========================================================
@@ -334,7 +356,7 @@ export default function Home() {
 
           <p className="max-w-sm text-sm leading-7 text-white/35">
             A selection of websites, digital experiences and business
-            concepts I've worked on.
+            concepts I&apos;ve worked on.
           </p>
 
         </div>
@@ -343,16 +365,13 @@ export default function Home() {
 
           {projects.map((project) => {
 
-            const currentImage =
-              activeImage[project.title] ?? 0
+            const currentImage = activeImage[project.title] ?? 0
 
             return (
               <article
                 key={project.number}
                 className="group"
               >
-
-                {/* PROJECT VISUAL */}
 
                 <Link
                   href={project.href}
@@ -361,7 +380,7 @@ export default function Home() {
 
                   <div className="relative overflow-hidden rounded-[1.5rem] border border-white/[0.08] bg-[#0c0c0c] sm:rounded-[2rem]">
 
-                    {project.featured ? (
+                    {project.featured && project.images.length > 0 ? (
 
                       <div className="relative aspect-[16/10] overflow-hidden">
 
@@ -376,19 +395,13 @@ export default function Home() {
 
                         <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
 
-                        {/* project number */}
-
                         <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-xs font-medium text-white/70 backdrop-blur-xl sm:left-7 sm:top-7">
                           {project.number}
                         </div>
 
-                        {/* open button */}
-
                         <div className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-black/40 text-lg text-white/70 backdrop-blur-xl transition duration-300 group-hover:bg-white group-hover:text-black sm:right-7 sm:top-7">
                           ↗
                         </div>
-
-                        {/* category */}
 
                         <div className="absolute bottom-5 left-5 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.2em] text-white/70 backdrop-blur-xl sm:bottom-7 sm:left-7 sm:px-5 sm:py-2.5">
                           {project.type}
@@ -411,7 +424,7 @@ export default function Home() {
                           <div className="text-center">
 
                             <p className="text-[clamp(4rem,13vw,11rem)] font-semibold leading-none tracking-[-0.1em] text-white/[0.07]">
-                              T'S FARM
+                              T&apos;S FARM
                             </p>
 
                             <div className="mx-auto mt-5 h-px w-16 bg-white/20" />
@@ -440,12 +453,11 @@ export default function Home() {
 
                 </Link>
 
-                {/* image selector */}
-
-                {project.featured && (
+                {project.featured && project.images.length > 0 && (
                   <div className="mt-4 flex items-center gap-2">
 
                     {project.images.map((_, index) => (
+
                       <button
                         key={index}
                         type="button"
@@ -459,12 +471,11 @@ export default function Home() {
                             : 'w-5 bg-white/15 hover:bg-white/35'
                         }`}
                       />
+
                     ))}
 
                   </div>
                 )}
-
-                {/* project information */}
 
                 <div className="mt-8 grid gap-8 lg:grid-cols-[0.75fr_1fr] lg:items-start">
 
@@ -487,6 +498,7 @@ export default function Home() {
                     </p>
 
                     <div className="mt-6 flex flex-wrap gap-2">
+
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
@@ -495,6 +507,7 @@ export default function Home() {
                           {tag}
                         </span>
                       ))}
+
                     </div>
 
                   </div>
@@ -537,7 +550,7 @@ export default function Home() {
                 </span>
               </h2>
 
-              <div className="mt-14 grid border-l border-white/[0.08]">
+              <div className="mt-14 border-l border-white/[0.08]">
 
                 <div className="border-b border-white/[0.08] px-6 py-7 sm:px-8">
 
@@ -605,8 +618,6 @@ export default function Home() {
 
               </div>
 
-              {/* technology list */}
-
               <div className="mt-14">
 
                 <p className="text-xs uppercase tracking-[0.2em] text-white/25">
@@ -637,7 +648,7 @@ export default function Home() {
       </section>
 
       {/* =========================================================
-          CTA
+          CONTACT
       ========================================================= */}
 
       <section
@@ -652,7 +663,7 @@ export default function Home() {
           <div className="max-w-5xl">
 
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
-              04 — Let's work together
+              04 — Let&apos;s work together
             </p>
 
             <h2 className="mt-8 text-[clamp(3.5rem,8vw,8rem)] font-semibold leading-[0.86] tracking-[-0.08em]">
@@ -667,8 +678,8 @@ export default function Home() {
             </h2>
 
             <p className="mt-10 max-w-xl text-base leading-8 text-white/40 sm:text-lg">
-              Tell me what you're working on, what you're trying to solve,
-              or simply what you're dreaming up.
+              Tell me what you&apos;re working on, what you&apos;re trying to
+              solve, or simply what you&apos;re dreaming up.
             </p>
 
             <a
