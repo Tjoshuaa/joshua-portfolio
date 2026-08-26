@@ -7,7 +7,7 @@ const projects = [
     type: 'Marine Marketplace',
     title: 'Data Marine',
     description:
-      'A modern marine marketplace for boats, engines, equipment and custom boat-building solutions.',
+      'A modern marine marketplace for boats, marine engines, equipment and custom boat-building solutions.',
     href: '/projects/data-marine',
     image: '/projects/IMG_1985.jpeg',
   },
@@ -16,9 +16,9 @@ const projects = [
     type: 'Education Platform',
     title: 'Pleasantville Academy',
     description:
-      'A polished digital experience for an educational institution, designed around clarity and accessibility.',
+      'A modern educational website designed to communicate programmes, facilities, admissions and the academy experience.',
     href: '/projects/pleasantville-academy',
-    image: '/projects/IMG_1987.png',
+    image: '/projects/IMG_1988.png',
   },
   {
     number: '03',
@@ -27,7 +27,7 @@ const projects = [
     description:
       'An integrated agricultural business concept connecting production, processing, packaging and distribution.',
     href: '/projects/ts-farm',
-    image: '/projects/IMG_1989.png',
+    image: null,
   },
 ]
 
@@ -148,6 +148,7 @@ export default function Home() {
                 className="group flex w-fit items-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
               >
                 Explore my work
+
                 <span className="transition-transform group-hover:translate-x-1">
                   →
                 </span>
@@ -158,6 +159,7 @@ export default function Home() {
           </div>
 
         </div>
+
       </section>
 
       {/* ABOUT */}
@@ -230,6 +232,7 @@ export default function Home() {
             className="group flex w-fit items-center gap-3 text-sm text-white/40 transition hover:text-white"
           >
             View all projects
+
             <span className="transition-transform group-hover:translate-x-1">
               →
             </span>
@@ -248,31 +251,70 @@ export default function Home() {
                 className="group block"
               >
 
-                <div className="relative min-h-[380px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#0a0a0a] md:min-h-[560px]">
+                <div className="relative min-h-[380px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#090909] md:min-h-[560px]">
 
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} project`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 1200px"
-                    className="object-cover object-center transition duration-700 group-hover:scale-[1.03]"
-                  />
+                  {/* REAL SCREENSHOT */}
+                  {project.image ? (
 
-                  {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-black/35 transition duration-500 group-hover:bg-black/20" />
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} project screenshot`}
+                      fill
+                      priority={project.number === '01'}
+                      sizes="(max-width: 768px) 100vw, 1200px"
+                      className="object-cover object-top transition duration-700 group-hover:scale-[1.025]"
+                    />
 
-                  {/* Top number */}
-                  <div className="absolute left-7 top-7 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-xs text-white/60 backdrop-blur-xl">
+                  ) : (
+
+                    /* T'S FARM */
+                    <>
+                      <div className="absolute inset-0 bg-gradient-to-br from-green-950 via-[#07110a] to-black" />
+
+                      <div className="absolute left-[8%] top-[12%] h-56 w-56 rounded-full border border-emerald-400/[0.08] transition duration-700 group-hover:scale-125" />
+
+                      <div className="absolute right-[8%] top-[15%] h-80 w-80 rounded-full border border-white/[0.05] transition duration-700 group-hover:scale-110" />
+
+                      <div className="absolute bottom-[8%] left-[35%] h-64 w-64 rounded-full border border-white/[0.04]" />
+
+                      <div className="absolute inset-0 flex items-center justify-center">
+
+                        <div className="text-center transition duration-700 group-hover:scale-105">
+
+                          <p className="text-[clamp(5rem,14vw,13rem)] font-bold leading-none tracking-[-0.11em] text-white/[0.06]">
+                            FARM
+                          </p>
+
+                          <div className="mx-auto mt-6 h-px w-24 bg-emerald-400/20" />
+
+                          <p className="mt-5 text-xs uppercase tracking-[0.5em] text-white/30">
+                            Integrated Agribusiness
+                          </p>
+
+                        </div>
+
+                      </div>
+                    </>
+
+                  )}
+
+                  {/* OVERLAY */}
+                  {project.image && (
+                    <div className="absolute inset-0 bg-black/15 transition duration-500 group-hover:bg-black/5" />
+                  )}
+
+                  {/* NUMBER */}
+                  <div className="absolute left-7 top-7 rounded-full border border-white/15 bg-black/50 px-4 py-2 text-xs text-white/65 backdrop-blur-xl">
                     {project.number}
                   </div>
 
-                  {/* Bottom category */}
-                  <div className="absolute bottom-7 left-7 rounded-full border border-white/15 bg-black/40 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-white/60 backdrop-blur-xl">
+                  {/* CATEGORY */}
+                  <div className="absolute bottom-7 left-7 rounded-full border border-white/15 bg-black/50 px-5 py-2.5 text-xs uppercase tracking-[0.2em] text-white/65 backdrop-blur-xl">
                     {project.type}
                   </div>
 
-                  {/* Arrow */}
-                  <div className="absolute bottom-7 right-7 flex h-14 w-14 items-center justify-center rounded-full border border-white/15 bg-black/40 text-xl text-white/70 backdrop-blur-xl transition duration-300 group-hover:bg-white group-hover:text-black">
+                  {/* ARROW */}
+                  <div className="absolute bottom-7 right-7 flex h-14 w-14 items-center justify-center rounded-full border border-white/15 bg-black/50 text-xl text-white/70 backdrop-blur-xl transition duration-300 group-hover:translate-x-1 group-hover:bg-white group-hover:text-black">
                     ↗
                   </div>
 
