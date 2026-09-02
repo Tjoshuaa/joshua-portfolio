@@ -1,4 +1,4 @@
-```tsx
+
 'use client'
 
 import Image from 'next/image'
@@ -87,21 +87,35 @@ export default function Home() {
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
-            <Link href="#about" className="text-sm text-white/45 transition hover:text-white">
+
+            <Link
+              href="#about"
+              className="text-sm text-white/45 transition hover:text-white"
+            >
               About
             </Link>
 
-            <Link href="#work" className="text-sm text-white/45 transition hover:text-white">
+            <Link
+              href="#work"
+              className="text-sm text-white/45 transition hover:text-white"
+            >
               Work
             </Link>
 
-            <Link href="#skills" className="text-sm text-white/45 transition hover:text-white">
+            <Link
+              href="#skills"
+              className="text-sm text-white/45 transition hover:text-white"
+            >
               Skills
             </Link>
 
-            <Link href="#contact" className="text-sm text-white/45 transition hover:text-white">
+            <Link
+              href="#contact"
+              className="text-sm text-white/45 transition hover:text-white"
+            >
               Contact
             </Link>
+
           </div>
 
           <Link
@@ -121,6 +135,7 @@ export default function Home() {
         <div className="pointer-events-none absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/[0.035] blur-[140px]" />
 
         <div className="pointer-events-none absolute inset-0 opacity-[0.025]">
+
           <div
             className="h-full w-full"
             style={{
@@ -129,6 +144,7 @@ export default function Home() {
               backgroundSize: '100px 100px',
             }}
           />
+
         </div>
 
         <div className="relative mx-auto w-full max-w-[1380px] px-5 pb-20 pt-36 sm:px-8 lg:px-12">
@@ -136,17 +152,23 @@ export default function Home() {
           <div className="max-w-6xl">
 
             <div className="mb-10 flex items-center gap-3">
+
               <span className="relative flex h-2.5 w-2.5">
+
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
+
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+
               </span>
 
               <span className="text-xs font-medium uppercase tracking-[0.25em] text-white/45">
                 Business Strategist · Digital Builder
               </span>
+
             </div>
 
             <h1 className="text-[clamp(4rem,11vw,10.5rem)] font-semibold leading-[0.82] tracking-[-0.085em]">
+
               <span className="block">
                 I build
               </span>
@@ -158,6 +180,7 @@ export default function Home() {
               <span className="block">
                 experiences.
               </span>
+
             </h1>
 
             <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
@@ -165,9 +188,9 @@ export default function Home() {
               <div className="max-w-2xl">
 
                 <p className="text-xl leading-8 text-white/50 sm:text-2xl sm:leading-9">
-                  I&apos;m Thompson Joshua — a business strategist and digital
-                  builder creating modern websites and digital products
-                  that turn ideas into real-world solutions.
+                  I&apos;m Thompson Joshua — a business strategist and
+                  digital builder creating modern websites and digital
+                  products that turn ideas into real-world solutions.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -177,9 +200,11 @@ export default function Home() {
                     className="group inline-flex items-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
                   >
                     View my work
+
                     <span className="transition-transform group-hover:translate-x-1">
                       ↗
                     </span>
+
                   </Link>
 
                   <Link
@@ -198,6 +223,7 @@ export default function Home() {
                 <div className="flex items-center gap-5">
 
                   <div>
+
                     <p className="text-[10px] uppercase tracking-[0.25em] text-white/25">
                       Based in
                     </p>
@@ -205,11 +231,13 @@ export default function Home() {
                     <p className="mt-2 text-sm text-white/60">
                       Nigeria
                     </p>
+
                   </div>
 
                   <div className="h-10 w-px bg-white/10" />
 
                   <div>
+
                     <p className="text-[10px] uppercase tracking-[0.25em] text-white/25">
                       Focus
                     </p>
@@ -217,6 +245,7 @@ export default function Home() {
                     <p className="mt-2 text-sm text-white/60">
                       Business & Digital
                     </p>
+
                   </div>
 
                 </div>
@@ -228,8 +257,11 @@ export default function Home() {
           </div>
 
           <div className="mt-24 flex items-center gap-4 text-xs uppercase tracking-[0.25em] text-white/20">
+
             <span className="h-px w-12 bg-white/15" />
+
             Scroll to explore
+
           </div>
 
         </div>
@@ -238,26 +270,34 @@ export default function Home() {
 
       {/* ABOUT */}
 
-      <section id="about" className="border-y border-white/[0.08]">
+      <section
+        id="about"
+        className="border-y border-white/[0.08]"
+      >
 
         <div className="mx-auto max-w-[1380px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36">
 
           <div className="grid gap-16 lg:grid-cols-[0.35fr_1fr]">
 
             <div>
+
               <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
                 01 — About
               </p>
+
             </div>
 
             <div>
 
               <h2 className="max-w-5xl text-3xl font-medium leading-[1.08] tracking-[-0.055em] sm:text-5xl lg:text-6xl">
+
                 I combine technology, design and business thinking to build
                 digital experiences that
+
                 <span className="text-white/25">
                   {' '}actually work.
                 </span>
+
               </h2>
 
               <div className="mt-12 grid gap-10 md:grid-cols-2">
@@ -300,10 +340,13 @@ export default function Home() {
             </p>
 
             <h2 className="mt-6 text-5xl font-semibold tracking-[-0.075em] sm:text-7xl lg:text-8xl">
+
               Projects
+
               <span className="text-white/20">
                 {' '}I&apos;ve built.
               </span>
+
             </h2>
 
           </div>
@@ -315,7 +358,7 @@ export default function Home() {
 
         </div>
 
-        {/* PROJECTS */}
+        {/* PROJECT LIST */}
 
         <div className="mt-24 space-y-48">
 
@@ -326,7 +369,7 @@ export default function Home() {
               className="group"
             >
 
-              {/* PROJECT INTRODUCTION */}
+              {/* PROJECT HEADER */}
 
               <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:items-end">
 
@@ -361,12 +404,14 @@ export default function Home() {
                   <div className="mt-6 flex flex-wrap gap-2">
 
                     {project.tags.map((tag) => (
+
                       <span
                         key={tag}
                         className="rounded-full border border-white/[0.09] px-4 py-2 text-xs text-white/40"
                       >
                         {tag}
                       </span>
+
                     ))}
 
                   </div>
@@ -375,14 +420,13 @@ export default function Home() {
 
               </div>
 
-              {/* DATAMARINE / PLEASANTVILLE IMAGES
-                  STAY INSIDE THEIR OWN PROJECT SECTION */}
+              {/* PROJECT IMAGES */}
 
               {project.images.length > 0 && (
 
                 <div className="mt-16">
 
-                  {/* MAIN PROJECT IMAGE */}
+                  {/* MAIN IMAGE */}
 
                   <Link
                     href={project.href}
@@ -393,7 +437,7 @@ export default function Home() {
 
                       <Image
                         src={project.images[0]}
-                        alt={`${project.title} main project screenshot`}
+                        alt={project.title + ' main project screenshot'}
                         fill
                         priority={project.number === '01'}
                         sizes="100vw"
@@ -418,7 +462,7 @@ export default function Home() {
 
                   </Link>
 
-                  {/* SUPPORTING PROJECT IMAGES */}
+                  {/* SECONDARY IMAGES */}
 
                   {project.images.length > 1 && (
 
@@ -436,7 +480,11 @@ export default function Home() {
 
                             <Image
                               src={image}
-                              alt={`${project.title} project screenshot ${index + 2}`}
+                              alt={
+                                project.title +
+                                ' project screenshot ' +
+                                (index + 2)
+                              }
                               fill
                               sizes="(max-width: 768px) 100vw, 50vw"
                               className="object-cover object-top transition duration-700 group-hover/image:scale-[1.035]"
@@ -462,7 +510,7 @@ export default function Home() {
 
               )}
 
-              {/* T'S FARM VISUAL */}
+              {/* T'S FARM */}
 
               {project.images.length === 0 && (
 
@@ -519,11 +567,13 @@ export default function Home() {
                   href={project.href}
                   className="group/link flex items-center gap-3 text-sm text-white/45 transition hover:text-white"
                 >
+
                   Explore {project.title}
 
                   <span className="transition-transform group-hover/link:translate-x-1">
                     →
                   </span>
+
                 </Link>
 
               </div>
@@ -548,21 +598,28 @@ export default function Home() {
           <div className="grid gap-16 lg:grid-cols-[0.35fr_1fr]">
 
             <div>
+
               <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
                 03 — Capabilities
               </p>
+
             </div>
 
             <div>
 
               <h2 className="max-w-4xl text-4xl font-semibold tracking-[-0.065em] sm:text-6xl">
+
                 Building from
+
                 <span className="text-white/20">
                   {' '}idea to execution.
                 </span>
+
               </h2>
 
               <div className="mt-14 border-l border-white/[0.08]">
+
+                {/* CAPABILITY 1 */}
 
                 <div className="border-b border-white/[0.08] px-6 py-8 sm:px-8">
 
@@ -586,6 +643,8 @@ export default function Home() {
 
                 </div>
 
+                {/* CAPABILITY 2 */}
+
                 <div className="border-b border-white/[0.08] px-6 py-8 sm:px-8">
 
                   <div className="flex justify-between gap-5">
@@ -606,6 +665,8 @@ export default function Home() {
                   </p>
 
                 </div>
+
+                {/* CAPABILITY 3 */}
 
                 <div className="border-b border-white/[0.08] px-6 py-8 sm:px-8">
 
@@ -629,6 +690,8 @@ export default function Home() {
                 </div>
 
               </div>
+
+              {/* TECHNOLOGY */}
 
               <div className="mt-14">
 
@@ -663,7 +726,10 @@ export default function Home() {
 
       {/* CONTACT */}
 
-      <section id="contact" className="relative overflow-hidden">
+      <section
+        id="contact"
+        className="relative overflow-hidden"
+      >
 
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.025] blur-[150px]" />
 
@@ -678,6 +744,7 @@ export default function Home() {
             <h2 className="mt-8 text-[clamp(3.5rem,8vw,8rem)] font-semibold leading-[0.86] tracking-[-0.08em]">
 
               Have an idea
+
               <br />
 
               <span className="text-white/20">
@@ -700,6 +767,7 @@ export default function Home() {
               <span className="transition-transform group-hover:translate-x-1">
                 ↗
               </span>
+
             </a>
 
           </div>
@@ -736,19 +804,31 @@ export default function Home() {
 
           <div className="flex flex-wrap gap-6">
 
-            <Link href="#about" className="text-xs text-white/25 transition hover:text-white">
+            <Link
+              href="#about"
+              className="text-xs text-white/25 transition hover:text-white"
+            >
               About
             </Link>
 
-            <Link href="#work" className="text-xs text-white/25 transition hover:text-white">
+            <Link
+              href="#work"
+              className="text-xs text-white/25 transition hover:text-white"
+            >
               Work
             </Link>
 
-            <Link href="#skills" className="text-xs text-white/25 transition hover:text-white">
+            <Link
+              href="#skills"
+              className="text-xs text-white/25 transition hover:text-white"
+            >
               Skills
             </Link>
 
-            <Link href="#contact" className="text-xs text-white/25 transition hover:text-white">
+            <Link
+              href="#contact"
+              className="text-xs text-white/25 transition hover:text-white"
+            >
               Contact
             </Link>
 
@@ -772,4 +852,4 @@ export default function Home() {
     </main>
   )
 }
-```
+
