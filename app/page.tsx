@@ -1,3 +1,4 @@
+```tsx
 'use client'
 
 import Image from 'next/image'
@@ -86,31 +87,19 @@ export default function Home() {
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
-            <Link
-              href="#about"
-              className="text-sm text-white/45 transition hover:text-white"
-            >
+            <Link href="#about" className="text-sm text-white/45 transition hover:text-white">
               About
             </Link>
 
-            <Link
-              href="#work"
-              className="text-sm text-white/45 transition hover:text-white"
-            >
+            <Link href="#work" className="text-sm text-white/45 transition hover:text-white">
               Work
             </Link>
 
-            <Link
-              href="#skills"
-              className="text-sm text-white/45 transition hover:text-white"
-            >
+            <Link href="#skills" className="text-sm text-white/45 transition hover:text-white">
               Skills
             </Link>
 
-            <Link
-              href="#contact"
-              className="text-sm text-white/45 transition hover:text-white"
-            >
+            <Link href="#contact" className="text-sm text-white/45 transition hover:text-white">
               Contact
             </Link>
           </div>
@@ -147,20 +136,17 @@ export default function Home() {
           <div className="max-w-6xl">
 
             <div className="mb-10 flex items-center gap-3">
-
               <span className="relative flex h-2.5 w-2.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
               </span>
 
               <span className="text-xs font-medium uppercase tracking-[0.25em] text-white/45">
-                Web Developer · Digital Builder
+                Business Strategist · Digital Builder
               </span>
-
             </div>
 
             <h1 className="text-[clamp(4rem,11vw,10.5rem)] font-semibold leading-[0.82] tracking-[-0.085em]">
-
               <span className="block">
                 I build
               </span>
@@ -172,7 +158,6 @@ export default function Home() {
               <span className="block">
                 experiences.
               </span>
-
             </h1>
 
             <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
@@ -180,7 +165,7 @@ export default function Home() {
               <div className="max-w-2xl">
 
                 <p className="text-xl leading-8 text-white/50 sm:text-2xl sm:leading-9">
-                  I&apos;m Thompson Joshua — a web developer and digital
+                  I&apos;m Thompson Joshua — a business strategist and digital
                   builder creating modern websites and digital products
                   that turn ideas into real-world solutions.
                 </p>
@@ -192,7 +177,6 @@ export default function Home() {
                     className="group inline-flex items-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
                   >
                     View my work
-
                     <span className="transition-transform group-hover:translate-x-1">
                       ↗
                     </span>
@@ -231,7 +215,7 @@ export default function Home() {
                     </p>
 
                     <p className="mt-2 text-sm text-white/60">
-                      Web & Digital
+                      Business & Digital
                     </p>
                   </div>
 
@@ -254,10 +238,7 @@ export default function Home() {
 
       {/* ABOUT */}
 
-      <section
-        id="about"
-        className="border-y border-white/[0.08]"
-      >
+      <section id="about" className="border-y border-white/[0.08]">
 
         <div className="mx-auto max-w-[1380px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36">
 
@@ -334,19 +315,24 @@ export default function Home() {
 
         </div>
 
-        <div className="mt-20 space-y-36">
+        {/* PROJECTS */}
+
+        <div className="mt-24 space-y-48">
 
           {projects.map((project) => (
 
-            <article key={project.number}>
+            <article
+              key={project.number}
+              className="group"
+            >
 
-              {/* PROJECT HEADER */}
+              {/* PROJECT INTRODUCTION */}
 
-              <div className="grid gap-10 lg:grid-cols-[0.75fr_1fr] lg:items-end">
+              <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:items-end">
 
                 <div>
 
-                  <div className="mb-5 flex items-center gap-4">
+                  <div className="mb-6 flex items-center gap-4">
 
                     <span className="text-xs text-white/25">
                       {project.number}
@@ -360,7 +346,7 @@ export default function Home() {
 
                   </div>
 
-                  <h3 className="text-5xl font-semibold tracking-[-0.07em] sm:text-6xl lg:text-7xl">
+                  <h3 className="text-5xl font-semibold tracking-[-0.07em] sm:text-6xl lg:text-8xl">
                     {project.title}
                   </h3>
 
@@ -389,54 +375,100 @@ export default function Home() {
 
               </div>
 
-              {/* SCREENSHOTS UNDER PROJECT NAME */}
+              {/* DATAMARINE / PLEASANTVILLE IMAGES
+                  STAY INSIDE THEIR OWN PROJECT SECTION */}
 
-              {project.images.length > 0 ? (
+              {project.images.length > 0 && (
 
-                <div className="mt-12 grid gap-4 md:grid-cols-3">
+                <div className="mt-16">
 
-                  {project.images.map((image, index) => (
+                  {/* MAIN PROJECT IMAGE */}
 
-                    <Link
-                      key={image}
-                      href={project.href}
-                      className="group relative block overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0c0c0c]"
-                    >
+                  <Link
+                    href={project.href}
+                    className="group/image relative block overflow-hidden rounded-[24px] border border-white/[0.08] bg-[#0c0c0c]"
+                  >
 
-                      <div className="relative aspect-[4/3]">
+                    <div className="relative aspect-[16/8]">
 
-                        <Image
-                          src={image}
-                          alt={`${project.title} project screenshot ${index + 1}`}
-                          fill
-                          priority={project.number === '01'}
-                          sizes="(max-width: 768px) 100vw, 33vw"
-                          className="object-cover object-top transition duration-700 group-hover:scale-[1.035]"
-                        />
+                      <Image
+                        src={project.images[0]}
+                        alt={`${project.title} main project screenshot`}
+                        fill
+                        priority={project.number === '01'}
+                        sizes="100vw"
+                        className="object-cover object-top transition duration-1000 group-hover/image:scale-[1.025]"
+                      />
 
-                        <div className="absolute inset-0 bg-black/5 transition group-hover:bg-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-                        <div className="absolute bottom-4 left-4 rounded-full border border-white/15 bg-black/50 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-white/60 backdrop-blur-xl">
-                          View project
-                        </div>
+                      <div className="absolute bottom-6 left-6">
 
-                        <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-black/50 text-white/60 backdrop-blur-xl transition group-hover:bg-white group-hover:text-black">
-                          ↗
-                        </div>
+                        <span className="rounded-full border border-white/15 bg-black/50 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white/70 backdrop-blur-xl">
+                          {project.title}
+                        </span>
 
                       </div>
 
-                    </Link>
+                      <div className="absolute right-6 top-6 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-black/50 text-white/70 backdrop-blur-xl transition duration-300 group-hover/image:bg-white group-hover/image:text-black">
+                        ↗
+                      </div>
 
-                  ))}
+                    </div>
+
+                  </Link>
+
+                  {/* SUPPORTING PROJECT IMAGES */}
+
+                  {project.images.length > 1 && (
+
+                    <div className="mt-4 grid gap-4 md:grid-cols-2">
+
+                      {project.images.slice(1).map((image, index) => (
+
+                        <Link
+                          key={image}
+                          href={project.href}
+                          className="group/image relative block overflow-hidden rounded-[20px] border border-white/[0.08] bg-[#0c0c0c]"
+                        >
+
+                          <div className="relative aspect-[16/10]">
+
+                            <Image
+                              src={image}
+                              alt={`${project.title} project screenshot ${index + 2}`}
+                              fill
+                              sizes="(max-width: 768px) 100vw, 50vw"
+                              className="object-cover object-top transition duration-700 group-hover/image:scale-[1.035]"
+                            />
+
+                            <div className="absolute inset-0 bg-black/10 transition group-hover/image:bg-transparent" />
+
+                            <div className="absolute bottom-4 left-4 rounded-full border border-white/15 bg-black/50 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-white/60 backdrop-blur-xl">
+                              View project
+                            </div>
+
+                          </div>
+
+                        </Link>
+
+                      ))}
+
+                    </div>
+
+                  )}
 
                 </div>
 
-              ) : (
+              )}
+
+              {/* T'S FARM VISUAL */}
+
+              {project.images.length === 0 && (
 
                 <Link
                   href={project.href}
-                  className="group relative mt-12 block overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0b0d0b]"
+                  className="group/farm relative mt-16 block overflow-hidden rounded-[24px] border border-white/[0.08] bg-[#0b0d0b]"
                 >
 
                   <div className="relative aspect-[16/7]">
@@ -449,7 +481,7 @@ export default function Home() {
 
                     <div className="absolute inset-0 flex items-center justify-center">
 
-                      <div className="text-center transition duration-500 group-hover:scale-105">
+                      <div className="text-center transition duration-500 group-hover/farm:scale-105">
 
                         <p className="text-[clamp(3.5rem,10vw,9rem)] font-semibold leading-none tracking-[-0.1em] text-white/[0.08]">
                           T&apos;S FARM
@@ -465,7 +497,7 @@ export default function Home() {
 
                     </div>
 
-                    <div className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/60 backdrop-blur-xl transition group-hover:bg-white group-hover:text-black sm:right-7 sm:top-7">
+                    <div className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/60 backdrop-blur-xl transition group-hover/farm:bg-white group-hover/farm:text-black sm:right-7 sm:top-7">
                       ↗
                     </div>
 
@@ -485,11 +517,11 @@ export default function Home() {
 
                 <Link
                   href={project.href}
-                  className="group flex items-center gap-3 text-sm text-white/45 transition hover:text-white"
+                  className="group/link flex items-center gap-3 text-sm text-white/45 transition hover:text-white"
                 >
                   Explore {project.title}
 
-                  <span className="transition-transform group-hover:translate-x-1">
+                  <span className="transition-transform group-hover/link:translate-x-1">
                     →
                   </span>
                 </Link>
@@ -631,10 +663,7 @@ export default function Home() {
 
       {/* CONTACT */}
 
-      <section
-        id="contact"
-        className="relative overflow-hidden"
-      >
+      <section id="contact" className="relative overflow-hidden">
 
         <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.025] blur-[150px]" />
 
@@ -700,38 +729,26 @@ export default function Home() {
             </div>
 
             <p className="mt-3 text-xs text-white/20">
-              Web Developer · Digital Builder
+              Business Strategist · Digital Builder
             </p>
 
           </div>
 
           <div className="flex flex-wrap gap-6">
 
-            <Link
-              href="#about"
-              className="text-xs text-white/25 transition hover:text-white"
-            >
+            <Link href="#about" className="text-xs text-white/25 transition hover:text-white">
               About
             </Link>
 
-            <Link
-              href="#work"
-              className="text-xs text-white/25 transition hover:text-white"
-            >
+            <Link href="#work" className="text-xs text-white/25 transition hover:text-white">
               Work
             </Link>
 
-            <Link
-              href="#skills"
-              className="text-xs text-white/25 transition hover:text-white"
-            >
+            <Link href="#skills" className="text-xs text-white/25 transition hover:text-white">
               Skills
             </Link>
 
-            <Link
-              href="#contact"
-              className="text-xs text-white/25 transition hover:text-white"
-            >
+            <Link href="#contact" className="text-xs text-white/25 transition hover:text-white">
               Contact
             </Link>
 
@@ -755,3 +772,4 @@ export default function Home() {
     </main>
   )
 }
+```
