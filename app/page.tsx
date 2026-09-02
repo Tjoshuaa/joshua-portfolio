@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 
 type Project = {
@@ -9,7 +8,6 @@ type Project = {
   title: string
   description: string
   tags: string[]
-  images: string[]
   href: string
 }
 
@@ -21,11 +19,6 @@ const projects: Project[] = [
     description:
       'A modern marine marketplace created to showcase boats, marine engines, equipment and custom boat-building solutions. The platform combines product discovery with a tailored boat-building experience.',
     tags: ['Next.js', 'React', 'Supabase', 'Vercel'],
-    images: [
-      '/projects/IMG_1985.jpeg',
-      '/projects/IMG_1986.png',
-      '/projects/IMG_1987.png',
-    ],
     href: '/projects/data-marine',
   },
   {
@@ -35,11 +28,6 @@ const projects: Project[] = [
     description:
       'A modern educational website designed to present the academy, its programmes, facilities, admissions process and overall learning experience in a clear and professional way.',
     tags: ['Next.js', 'React', 'Tailwind CSS', 'UI/UX'],
-    images: [
-      '/projects/IMG_1988.png',
-      '/projects/IMG_1989.png',
-      '/projects/IMG_1990.png',
-    ],
     href: '/projects/pleasantville-academy',
   },
   {
@@ -49,7 +37,6 @@ const projects: Project[] = [
     description:
       'An integrated agricultural business concept connecting production, processing, packaging, distribution and direct customer delivery.',
     tags: ['Business Strategy', 'Product Development', 'Digital'],
-    images: [],
     href: '/projects/ts-farm',
   },
 ]
@@ -309,47 +296,48 @@ export default function Home() {
 
         </div>
 
-        <div className="mt-24 space-y-48">
+        <div className="mt-24 space-y-0">
 
-          {projects.map((project) => (
+          {projects.map((project, index) => (
 
             <article
               key={project.number}
-              className="group"
+              className="border-t border-white/[0.08] py-16 sm:py-20"
             >
 
-              {/* PROJECT INFORMATION */}
-              <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:items-end">
+              <div className="grid gap-10 lg:grid-cols-[0.25fr_0.8fr_1fr] lg:items-start">
+
+                {/* NUMBER */}
+
+                <div>
+                  <span className="text-xs text-white/25">
+                    {project.number}
+                  </span>
+                </div>
+
+                {/* PROJECT NAME */}
 
                 <div>
 
-                  <div className="mb-6 flex items-center gap-4">
+                  <p className="text-xs uppercase tracking-[0.25em] text-white/25">
+                    {project.type}
+                  </p>
 
-                    <span className="text-xs text-white/25">
-                      {project.number}
-                    </span>
-
-                    <span className="h-px w-10 bg-white/15" />
-
-                    <span className="text-xs uppercase tracking-[0.2em] text-white/30">
-                      {project.type}
-                    </span>
-
-                  </div>
-
-                  <h3 className="text-5xl font-semibold tracking-[-0.07em] sm:text-6xl lg:text-8xl">
+                  <h3 className="mt-5 text-4xl font-semibold tracking-[-0.07em] sm:text-5xl lg:text-6xl">
                     {project.title}
                   </h3>
 
                 </div>
 
-                <div className="max-w-2xl">
+                {/* DESCRIPTION */}
+
+                <div className="max-w-xl">
 
                   <p className="text-base leading-8 text-white/40">
                     {project.description}
                   </p>
 
-                  <div className="mt-6 flex flex-wrap gap-2">
+                  <div className="mt-7 flex flex-wrap gap-2">
 
                     {project.tags.map((tag) => (
 
@@ -364,157 +352,18 @@ export default function Home() {
 
                   </div>
 
-                </div>
-
-              </div>
-
-              {/* DATA MARINE / PLEASANTVILLE IMAGES */}
-              {project.images.length > 0 && (
-
-                <div className="mt-16">
-
-                  {/* MAIN PROJECT IMAGE */}
                   <Link
                     href={project.href}
-                    className="group/image relative block overflow-hidden rounded-[24px] border border-white/[0.08] bg-[#0c0c0c]"
+                    className="group mt-8 inline-flex items-center gap-3 rounded-full border border-white/10 px-6 py-3 text-sm text-white/60 transition hover:border-white/30 hover:bg-white hover:text-black"
                   >
+                    Explore {project.title}
 
-                    <div className="relative aspect-[16/8]">
-
-                      <Image
-                        src={project.images[0]}
-                        alt={project.title + ' main project screenshot'}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 1380px"
-                        className="object-cover object-top transition duration-1000 group-hover/image:scale-[1.025]"
-                      />
-
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-
-                      <div className="absolute bottom-6 left-6">
-
-                        <span className="rounded-full border border-white/15 bg-black/50 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white/70 backdrop-blur-xl">
-                          {project.title}
-                        </span>
-
-                      </div>
-
-                      <div className="absolute right-6 top-6 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-black/50 text-white/70 backdrop-blur-xl transition duration-300 group-hover/image:bg-white group-hover/image:text-black">
-                        ↗
-                      </div>
-
-                    </div>
-
+                    <span className="transition-transform group-hover:translate-x-1">
+                      →
+                    </span>
                   </Link>
 
-                  {/* SECONDARY PROJECT IMAGES */}
-                  {project.images.length > 1 && (
-
-                    <div className="mt-4 grid gap-4 md:grid-cols-2">
-
-                      {project.images.slice(1).map((image, index) => (
-
-                        <Link
-                          key={image}
-                          href={project.href}
-                          className="group/image relative block overflow-hidden rounded-[20px] border border-white/[0.08] bg-[#0c0c0c]"
-                        >
-
-                          <div className="relative aspect-[16/10]">
-
-                            <Image
-                              src={image}
-                              alt={
-                                project.title +
-                                ' project screenshot ' +
-                                (index + 2)
-                              }
-                              fill
-                              sizes="(max-width: 768px) 100vw, 690px"
-                              className="object-cover object-top transition duration-700 group-hover/image:scale-[1.035]"
-                            />
-
-                            <div className="absolute inset-0 bg-black/10 transition group-hover/image:bg-transparent" />
-
-                            <div className="absolute bottom-4 left-4 rounded-full border border-white/15 bg-black/50 px-3 py-1.5 text-[10px] uppercase tracking-[0.2em] text-white/60 backdrop-blur-xl">
-                              View project
-                            </div>
-
-                          </div>
-
-                        </Link>
-
-                      ))}
-
-                    </div>
-
-                  )}
-
                 </div>
-
-              )}
-
-              {/* T'S FARM */}
-              {project.images.length === 0 && (
-
-                <Link
-                  href={project.href}
-                  className="group/farm relative mt-16 block overflow-hidden rounded-[24px] border border-white/[0.08] bg-[#0b0d0b]"
-                >
-
-                  <div className="relative aspect-[16/7]">
-
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(120,170,110,0.14),transparent_45%)]" />
-
-                    <div className="absolute left-[10%] top-[15%] h-40 w-40 rounded-full border border-white/[0.05] sm:h-64 sm:w-64" />
-
-                    <div className="absolute bottom-[5%] right-[12%] h-52 w-52 rounded-full border border-white/[0.04] sm:h-80 sm:w-80" />
-
-                    <div className="absolute inset-0 flex items-center justify-center">
-
-                      <div className="text-center transition duration-500 group-hover/farm:scale-105">
-
-                        <p className="text-[clamp(3.5rem,10vw,9rem)] font-semibold leading-none tracking-[-0.1em] text-white/[0.08]">
-                          T&apos;S FARM
-                        </p>
-
-                        <div className="mx-auto mt-5 h-px w-16 bg-white/20" />
-
-                        <p className="mt-5 text-[10px] uppercase tracking-[0.35em] text-white/30">
-                          Integrated Agribusiness
-                        </p>
-
-                      </div>
-
-                    </div>
-
-                    <div className="absolute right-5 top-5 flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-black/40 text-white/60 backdrop-blur-xl transition group-hover/farm:bg-white group-hover/farm:text-black sm:right-7 sm:top-7">
-                      ↗
-                    </div>
-
-                  </div>
-
-                </Link>
-
-              )}
-
-              {/* PROJECT LINK */}
-              <div className="mt-6 flex flex-col justify-between gap-5 border-t border-white/[0.08] pt-5 sm:flex-row sm:items-center">
-
-                <span className="text-xs uppercase tracking-[0.2em] text-white/20">
-                  {project.type}
-                </span>
-
-                <Link
-                  href={project.href}
-                  className="group/link flex items-center gap-3 text-sm text-white/45 transition hover:text-white"
-                >
-                  Explore {project.title}
-
-                  <span className="transition-transform group-hover/link:translate-x-1">
-                    →
-                  </span>
-                </Link>
 
               </div>
 
@@ -537,9 +386,11 @@ export default function Home() {
           <div className="grid gap-16 lg:grid-cols-[0.35fr_1fr]">
 
             <div>
+
               <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
                 03 — Capabilities
               </p>
+
             </div>
 
             <div>
@@ -643,7 +494,9 @@ export default function Home() {
               </div>
 
             </div>
+
           </div>
+
         </div>
 
       </section>
@@ -689,6 +542,7 @@ export default function Home() {
             </a>
 
           </div>
+
         </div>
 
       </section>
