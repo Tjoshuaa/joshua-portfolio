@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useState } from 'react'
 
 type Project = {
   number: string
@@ -41,226 +42,219 @@ const projects: Project[] = [
   },
 ]
 
-const skills = [
-  'Next.js',
-  'React',
-  'TypeScript',
-  'Tailwind CSS',
-  'Supabase',
-  'Responsive Design',
-  'UI / UX',
-  'Product Development',
-  'Business Strategy',
+const capabilities = [
+  {
+    number: '01',
+    title: 'Web Development',
+    text: 'Modern, responsive websites and digital platforms built around real business objectives.',
+  },
+  {
+    number: '02',
+    title: 'Business Strategy',
+    text: 'Turning ideas into structured products, services and digital business opportunities.',
+  },
+  {
+    number: '03',
+    title: 'Digital Products',
+    text: 'Designing and developing practical digital experiences that solve problems and create value.',
+  },
+  {
+    number: '04',
+    title: 'Product Design',
+    text: 'Clear interfaces and user experiences that make digital products easier and more engaging to use.',
+  },
+]
+
+const socialLinks = [
+  {
+    label: 'LinkedIn',
+    value: 'Ayibapreye Thompson',
+    href: 'https://www.linkedin.com/in/ayibapreye-thompson/',
+  },
+  {
+    label: 'Instagram',
+    value: '@a.tjoshua',
+    href: 'https://www.instagram.com/a.tjoshua/',
+  },
+  {
+    label: 'GitHub',
+    value: 'Tjoshuaa',
+    href: 'https://github.com/Tjoshuaa',
+  },
 ]
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   return (
-    <main className="min-h-screen overflow-hidden bg-[#070707] text-white selection:bg-white selection:text-black">
-
+    <main className="min-h-screen bg-[#050505] text-white selection:bg-white selection:text-black">
       {/* NAVIGATION */}
-      <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-        <nav className="mx-auto flex h-16 max-w-[1380px] items-center justify-between rounded-full border border-white/[0.1] bg-[#090909]/85 px-4 shadow-2xl backdrop-blur-2xl sm:px-6">
-
-          <Link href="/" className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-xs font-black text-black">
-              TJ
-            </span>
-
-            <span className="hidden text-sm font-medium text-white/80 sm:block">
-              Thompson Joshua
-            </span>
+      <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-10">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-white/10 bg-black/70 px-5 py-3 backdrop-blur-xl sm:px-6">
+          <Link
+            href="/"
+            className="text-sm font-semibold tracking-[0.18em] text-white transition-opacity hover:opacity-70"
+          >
+            TJ.
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
-            <Link
+            <a
               href="#about"
-              className="text-sm text-white/45 transition hover:text-white"
+              className="text-sm text-white/60 transition-colors hover:text-white"
             >
               About
-            </Link>
-
-            <Link
+            </a>
+            <a
               href="#work"
-              className="text-sm text-white/45 transition hover:text-white"
+              className="text-sm text-white/60 transition-colors hover:text-white"
             >
               Work
-            </Link>
-
-            <Link
-              href="#skills"
-              className="text-sm text-white/45 transition hover:text-white"
+            </a>
+            <a
+              href="#capabilities"
+              className="text-sm text-white/60 transition-colors hover:text-white"
             >
-              Skills
-            </Link>
-
-            <Link
+              Capabilities
+            </a>
+            <a
               href="#contact"
-              className="text-sm text-white/45 transition hover:text-white"
+              className="rounded-full border border-white/20 px-4 py-2 text-sm text-white transition-all hover:border-white hover:bg-white hover:text-black"
             >
               Contact
-            </Link>
+            </a>
           </div>
 
-          <Link
-            href="#contact"
-            className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:scale-105"
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white md:hidden"
+            aria-label="Toggle menu"
           >
-            Let's talk
-          </Link>
+            <span className="text-lg">{menuOpen ? '×' : '☰'}</span>
+          </button>
         </nav>
+
+        {menuOpen && (
+          <div className="mx-4 mt-2 rounded-3xl border border-white/10 bg-[#0b0b0b]/95 p-5 backdrop-blur-xl md:hidden">
+            <div className="flex flex-col gap-1">
+              <a
+                href="#about"
+                onClick={() => setMenuOpen(false)}
+                className="rounded-xl px-4 py-3 text-sm text-white/70 hover:bg-white/5 hover:text-white"
+              >
+                About
+              </a>
+              <a
+                href="#work"
+                onClick={() => setMenuOpen(false)}
+                className="rounded-xl px-4 py-3 text-sm text-white/70 hover:bg-white/5 hover:text-white"
+              >
+                Work
+              </a>
+              <a
+                href="#capabilities"
+                onClick={() => setMenuOpen(false)}
+                className="rounded-xl px-4 py-3 text-sm text-white/70 hover:bg-white/5 hover:text-white"
+              >
+                Capabilities
+              </a>
+              <a
+                href="#contact"
+                onClick={() => setMenuOpen(false)}
+                className="mt-2 rounded-xl bg-white px-4 py-3 text-center text-sm font-medium text-black"
+              >
+                Contact Me
+              </a>
+            </div>
+          </div>
+        )}
       </header>
 
       {/* HERO */}
-      <section className="relative flex min-h-screen items-center">
+      <section className="relative flex min-h-screen items-center overflow-hidden px-6 pb-20 pt-32 lg:px-10">
+        <div className="absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/[0.025] blur-3xl" />
 
-        <div className="pointer-events-none absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/[0.035] blur-[140px]" />
+        <div className="relative mx-auto w-full max-w-7xl">
+          <div className="max-w-5xl">
+            <p className="mb-7 text-xs font-medium uppercase tracking-[0.3em] text-white/40 sm:text-sm">
+              Business Strategist · Digital Builder
+            </p>
 
-        <div className="pointer-events-none absolute inset-0 opacity-[0.025]">
-          <div
-            className="h-full w-full"
-            style={{
-              backgroundImage:
-                'linear-gradient(to right, rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.5) 1px, transparent 1px)',
-              backgroundSize: '100px 100px',
-            }}
-          />
-        </div>
-
-        <div className="relative mx-auto w-full max-w-[1380px] px-5 pb-20 pt-36 sm:px-8 lg:px-12">
-
-          <div className="max-w-6xl">
-
-            <div className="mb-10 flex items-center gap-3">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
-              </span>
-
-              <span className="text-xs font-medium uppercase tracking-[0.25em] text-white/45">
-                Business Strategist · Digital Builder
-              </span>
-            </div>
-
-            <h1 className="text-[clamp(4rem,11vw,10.5rem)] font-semibold leading-[0.82] tracking-[-0.085em]">
-              <span className="block">I build</span>
-              <span className="block text-white/25">digital</span>
-              <span className="block">experiences.</span>
+            <h1 className="text-5xl font-semibold leading-[0.95] tracking-[-0.05em] sm:text-7xl lg:text-[110px]">
+              I build
+              <br />
+              <span className="text-white/35">digital</span> experiences.
             </h1>
 
-            <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div className="mt-10 flex max-w-2xl flex-col gap-7 sm:flex-row sm:items-end sm:justify-between">
+              <p className="max-w-xl text-base leading-7 text-white/50 sm:text-lg">
+                I combine business thinking, technology and creative problem
+                solving to build digital products, brands and experiences
+                designed to move ideas forward.
+              </p>
 
-              <div className="max-w-2xl">
-
-                <p className="text-xl leading-8 text-white/50 sm:text-2xl sm:leading-9">
-                  I&apos;m Thompson Joshua — a business strategist and digital
-                  builder creating modern websites and digital products that
-                  turn ideas into real-world solutions.
-                </p>
-
-                <div className="mt-8 flex flex-wrap gap-3">
-
-                  <Link
-                    href="#work"
-                    className="group inline-flex items-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
-                  >
-                    View my work
-                    <span className="transition-transform group-hover:translate-x-1">
-                      ↗
-                    </span>
-                  </Link>
-
-                  <Link
-                    href="#contact"
-                    className="inline-flex items-center rounded-full border border-white/10 px-7 py-4 text-sm text-white/60 transition hover:border-white/25 hover:text-white"
-                  >
-                    Start a project
-                  </Link>
-
-                </div>
-              </div>
-
-              <div className="hidden lg:block">
-
-                <div className="flex items-center gap-5">
-
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.25em] text-white/25">
-                      Based in
-                    </p>
-
-                    <p className="mt-2 text-sm text-white/60">
-                      Nigeria
-                    </p>
-                  </div>
-
-                  <div className="h-10 w-px bg-white/10" />
-
-                  <div>
-                    <p className="text-[10px] uppercase tracking-[0.25em] text-white/25">
-                      Focus
-                    </p>
-
-                    <p className="mt-2 text-sm text-white/60">
-                      Business & Digital
-                    </p>
-                  </div>
-
-                </div>
-
-              </div>
-
+              <a
+                href="#work"
+                className="group flex w-fit items-center gap-3 text-sm font-medium text-white"
+              >
+                Explore my work
+                <span className="transition-transform duration-300 group-hover:translate-y-1">
+                  ↓
+                </span>
+              </a>
             </div>
           </div>
 
-          <div className="mt-24 flex items-center gap-4 text-xs uppercase tracking-[0.25em] text-white/20">
-            <span className="h-px w-12 bg-white/15" />
-            Scroll to explore
+          <div className="mt-24 flex flex-col justify-between gap-4 border-t border-white/10 pt-5 text-xs uppercase tracking-[0.2em] text-white/30 sm:flex-row">
+            <span>Based in Nigeria</span>
+            <span>Available for selected projects</span>
           </div>
-
         </div>
       </section>
 
       {/* ABOUT */}
       <section
         id="about"
-        className="border-y border-white/[0.08]"
+        className="border-t border-white/10 px-6 py-24 lg:px-10 lg:py-36"
       >
-        <div className="mx-auto max-w-[1380px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36">
+        <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-white/35">
+              01 — About
+            </p>
+          </div>
 
-          <div className="grid gap-16 lg:grid-cols-[0.35fr_1fr]">
+          <div>
+            <h2 className="max-w-4xl text-3xl font-medium leading-tight tracking-[-0.03em] sm:text-5xl">
+              A builder focused on the intersection of{' '}
+              <span className="text-white/35">
+                business, technology and creativity.
+              </span>
+            </h2>
 
-            <div>
-              <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
-                01 — About
+            <div className="mt-10 grid gap-6 text-sm leading-7 text-white/50 sm:grid-cols-2">
+              <p>
+                I enjoy taking ideas from an early concept and turning them
+                into something tangible — whether that means a website, a
+                digital platform, a product concept or a complete business
+                experience.
+              </p>
+
+              <p>
+                My approach combines strategic thinking with hands-on
+                development, allowing me to look beyond how something should
+                look and focus on why it should exist and how it should work.
               </p>
             </div>
 
-            <div>
-
-              <h2 className="max-w-5xl text-3xl font-medium leading-[1.08] tracking-[-0.055em] sm:text-5xl lg:text-6xl">
-                I combine technology, design and business thinking to build
-                digital experiences that
-                <span className="text-white/25">
-                  {' '}actually work.
-                </span>
-              </h2>
-
-              <div className="mt-12 grid gap-10 md:grid-cols-2">
-
-                <p className="text-base leading-8 text-white/40">
-                  I enjoy taking ideas from concept to a functional, polished
-                  digital product. My approach combines modern development
-                  with practical design and business thinking.
-                </p>
-
-                <p className="text-base leading-8 text-white/40">
-                  My work spans marketplaces, educational platforms and
-                  business concepts — always with a focus on creating
-                  experiences that are useful, clear and ready to grow.
-                </p>
-
-              </div>
-
+            <div className="mt-10">
+              <a
+                href="mailto:tjthompson3245@gmail.com"
+                className="inline-flex items-center gap-3 rounded-full border border-white/15 px-6 py-3 text-sm text-white transition-all hover:border-white hover:bg-white hover:text-black"
+              >
+                Work with me
+                <span>↗</span>
+              </a>
             </div>
           </div>
         </div>
@@ -269,356 +263,299 @@ export default function Home() {
       {/* WORK */}
       <section
         id="work"
-        className="mx-auto max-w-[1380px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36"
+        className="border-t border-white/10 px-6 py-24 lg:px-10 lg:py-36"
       >
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-16 flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-white/35">
+                02 — Selected Work
+              </p>
 
-        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+              <h2 className="mt-5 text-4xl font-medium tracking-[-0.04em] sm:text-6xl">
+                Things I&apos;ve built.
+              </h2>
+            </div>
 
-          <div>
-
-            <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
-              02 — Selected Work
+            <p className="max-w-sm text-sm leading-6 text-white/40">
+              A selection of digital projects, business concepts and platforms
+              developed across different industries.
             </p>
-
-            <h2 className="mt-6 text-5xl font-semibold tracking-[-0.075em] sm:text-7xl lg:text-8xl">
-              Projects
-              <span className="text-white/20">
-                {' '}I&apos;ve built.
-              </span>
-            </h2>
-
           </div>
 
-          <p className="max-w-sm text-sm leading-7 text-white/35">
-            A selection of websites and digital projects created with
-            technology, design and business goals in mind.
-          </p>
-
-        </div>
-
-        <div className="mt-24 space-y-0">
-
-          {projects.map((project, index) => (
-
-            <article
-              key={project.number}
-              className="border-t border-white/[0.08] py-16 sm:py-20"
-            >
-
-              <div className="grid gap-10 lg:grid-cols-[0.25fr_0.8fr_1fr] lg:items-start">
-
-                {/* NUMBER */}
-
-                <div>
+          <div className="border-t border-white/10">
+            {projects.map((project) => (
+              <Link
+                key={project.number}
+                href={project.href}
+                className="group block border-b border-white/10 py-8 transition-all duration-300 hover:px-3 sm:py-10"
+              >
+                <div className="grid gap-6 lg:grid-cols-[80px_220px_1fr_40px] lg:items-center">
                   <span className="text-xs text-white/25">
                     {project.number}
                   </span>
-                </div>
 
-                {/* PROJECT NAME */}
-
-                <div>
-
-                  <p className="text-xs uppercase tracking-[0.25em] text-white/25">
+                  <span className="text-xs uppercase tracking-[0.18em] text-white/35">
                     {project.type}
-                  </p>
+                  </span>
 
-                  <h3 className="mt-5 text-4xl font-semibold tracking-[-0.07em] sm:text-5xl lg:text-6xl">
-                    {project.title}
-                  </h3>
+                  <div>
+                    <h3 className="text-2xl font-medium tracking-[-0.03em] transition-colors group-hover:text-white/70 sm:text-3xl">
+                      {project.title}
+                    </h3>
 
-                </div>
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-white/40">
+                      {project.description}
+                    </p>
 
-                {/* DESCRIPTION */}
-
-                <div className="max-w-xl">
-
-                  <p className="text-base leading-8 text-white/40">
-                    {project.description}
-                  </p>
-
-                  <div className="mt-7 flex flex-wrap gap-2">
-
-                    {project.tags.map((tag) => (
-
-                      <span
-                        key={tag}
-                        className="rounded-full border border-white/[0.09] px-4 py-2 text-xs text-white/40"
-                      >
-                        {tag}
-                      </span>
-
-                    ))}
-
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-white/10 px-3 py-1 text-[10px] uppercase tracking-[0.12em] text-white/35"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
-                  <Link
-                    href={project.href}
-                    className="group mt-8 inline-flex items-center gap-3 rounded-full border border-white/10 px-6 py-3 text-sm text-white/60 transition hover:border-white/30 hover:bg-white hover:text-black"
-                  >
-                    Explore {project.title}
-
-                    <span className="transition-transform group-hover:translate-x-1">
-                      →
-                    </span>
-                  </Link>
-
+                  <span className="text-2xl text-white/25 transition-all duration-300 group-hover:translate-x-1 group-hover:text-white">
+                    ↗
+                  </span>
                 </div>
-
-              </div>
-
-            </article>
-
-          ))}
-
+              </Link>
+            ))}
+          </div>
         </div>
-
       </section>
 
       {/* CAPABILITIES */}
-      <section className="border-y border-white/[0.08]">
-
-        <div
-          id="skills"
-          className="mx-auto max-w-[1380px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36"
-        >
-
-          <div className="grid gap-16 lg:grid-cols-[0.35fr_1fr]">
-
+      <section
+        id="capabilities"
+        className="border-t border-white/10 px-6 py-24 lg:px-10 lg:py-36"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
             <div>
-
-              <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
+              <p className="text-xs uppercase tracking-[0.3em] text-white/35">
                 03 — Capabilities
               </p>
-
             </div>
 
-            <div>
+            <div className="grid border-t border-white/10 sm:grid-cols-2">
+              {capabilities.map((item) => (
+                <div
+                  key={item.number}
+                  className="border-b border-white/10 py-8 sm:px-6 sm:first:pl-0 sm:nth-[2n+1]:border-r"
+                >
+                  <span className="text-xs text-white/25">
+                    {item.number}
+                  </span>
 
-              <h2 className="max-w-4xl text-4xl font-semibold tracking-[-0.065em] sm:text-6xl">
-                Building from
-                <span className="text-white/20">
-                  {' '}idea to execution.
-                </span>
-              </h2>
+                  <h3 className="mt-6 text-xl font-medium tracking-[-0.02em]">
+                    {item.title}
+                  </h3>
 
-              <div className="mt-14 border-l border-white/[0.08]">
-
-                <div className="border-b border-white/[0.08] px-6 py-8 sm:px-8">
-
-                  <div className="flex justify-between gap-5">
-
-                    <h3 className="text-xl font-medium">
-                      Web Development
-                    </h3>
-
-                    <span className="text-sm text-white/20">
-                      01
-                    </span>
-
-                  </div>
-
-                  <p className="mt-4 max-w-2xl text-sm leading-7 text-white/35">
-                    Responsive websites and web applications built with modern
-                    technologies, clean architecture and practical user
-                    experiences.
+                  <p className="mt-3 max-w-sm text-sm leading-6 text-white/40">
+                    {item.text}
                   </p>
-
                 </div>
-
-                <div className="border-b border-white/[0.08] px-6 py-8 sm:px-8">
-
-                  <div className="flex justify-between gap-5">
-
-                    <h3 className="text-xl font-medium">
-                      UI / UX
-                    </h3>
-
-                    <span className="text-sm text-white/20">
-                      02
-                    </span>
-
-                  </div>
-
-                  <p className="mt-4 max-w-2xl text-sm leading-7 text-white/35">
-                    Interfaces designed to be clear, responsive and easy for
-                    people to understand and use.
-                  </p>
-
-                </div>
-
-                <div className="border-b border-white/[0.08] px-6 py-8 sm:px-8">
-
-                  <div className="flex justify-between gap-5">
-
-                    <h3 className="text-xl font-medium">
-                      Digital Product Development
-                    </h3>
-
-                    <span className="text-sm text-white/20">
-                      03
-                    </span>
-
-                  </div>
-
-                  <p className="mt-4 max-w-2xl text-sm leading-7 text-white/35">
-                    Turning business ideas into practical digital products
-                    that can be launched, tested and improved.
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className="mt-14">
-
-                <p className="text-xs uppercase tracking-[0.2em] text-white/25">
-                  Technology & Skills
-                </p>
-
-                <div className="mt-6 flex flex-wrap gap-2.5">
-
-                  {skills.map((skill) => (
-
-                    <span
-                      key={skill}
-                      className="rounded-full border border-white/[0.09] px-5 py-3 text-sm text-white/45 transition hover:border-white/25 hover:text-white"
-                    >
-                      {skill}
-                    </span>
-
-                  ))}
-
-                </div>
-
-              </div>
-
+              ))}
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       {/* CONTACT */}
       <section
         id="contact"
-        className="relative overflow-hidden"
+        className="border-t border-white/10 px-6 py-24 lg:px-10 lg:py-36"
       >
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-16 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-white/35">
+                04 — Contact
+              </p>
 
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.025] blur-[150px]" />
+              <h2 className="mt-6 text-5xl font-medium leading-[0.95] tracking-[-0.05em] sm:text-7xl">
+                Let&apos;s build
+                <br />
+                <span className="text-white/35">something.</span>
+              </h2>
 
-        <div className="relative mx-auto max-w-[1380px] px-5 py-32 sm:px-8 lg:px-12 lg:py-44">
+              <p className="mt-8 max-w-md text-sm leading-7 text-white/45">
+                Have an idea, project or business opportunity? Get in touch
+                and let&apos;s talk about how we can turn it into something
+                real.
+              </p>
+            </div>
 
-          <div className="max-w-5xl">
+            <div>
+              {/* EMAIL */}
+              <a
+                href="mailto:tjthompson3245@gmail.com"
+                className="group block border-t border-white/10 py-7"
+              >
+                <div className="flex items-center justify-between gap-6">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                      Email
+                    </p>
+                    <p className="mt-2 text-lg text-white transition-colors group-hover:text-white/60 sm:text-xl">
+                      tjthompson3245@gmail.com
+                    </p>
+                  </div>
 
-            <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
-              04 — Contact
-            </p>
+                  <span className="text-xl text-white/30 transition-transform duration-300 group-hover:translate-x-1">
+                    ↗
+                  </span>
+                </div>
+              </a>
 
-            <h2 className="mt-8 text-[clamp(3.5rem,8vw,8rem)] font-semibold leading-[0.86] tracking-[-0.08em]">
-              Have an idea
-              <br />
-              <span className="text-white/20">
-                worth building?
-              </span>
-            </h2>
+              {/* WHATSAPP */}
+              <a
+                href="https://wa.me/2349169534809"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block border-t border-white/10 py-7"
+              >
+                <div className="flex items-center justify-between gap-6">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                      Phone / WhatsApp
+                    </p>
+                    <p className="mt-2 text-lg text-white transition-colors group-hover:text-white/60 sm:text-xl">
+                      +234 916 953 4809
+                    </p>
+                  </div>
 
-            <p className="mt-10 max-w-xl text-base leading-8 text-white/40 sm:text-lg">
-              Whether you&apos;re building a website, launching a digital
-              product or developing a new business idea, let&apos;s talk.
-            </p>
+                  <span className="text-xl text-white/30 transition-transform duration-300 group-hover:translate-x-1">
+                    ↗
+                  </span>
+                </div>
+              </a>
 
-            <a
-              href="mailto:hello@thompsonjoshua.com"
-              className="group mt-10 inline-flex items-center gap-5 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
-            >
-              Start a conversation
+              {/* SOCIALS */}
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block border-t border-white/10 py-7"
+                >
+                  <div className="flex items-center justify-between gap-6">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                        {social.label}
+                      </p>
 
-              <span className="transition-transform group-hover:translate-x-1">
-                ↗
-              </span>
-            </a>
+                      <p className="mt-2 text-lg text-white transition-colors group-hover:text-white/60 sm:text-xl">
+                        {social.value}
+                      </p>
+                    </div>
 
+                    <span className="text-xl text-white/30 transition-transform duration-300 group-hover:translate-x-1">
+                      ↗
+                    </span>
+                  </div>
+                </a>
+              ))}
+
+              {/* LOCATION */}
+              <div className="border-y border-white/10 py-7">
+                <p className="text-xs uppercase tracking-[0.2em] text-white/30">
+                  Location
+                </p>
+
+                <p className="mt-2 text-lg text-white sm:text-xl">
+                  Nigeria
+                </p>
+              </div>
+            </div>
           </div>
-
         </div>
+      </section>
 
+      {/* FINAL CTA */}
+      <section className="px-6 pb-24 lg:px-10 lg:pb-36">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/10 bg-white/[0.025] px-6 py-14 text-center sm:px-10 sm:py-20">
+          <p className="text-xs uppercase tracking-[0.3em] text-white/30">
+            Start a conversation
+          </p>
+
+          <h2 className="mx-auto mt-6 max-w-3xl text-3xl font-medium tracking-[-0.04em] sm:text-5xl">
+            Have something worth building?
+          </h2>
+
+          <a
+            href="mailto:tjthompson3245@gmail.com"
+            className="mt-8 inline-flex items-center gap-3 rounded-full bg-white px-7 py-3.5 text-sm font-medium text-black transition-transform duration-300 hover:scale-105"
+          >
+            Email me
+            <span>↗</span>
+          </a>
+        </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/[0.08]">
-
-        <div className="mx-auto flex max-w-[1380px] flex-col justify-between gap-8 px-5 py-10 sm:px-8 md:flex-row md:items-center lg:px-12">
-
+      <footer className="border-t border-white/10 px-6 py-8 lg:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-5 text-xs text-white/30 sm:flex-row sm:items-center">
           <div>
-
-            <div className="flex items-center gap-3">
-
-              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-xs font-black text-black">
-                TJ
-              </span>
-
-              <span className="text-sm text-white/50">
-                Thompson Joshua
-              </span>
-
-            </div>
-
-            <p className="mt-3 text-xs text-white/20">
-              Business Strategist · Digital Builder
-            </p>
-
+            <span className="font-medium text-white/60">TJ.</span>
+            <span className="ml-3">
+              Thompson Joshua — Business Strategist & Digital Builder
+            </span>
           </div>
 
-          <div className="flex flex-wrap gap-6">
-
-            <Link
-              href="#about"
-              className="text-xs text-white/25 transition hover:text-white"
-            >
-              About
-            </Link>
-
-            <Link
-              href="#work"
-              className="text-xs text-white/25 transition hover:text-white"
-            >
-              Work
-            </Link>
-
-            <Link
-              href="#skills"
-              className="text-xs text-white/25 transition hover:text-white"
-            >
-              Skills
-            </Link>
-
-            <Link
-              href="#contact"
-              className="text-xs text-white/25 transition hover:text-white"
-            >
-              Contact
-            </Link>
-
+          <div className="flex flex-wrap gap-5">
             <a
-              href="mailto:hello@thompsonjoshua.com"
-              className="text-xs text-white/25 transition hover:text-white"
+              href="mailto:tjthompson3245@gmail.com"
+              className="transition-colors hover:text-white"
             >
               Email
             </a>
 
+            <a
+              href="https://wa.me/2349169534809"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+            >
+              WhatsApp
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/ayibapreye-thompson/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+            >
+              LinkedIn
+            </a>
+
+            <a
+              href="https://www.instagram.com/a.tjoshua/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+            >
+              Instagram
+            </a>
+
+            <a
+              href="https://github.com/Tjoshuaa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+            >
+              GitHub
+            </a>
           </div>
-
-          <p className="text-xs text-white/20">
-            © 2026
-          </p>
-
         </div>
-
       </footer>
-
     </main>
   )
 }
