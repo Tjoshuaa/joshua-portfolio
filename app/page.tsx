@@ -68,12 +68,11 @@ const skills = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#070707] text-white selection:bg-white selection:text-black">
+    <main className="min-h-screen overflow-hidden bg-[#070707] text-white selection:bg-white selection:text-black">
 
       {/* NAVIGATION */}
-
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-        <nav className="mx-auto flex h-16 max-w-[1380px] items-center justify-between rounded-full border border-white/[0.1] bg-[#090909]/90 px-4 shadow-2xl backdrop-blur-2xl sm:px-6">
+        <nav className="mx-auto flex h-16 max-w-[1380px] items-center justify-between rounded-full border border-white/[0.1] bg-[#090909]/85 px-4 shadow-2xl backdrop-blur-2xl sm:px-6">
 
           <Link href="/" className="flex items-center gap-3">
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-xs font-black text-black">
@@ -125,10 +124,8 @@ export default function Home() {
       </header>
 
       {/* HERO */}
-
       <section className="relative flex min-h-screen items-center">
 
-        {/* HERO BACKGROUND ONLY */}
         <div className="pointer-events-none absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/[0.035] blur-[140px]" />
 
         <div className="pointer-events-none absolute inset-0 opacity-[0.025]">
@@ -158,17 +155,9 @@ export default function Home() {
             </div>
 
             <h1 className="text-[clamp(4rem,11vw,10.5rem)] font-semibold leading-[0.82] tracking-[-0.085em]">
-              <span className="block">
-                I build
-              </span>
-
-              <span className="block text-white/25">
-                digital
-              </span>
-
-              <span className="block">
-                experiences.
-              </span>
+              <span className="block">I build</span>
+              <span className="block text-white/25">digital</span>
+              <span className="block">experiences.</span>
             </h1>
 
             <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
@@ -176,9 +165,9 @@ export default function Home() {
               <div className="max-w-2xl">
 
                 <p className="text-xl leading-8 text-white/50 sm:text-2xl sm:leading-9">
-                  I&apos;m Thompson Joshua — a business strategist and
-                  digital builder creating modern websites and digital
-                  products that turn ideas into real-world solutions.
+                  I&apos;m Thompson Joshua — a business strategist and digital
+                  builder creating modern websites and digital products that
+                  turn ideas into real-world solutions.
                 </p>
 
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -188,7 +177,6 @@ export default function Home() {
                     className="group inline-flex items-center gap-4 rounded-full bg-white px-7 py-4 text-sm font-semibold text-black transition hover:scale-[1.03]"
                   >
                     View my work
-
                     <span className="transition-transform group-hover:translate-x-1">
                       ↗
                     </span>
@@ -231,10 +219,10 @@ export default function Home() {
                   </div>
 
                 </div>
+
               </div>
 
             </div>
-
           </div>
 
           <div className="mt-24 flex items-center gap-4 text-xs uppercase tracking-[0.25em] text-white/20">
@@ -246,7 +234,6 @@ export default function Home() {
       </section>
 
       {/* ABOUT */}
-
       <section
         id="about"
         className="border-y border-white/[0.08]"
@@ -274,9 +261,9 @@ export default function Home() {
               <div className="mt-12 grid gap-10 md:grid-cols-2">
 
                 <p className="text-base leading-8 text-white/40">
-                  I enjoy taking ideas from concept to a functional,
-                  polished digital product. My approach combines modern
-                  development with practical design and business thinking.
+                  I enjoy taking ideas from concept to a functional, polished
+                  digital product. My approach combines modern development
+                  with practical design and business thinking.
                 </p>
 
                 <p className="text-base leading-8 text-white/40">
@@ -286,14 +273,13 @@ export default function Home() {
                 </p>
 
               </div>
-            </div>
 
+            </div>
           </div>
         </div>
       </section>
 
       {/* WORK */}
-
       <section
         id="work"
         className="mx-auto max-w-[1380px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36"
@@ -323,8 +309,6 @@ export default function Home() {
 
         </div>
 
-        {/* PROJECT LIST */}
-
         <div className="mt-24 space-y-48">
 
           {projects.map((project) => (
@@ -335,7 +319,6 @@ export default function Home() {
             >
 
               {/* PROJECT INFORMATION */}
-
               <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:items-end">
 
                 <div>
@@ -385,14 +368,12 @@ export default function Home() {
 
               </div>
 
-              {/* PROJECT IMAGES ONLY LIVE HERE */}
-
+              {/* DATA MARINE / PLEASANTVILLE IMAGES */}
               {project.images.length > 0 && (
 
                 <div className="mt-16">
 
                   {/* MAIN PROJECT IMAGE */}
-
                   <Link
                     href={project.href}
                     className="group/image relative block overflow-hidden rounded-[24px] border border-white/[0.08] bg-[#0c0c0c]"
@@ -427,7 +408,6 @@ export default function Home() {
                   </Link>
 
                   {/* SECONDARY PROJECT IMAGES */}
-
                   {project.images.length > 1 && (
 
                     <div className="mt-4 grid gap-4 md:grid-cols-2">
@@ -474,8 +454,7 @@ export default function Home() {
 
               )}
 
-              {/* T'S FARM VISUAL */}
-
+              {/* T'S FARM */}
               {project.images.length === 0 && (
 
                 <Link
@@ -519,8 +498,7 @@ export default function Home() {
 
               )}
 
-              {/* PROJECT FOOTER */}
-
+              {/* PROJECT LINK */}
               <div className="mt-6 flex flex-col justify-between gap-5 border-t border-white/[0.08] pt-5 sm:flex-row sm:items-center">
 
                 <span className="text-xs uppercase tracking-[0.2em] text-white/20">
@@ -549,7 +527,6 @@ export default function Home() {
       </section>
 
       {/* CAPABILITIES */}
-
       <section className="border-y border-white/[0.08]">
 
         <div
@@ -591,9 +568,9 @@ export default function Home() {
                   </div>
 
                   <p className="mt-4 max-w-2xl text-sm leading-7 text-white/35">
-                    Responsive websites and web applications built with
-                    modern technologies, clean architecture and practical
-                    user experiences.
+                    Responsive websites and web applications built with modern
+                    technologies, clean architecture and practical user
+                    experiences.
                   </p>
 
                 </div>
@@ -613,8 +590,8 @@ export default function Home() {
                   </div>
 
                   <p className="mt-4 max-w-2xl text-sm leading-7 text-white/35">
-                    Interfaces designed to be clear, responsive and easy
-                    for people to understand and use.
+                    Interfaces designed to be clear, responsive and easy for
+                    people to understand and use.
                   </p>
 
                 </div>
@@ -666,15 +643,12 @@ export default function Home() {
               </div>
 
             </div>
-
           </div>
-
         </div>
 
       </section>
 
       {/* CONTACT */}
-
       <section
         id="contact"
         className="relative overflow-hidden"
@@ -715,13 +689,11 @@ export default function Home() {
             </a>
 
           </div>
-
         </div>
 
       </section>
 
       {/* FOOTER */}
-
       <footer className="border-t border-white/[0.08]">
 
         <div className="mx-auto flex max-w-[1380px] flex-col justify-between gap-8 px-5 py-10 sm:px-8 md:flex-row md:items-center lg:px-12">
