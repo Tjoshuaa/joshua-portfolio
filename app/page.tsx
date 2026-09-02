@@ -1,4 +1,3 @@
-
 'use client'
 
 import Image from 'next/image'
@@ -69,12 +68,12 @@ const skills = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#070707] text-white selection:bg-white selection:text-black">
+    <main className="min-h-screen overflow-x-hidden bg-[#070707] text-white selection:bg-white selection:text-black">
 
       {/* NAVIGATION */}
 
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-        <nav className="mx-auto flex h-16 max-w-[1380px] items-center justify-between rounded-full border border-white/[0.1] bg-[#090909]/85 px-4 shadow-2xl backdrop-blur-2xl sm:px-6">
+        <nav className="mx-auto flex h-16 max-w-[1380px] items-center justify-between rounded-full border border-white/[0.1] bg-[#090909]/90 px-4 shadow-2xl backdrop-blur-2xl sm:px-6">
 
           <Link href="/" className="flex items-center gap-3">
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-xs font-black text-black">
@@ -87,7 +86,6 @@ export default function Home() {
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
-
             <Link
               href="#about"
               className="text-sm text-white/45 transition hover:text-white"
@@ -115,7 +113,6 @@ export default function Home() {
             >
               Contact
             </Link>
-
           </div>
 
           <Link
@@ -124,7 +121,6 @@ export default function Home() {
           >
             Let's talk
           </Link>
-
         </nav>
       </header>
 
@@ -132,10 +128,10 @@ export default function Home() {
 
       <section className="relative flex min-h-screen items-center">
 
+        {/* HERO BACKGROUND ONLY */}
         <div className="pointer-events-none absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-white/[0.035] blur-[140px]" />
 
         <div className="pointer-events-none absolute inset-0 opacity-[0.025]">
-
           <div
             className="h-full w-full"
             style={{
@@ -144,7 +140,6 @@ export default function Home() {
               backgroundSize: '100px 100px',
             }}
           />
-
         </div>
 
         <div className="relative mx-auto w-full max-w-[1380px] px-5 pb-20 pt-36 sm:px-8 lg:px-12">
@@ -152,23 +147,17 @@ export default function Home() {
           <div className="max-w-6xl">
 
             <div className="mb-10 flex items-center gap-3">
-
               <span className="relative flex h-2.5 w-2.5">
-
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
-
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
-
               </span>
 
               <span className="text-xs font-medium uppercase tracking-[0.25em] text-white/45">
                 Business Strategist · Digital Builder
               </span>
-
             </div>
 
             <h1 className="text-[clamp(4rem,11vw,10.5rem)] font-semibold leading-[0.82] tracking-[-0.085em]">
-
               <span className="block">
                 I build
               </span>
@@ -180,7 +169,6 @@ export default function Home() {
               <span className="block">
                 experiences.
               </span>
-
             </h1>
 
             <div className="mt-14 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
@@ -204,7 +192,6 @@ export default function Home() {
                     <span className="transition-transform group-hover:translate-x-1">
                       ↗
                     </span>
-
                   </Link>
 
                   <Link
@@ -215,7 +202,6 @@ export default function Home() {
                   </Link>
 
                 </div>
-
               </div>
 
               <div className="hidden lg:block">
@@ -223,7 +209,6 @@ export default function Home() {
                 <div className="flex items-center gap-5">
 
                   <div>
-
                     <p className="text-[10px] uppercase tracking-[0.25em] text-white/25">
                       Based in
                     </p>
@@ -231,13 +216,11 @@ export default function Home() {
                     <p className="mt-2 text-sm text-white/60">
                       Nigeria
                     </p>
-
                   </div>
 
                   <div className="h-10 w-px bg-white/10" />
 
                   <div>
-
                     <p className="text-[10px] uppercase tracking-[0.25em] text-white/25">
                       Focus
                     </p>
@@ -245,11 +228,9 @@ export default function Home() {
                     <p className="mt-2 text-sm text-white/60">
                       Business & Digital
                     </p>
-
                   </div>
 
                 </div>
-
               </div>
 
             </div>
@@ -257,15 +238,11 @@ export default function Home() {
           </div>
 
           <div className="mt-24 flex items-center gap-4 text-xs uppercase tracking-[0.25em] text-white/20">
-
             <span className="h-px w-12 bg-white/15" />
-
             Scroll to explore
-
           </div>
 
         </div>
-
       </section>
 
       {/* ABOUT */}
@@ -274,30 +251,24 @@ export default function Home() {
         id="about"
         className="border-y border-white/[0.08]"
       >
-
         <div className="mx-auto max-w-[1380px] px-5 py-28 sm:px-8 lg:px-12 lg:py-36">
 
           <div className="grid gap-16 lg:grid-cols-[0.35fr_1fr]">
 
             <div>
-
               <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
                 01 — About
               </p>
-
             </div>
 
             <div>
 
               <h2 className="max-w-5xl text-3xl font-medium leading-[1.08] tracking-[-0.055em] sm:text-5xl lg:text-6xl">
-
                 I combine technology, design and business thinking to build
                 digital experiences that
-
                 <span className="text-white/25">
                   {' '}actually work.
                 </span>
-
               </h2>
 
               <div className="mt-12 grid gap-10 md:grid-cols-2">
@@ -315,13 +286,10 @@ export default function Home() {
                 </p>
 
               </div>
-
             </div>
 
           </div>
-
         </div>
-
       </section>
 
       {/* WORK */}
@@ -340,13 +308,10 @@ export default function Home() {
             </p>
 
             <h2 className="mt-6 text-5xl font-semibold tracking-[-0.075em] sm:text-7xl lg:text-8xl">
-
               Projects
-
               <span className="text-white/20">
                 {' '}I&apos;ve built.
               </span>
-
             </h2>
 
           </div>
@@ -369,7 +334,7 @@ export default function Home() {
               className="group"
             >
 
-              {/* PROJECT HEADER */}
+              {/* PROJECT INFORMATION */}
 
               <div className="grid gap-10 lg:grid-cols-[0.8fr_1fr] lg:items-end">
 
@@ -420,13 +385,13 @@ export default function Home() {
 
               </div>
 
-              {/* PROJECT IMAGES */}
+              {/* PROJECT IMAGES ONLY LIVE HERE */}
 
               {project.images.length > 0 && (
 
                 <div className="mt-16">
 
-                  {/* MAIN IMAGE */}
+                  {/* MAIN PROJECT IMAGE */}
 
                   <Link
                     href={project.href}
@@ -439,8 +404,7 @@ export default function Home() {
                         src={project.images[0]}
                         alt={project.title + ' main project screenshot'}
                         fill
-                        priority={project.number === '01'}
-                        sizes="100vw"
+                        sizes="(max-width: 768px) 100vw, 1380px"
                         className="object-cover object-top transition duration-1000 group-hover/image:scale-[1.025]"
                       />
 
@@ -462,7 +426,7 @@ export default function Home() {
 
                   </Link>
 
-                  {/* SECONDARY IMAGES */}
+                  {/* SECONDARY PROJECT IMAGES */}
 
                   {project.images.length > 1 && (
 
@@ -486,7 +450,7 @@ export default function Home() {
                                 (index + 2)
                               }
                               fill
-                              sizes="(max-width: 768px) 100vw, 50vw"
+                              sizes="(max-width: 768px) 100vw, 690px"
                               className="object-cover object-top transition duration-700 group-hover/image:scale-[1.035]"
                             />
 
@@ -510,7 +474,7 @@ export default function Home() {
 
               )}
 
-              {/* T'S FARM */}
+              {/* T'S FARM VISUAL */}
 
               {project.images.length === 0 && (
 
@@ -567,13 +531,11 @@ export default function Home() {
                   href={project.href}
                   className="group/link flex items-center gap-3 text-sm text-white/45 transition hover:text-white"
                 >
-
                   Explore {project.title}
 
                   <span className="transition-transform group-hover/link:translate-x-1">
                     →
                   </span>
-
                 </Link>
 
               </div>
@@ -598,28 +560,21 @@ export default function Home() {
           <div className="grid gap-16 lg:grid-cols-[0.35fr_1fr]">
 
             <div>
-
               <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/25">
                 03 — Capabilities
               </p>
-
             </div>
 
             <div>
 
               <h2 className="max-w-4xl text-4xl font-semibold tracking-[-0.065em] sm:text-6xl">
-
                 Building from
-
                 <span className="text-white/20">
                   {' '}idea to execution.
                 </span>
-
               </h2>
 
               <div className="mt-14 border-l border-white/[0.08]">
-
-                {/* CAPABILITY 1 */}
 
                 <div className="border-b border-white/[0.08] px-6 py-8 sm:px-8">
 
@@ -643,8 +598,6 @@ export default function Home() {
 
                 </div>
 
-                {/* CAPABILITY 2 */}
-
                 <div className="border-b border-white/[0.08] px-6 py-8 sm:px-8">
 
                   <div className="flex justify-between gap-5">
@@ -665,8 +618,6 @@ export default function Home() {
                   </p>
 
                 </div>
-
-                {/* CAPABILITY 3 */}
 
                 <div className="border-b border-white/[0.08] px-6 py-8 sm:px-8">
 
@@ -690,8 +641,6 @@ export default function Home() {
                 </div>
 
               </div>
-
-              {/* TECHNOLOGY */}
 
               <div className="mt-14">
 
@@ -742,15 +691,11 @@ export default function Home() {
             </p>
 
             <h2 className="mt-8 text-[clamp(3.5rem,8vw,8rem)] font-semibold leading-[0.86] tracking-[-0.08em]">
-
               Have an idea
-
               <br />
-
               <span className="text-white/20">
                 worth building?
               </span>
-
             </h2>
 
             <p className="mt-10 max-w-xl text-base leading-8 text-white/40 sm:text-lg">
@@ -767,7 +712,6 @@ export default function Home() {
               <span className="transition-transform group-hover:translate-x-1">
                 ↗
               </span>
-
             </a>
 
           </div>
@@ -852,4 +796,3 @@ export default function Home() {
     </main>
   )
 }
-
